@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="manageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CH001_0001_E001">
+          <Key>
+            <PropertyRef Name="CH001_0001_E001_PK" />
+          </Key>
+          <Property Name="cNo" Type="nvarchar" MaxLength="40" />
+          <Property Name="cMaker" Type="nvarchar" MaxLength="30" />
+          <Property Name="dMakeDateEx" Type="datetime" />
+          <Property Name="dMakeDate" Type="datetime" />
+          <Property Name="cMender" Type="nvarchar" MaxLength="30" />
+          <Property Name="dModifyDateEx" Type="datetime" />
+          <Property Name="dModifyDate" Type="datetime" />
+          <Property Name="cAuditor" Type="nvarchar" MaxLength="30" />
+          <Property Name="dAuditDateEx" Type="datetime" />
+          <Property Name="dAuditDate" Type="datetime" />
+          <Property Name="CH001_0001_E001_F010" Type="nvarchar" MaxLength="32" />
+          <Property Name="CH001_0001_E001_F011" Type="nvarchar" MaxLength="32" />
+          <Property Name="CH001_0001_E001_PK" Type="int" Nullable="false" />
+          <Property Name="iswfcontrolled" Type="int" />
+          <Property Name="iverifystate" Type="int" />
+          <Property Name="ireturncount" Type="int" />
+          <Property Name="UAPRuntime_RowNO" Type="int" />
+          <Property Name="UAP_VoucherTransform_Rowkey" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="manageModelStoreContainer">
+          <EntitySet Name="CH001_0001_E001" EntityType="Self.CH001_0001_E001" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="manageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CH001_0001_E001">
+          <Key>
+            <PropertyRef Name="CH001_0001_E001_PK" />
+          </Key>
+          <Property Name="cNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="cMaker" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="dMakeDateEx" Type="DateTime" Precision="3" />
+          <Property Name="dMakeDate" Type="DateTime" Precision="3" />
+          <Property Name="cMender" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="dModifyDateEx" Type="DateTime" Precision="3" />
+          <Property Name="dModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="cAuditor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="dAuditDateEx" Type="DateTime" Precision="3" />
+          <Property Name="dAuditDate" Type="DateTime" Precision="3" />
+          <Property Name="CH001_0001_E001_F010" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CH001_0001_E001_F011" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CH001_0001_E001_PK" Type="Int32" Nullable="false" />
+          <Property Name="iswfcontrolled" Type="Int32" />
+          <Property Name="iverifystate" Type="Int32" />
+          <Property Name="ireturncount" Type="Int32" />
+          <Property Name="UAPRuntime_RowNO" Type="Int32" />
+          <Property Name="UAP_VoucherTransform_Rowkey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="manageEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CH001_0001_E001" EntityType="Self.CH001_0001_E001" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="manageModelStoreContainer" CdmEntityContainer="manageEntities">
+          <EntitySetMapping Name="CH001_0001_E001">
+            <EntityTypeMapping TypeName="manageModel.CH001_0001_E001">
+              <MappingFragment StoreEntitySet="CH001_0001_E001">
+                <ScalarProperty Name="cNo" ColumnName="cNo" />
+                <ScalarProperty Name="cMaker" ColumnName="cMaker" />
+                <ScalarProperty Name="dMakeDateEx" ColumnName="dMakeDateEx" />
+                <ScalarProperty Name="dMakeDate" ColumnName="dMakeDate" />
+                <ScalarProperty Name="cMender" ColumnName="cMender" />
+                <ScalarProperty Name="dModifyDateEx" ColumnName="dModifyDateEx" />
+                <ScalarProperty Name="dModifyDate" ColumnName="dModifyDate" />
+                <ScalarProperty Name="cAuditor" ColumnName="cAuditor" />
+                <ScalarProperty Name="dAuditDateEx" ColumnName="dAuditDateEx" />
+                <ScalarProperty Name="dAuditDate" ColumnName="dAuditDate" />
+                <ScalarProperty Name="CH001_0001_E001_F010" ColumnName="CH001_0001_E001_F010" />
+                <ScalarProperty Name="CH001_0001_E001_F011" ColumnName="CH001_0001_E001_F011" />
+                <ScalarProperty Name="CH001_0001_E001_PK" ColumnName="CH001_0001_E001_PK" />
+                <ScalarProperty Name="iswfcontrolled" ColumnName="iswfcontrolled" />
+                <ScalarProperty Name="iverifystate" ColumnName="iverifystate" />
+                <ScalarProperty Name="ireturncount" ColumnName="ireturncount" />
+                <ScalarProperty Name="UAPRuntime_RowNO" ColumnName="UAPRuntime_RowNO" />
+                <ScalarProperty Name="UAP_VoucherTransform_Rowkey" ColumnName="UAP_VoucherTransform_Rowkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
