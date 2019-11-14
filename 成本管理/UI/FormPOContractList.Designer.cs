@@ -29,11 +29,33 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox_Filter.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // button_confirm
+            // 
+            this.button_confirm.Location = new System.Drawing.Point(777, 20);
+            // 
+            // textBox_startDate
+            // 
+            this.textBox_startDate.Text = "2019-11-01";
+            // 
+            // textBox_endDate
+            // 
+            this.textBox_endDate.Text = "2019-11-13";
+            // 
+            // groupBox_Filter
+            // 
+            this.groupBox_Filter.Controls.Add(this.button1);
+            this.groupBox_Filter.Size = new System.Drawing.Size(1735, 57);
+            this.groupBox_Filter.Controls.SetChildIndex(this.textBox_endDate, 0);
+            this.groupBox_Filter.Controls.SetChildIndex(this.textBox_startDate, 0);
+            this.groupBox_Filter.Controls.SetChildIndex(this.button_confirm, 0);
+            this.groupBox_Filter.Controls.SetChildIndex(this.button1, 0);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(397, 106);
+            this.button1.Location = new System.Drawing.Point(651, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -45,11 +67,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1177, 534);
             this.Name = "FormPOContractList";
             this.Text = "采购合同清单";
+            this.groupBox_Filter.ResumeLayout(false);
+            this.groupBox_Filter.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

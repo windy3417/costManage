@@ -182,7 +182,7 @@ namespace 成本管理.UI
             ExportExcel ee = new ExportExcel();
             InspectItemService ii = new InspectItemService();
             this.dt=ii.GetCostObejectItem();
-            ee.ExportExcelWithNPOI(this.dt);
+            ee.ExportExcelWithNPOI(this.dt,"项目检查表");
             MessageBox.Show("数据输出成功！", "输出提示");
 
 

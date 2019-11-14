@@ -9,10 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using 成本管理.DAL;
+using U8Common;
+using U8common.UIbase;
 
 namespace 成本管理.UI
 {
-    public partial class FormPOContractList : Form
+    public partial class FormPOContractList : Form_ReportBase
     {
         public FormPOContractList()
         {

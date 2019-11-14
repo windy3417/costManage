@@ -23,9 +23,14 @@ namespace 成本管理.UI
             InitializeComponent();
             this.Text = "生产订单列表";
             this.button_confirm.Click += Button_confirm_Click;
+            reportName = "生产订单列表";
 
         }
-
+        /// <summary>
+        /// 获取生产订单列表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_confirm_Click(object sender, EventArgs e)
         {
             SqlParameter[] parameters =

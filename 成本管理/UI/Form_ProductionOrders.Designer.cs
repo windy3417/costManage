@@ -43,11 +43,15 @@
             // 
             this.textBox_endDate.Text = "2018-06-06";
             // 
+            // groupBox_Filter
+            // 
+            this.groupBox_Filter.Size = new System.Drawing.Size(1270, 57);
+            // 
             // Form_ProductionOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1458, 738);
+            this.ClientSize = new System.Drawing.Size(1370, 738);
             this.Name = "Form_ProductionOrders";
             this.Text = "生产订单列表";
             this.groupBox_Filter.ResumeLayout(false);

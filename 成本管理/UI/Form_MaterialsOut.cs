@@ -330,7 +330,7 @@ namespace 成本管理.UI
         /// <param name="e"></param>
         private void toolStrip_Export_Click(object sender, EventArgs e)
         {
-            U8common.ExportExcel.ExportExcelWithOffice(dt);
+            U8common.ExportExcel.ExportExcelWithOffice(dt,"材料出库单列表");
             MessageBox.Show("数据导出成功！", "导出提示");
         }
     }

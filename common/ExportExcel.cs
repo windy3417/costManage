@@ -17,7 +17,7 @@ namespace U8common
         /// 导出为Excel文件，使用Interop.excell.dll类，该方法效率慢
         /// </summary>
         /// <param name="dt"></param>
-        public static void ExportExcelWithOffice(DataTable dt)
+        public static void ExportExcelWithOffice(DataTable dt,string reportName)
         {
             if (dt != null)
             {
@@ -112,10 +112,11 @@ namespace U8common
                     workbook.Saved = true;
 
                     //设置导出文件路径
-                    string path = @"F:\temp\";
+                    //string path = @"F:\temp\";
+                   string path = Environment.CurrentDirectory+"\\";
 
                     ////设置新建文件路径及名称
-                    string savePath = path + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".xlsx";
+                    string savePath = path + reportName+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".xlsx";
 
                     ////创建文件
                     FileStream file = new FileStream(savePath, FileMode.CreateNew);
@@ -130,6 +131,9 @@ namespace U8common
                     ////还可以加入以下方法输出到浏览器下载
                     //FileInfo fileInfo = new FileInfo(savePath);
                     //OutputClient(fileInfo);
+
+                    //文件导出后，直接打开
+                    System.Diagnostics.Process.Start(savePath);
                 }
                 catch (Exception ex)
                 {
@@ -164,7 +168,7 @@ namespace U8common
         /// 导出为Excel文件，使用NPOI.dll类
         /// </summary>
         /// <param name="dt"></param>
-        public void ExportExcelWithNPOI(DataTable dt)
+        public void ExportExcelWithNPOI(DataTable dt ,string reportName)
         {
             try
             {
@@ -214,10 +218,10 @@ namespace U8common
                 }
 
                 //设置导出文件路径
-                string path = @"F:\temp\";
+                string path = Environment.CurrentDirectory +"\\";
 
                 //设置新建文件路径及名称
-                string savePath = path + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".xls";
+                string savePath = path + reportName + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".xls";
 
                 //创建文件
                 FileStream file = new FileStream(savePath, FileMode.CreateNew, FileAccess.Write);

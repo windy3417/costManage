@@ -29,7 +29,7 @@ namespace U8common.UIbase
    
        
         /// <summary>
-        /// 报表数据源
+        /// 接收报表数据源
         /// </summary>
         public DataTable DateGridViewSource
         {
@@ -53,6 +53,10 @@ namespace U8common.UIbase
             { return _CurrentPageNO; }
             set { _CurrentPageNO = value; }
         }
+        /// <summary>
+        /// 报表名称
+        /// </summary>
+        public string reportName;
 
  
         #endregion
@@ -427,7 +431,7 @@ namespace U8common.UIbase
         /// <param name="e"></param>
         private void toolStrip_Export_Click(object sender, EventArgs e)
         {
-            U8common.ExportExcel.ExportExcelWithOffice(_DateGridViewSource);
+            U8common.ExportExcel.ExportExcelWithOffice(_DateGridViewSource,reportName);
             MessageBox.Show("数据导出成功！","导出提示");
         }
 
