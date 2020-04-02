@@ -13,6 +13,7 @@ using System.Reflection;
 using 成本管理.DAL;
 using 成本管理.DAL.sheets;
 using 成本管理.UI;
+using 成本管理.UI.saleManage;
 
 using System.Configuration;
 using imageFormatConvert;
@@ -391,7 +392,14 @@ namespace 成本管理.UI
             }
         }
 
-        #region 打开窗体
+        #region 打开表单窗体
+
+        private void 月度发货计划ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            deliverySchedule ds = new deliverySchedule();
+            string tabPageText = ds.Text;
+            openForm(ds, tabPageText);
+        }
 
         /// <summary>
         /// 打开产成品单价导入窗体
@@ -492,6 +500,8 @@ namespace 成本管理.UI
             string tabPageText = po.Text;
             openForm(po, tabPageText);
         }
+
+      
     }
 
     #endregion

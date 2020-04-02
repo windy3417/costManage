@@ -253,6 +253,7 @@ namespace U8common
                 workbook.Close();
                 sheet = null;
                 workbook = null;
+                System.Diagnostics.Process.Start(savePath);
             }
             catch (Exception ex)
             {
