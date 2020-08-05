@@ -49,20 +49,25 @@ namespace 成本管理.UI
             OleDbDataAdapter da = new OleDbDataAdapter();
             OleDbCommand comm = new OleDbCommand();
 
+           //获取excel文件名
             string excelFileName = openExcel();
-            string stringConectExcel = "Provider=Microsoft.ace.OLEDB.12.0;" + "Data Source=" + excelFileName + ";" +
-                "Extended Properties='Excel 12.0 xml;HDR=YES'";
-            conn.ConnectionString = stringConectExcel;
-            comm.CommandText = "select * from [sheet1$]";
-            comm.Connection = conn;
-            conn.Open();
-            comm.ExecuteNonQuery();
-            da.SelectCommand = comm;
-            da.Fill(dt_excel);
+            if (excelFileName.Length>0)
+            {
+                string stringConectExcel = "Provider=Microsoft.ace.OLEDB.12.0;" + "Data Source=" + excelFileName + ";" +
+               "Extended Properties='Excel 12.0 xml;HDR=YES'";
+                conn.ConnectionString = stringConectExcel;
+                comm.CommandText = "select * from [sheet1$]";
+                comm.Connection = conn;
+                conn.Open();
+                comm.ExecuteNonQuery();
+                da.SelectCommand = comm;
+                da.Fill(dt_excel);
 
-            dataGridViewDisplayExcel.DataSource = dt_excel;
+                dataGridViewDisplayExcel.DataSource = dt_excel;
 
-            conn.Close();
+                conn.Close();
+            }
+           
         }
         #endregion
 

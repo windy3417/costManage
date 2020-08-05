@@ -15,6 +15,7 @@ namespace 成本管理.UI.saleManage
         {
 
             InitializeComponent();
+           
             
         }
 
@@ -28,13 +29,44 @@ namespace 成本管理.UI.saleManage
         {
             this.DGVdeliverySchedule.AllowUserToAddRows = true;
             this.DGVdeliverySchedule.AllowUserToDeleteRows = true;
+            this.DGVdeliverySchedule.ReadOnly = false;//相当于设计页面中的“启用编辑”功能，此时是针对整个dataGridView对象
+            this.DGVdeliverySchedule.Columns["cinvName"].ReadOnly = true;
+            this.DGVdeliverySchedule.Columns["cinvStd"].ReadOnly = true;
+            //单元格自动折行
+            this.DGVdeliverySchedule.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+
+
+        }
+        /// <summary>
+        /// 关闭窗体,同时关闭母窗体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            this.FormClosed += DeliverySchedule_FormClosed;
+            this.Close();
+            
+
             
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        
+
+        private void DeliverySchedule_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close();
-            
+            this.Parent.Dispose();
+        }
+
+        private void toolStripButtonEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DGVdeliverySchedule_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //this.DGVdeliverySchedule.BeginEdit(true);
         }
     }
 }

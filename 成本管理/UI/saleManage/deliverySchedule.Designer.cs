@@ -20,6 +20,32 @@
             base.Dispose(disposing);
         }
 
+        protected override void OnKeyUp(System.Windows.Forms.KeyEventArgs e)
+        {
+            base.OnKeyUp(e);
+            if (e.KeyCode == System.Windows.Forms.Keys.Enter)
+            {
+                e.Handled = true;
+
+                System.Windows.Forms.SendKeys.Send("{TAB}");
+
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, System.Windows.Forms.Keys keyData)
+        {
+            switch (keyData)
+            {
+                case System.Windows.Forms.Keys.Enter:
+                    {
+                        System.Windows.Forms.SendKeys.Send("{TAB}");
+                    }
+
+                    return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -34,17 +60,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxMonth = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.SCdeliverySchedule = new System.Windows.Forms.SplitContainer();
             this.toolStripButtonAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.cinvCode = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.SCdeliverySchedule = new System.Windows.Forms.SplitContainer();
+            this.cinvCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cinvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cinvStd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProgramDeliveryQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVdeliverySchedule)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SCdeliverySchedule)).BeginInit();
@@ -62,7 +89,8 @@
             this.cinvCode,
             this.cinvName,
             this.cinvStd,
-            this.ProgramDeliveryQuantity});
+            this.ProgramDeliveryQuantity,
+            this.memo});
             this.DGVdeliverySchedule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGVdeliverySchedule.Location = new System.Drawing.Point(0, 0);
             this.DGVdeliverySchedule.Name = "DGVdeliverySchedule";
@@ -70,6 +98,7 @@
             this.DGVdeliverySchedule.RowTemplate.Height = 23;
             this.DGVdeliverySchedule.Size = new System.Drawing.Size(958, 445);
             this.DGVdeliverySchedule.TabIndex = 0;
+            this.DGVdeliverySchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVdeliverySchedule_CellClick);
             // 
             // labelYear
             // 
@@ -142,27 +171,6 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // SCdeliverySchedule
-            // 
-            this.SCdeliverySchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SCdeliverySchedule.Location = new System.Drawing.Point(0, 25);
-            this.SCdeliverySchedule.Name = "SCdeliverySchedule";
-            this.SCdeliverySchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // SCdeliverySchedule.Panel1
-            // 
-            this.SCdeliverySchedule.Panel1.Controls.Add(this.label1);
-            this.SCdeliverySchedule.Panel1.Controls.Add(this.labelYear);
-            this.SCdeliverySchedule.Panel1.Controls.Add(this.listBoxMonth);
-            this.SCdeliverySchedule.Panel1.Controls.Add(this.listBoxYear);
-            // 
-            // SCdeliverySchedule.Panel2
-            // 
-            this.SCdeliverySchedule.Panel2.Controls.Add(this.DGVdeliverySchedule);
-            this.SCdeliverySchedule.Size = new System.Drawing.Size(958, 539);
-            this.SCdeliverySchedule.SplitterDistance = 90;
-            this.SCdeliverySchedule.TabIndex = 4;
-            // 
             // toolStripButtonAdd
             // 
             this.toolStripButtonAdd.Image = global::成本管理.Properties.Resources.add;
@@ -179,6 +187,7 @@
             this.toolStripButtonEdit.Name = "toolStripButtonEdit";
             this.toolStripButtonEdit.Size = new System.Drawing.Size(52, 22);
             this.toolStripButtonEdit.Text = "修改";
+            this.toolStripButtonEdit.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
             // 
             // toolStripButtonSave
             // 
@@ -213,12 +222,34 @@
             this.toolStripButton3.Text = "退出";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // SCdeliverySchedule
+            // 
+            this.SCdeliverySchedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SCdeliverySchedule.Location = new System.Drawing.Point(0, 25);
+            this.SCdeliverySchedule.Name = "SCdeliverySchedule";
+            this.SCdeliverySchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SCdeliverySchedule.Panel1
+            // 
+            this.SCdeliverySchedule.Panel1.Controls.Add(this.label1);
+            this.SCdeliverySchedule.Panel1.Controls.Add(this.labelYear);
+            this.SCdeliverySchedule.Panel1.Controls.Add(this.listBoxMonth);
+            this.SCdeliverySchedule.Panel1.Controls.Add(this.listBoxYear);
+            // 
+            // SCdeliverySchedule.Panel2
+            // 
+            this.SCdeliverySchedule.Panel2.Controls.Add(this.DGVdeliverySchedule);
+            this.SCdeliverySchedule.Size = new System.Drawing.Size(958, 539);
+            this.SCdeliverySchedule.SplitterDistance = 90;
+            this.SCdeliverySchedule.TabIndex = 4;
+            // 
             // cinvCode
             // 
             this.cinvCode.HeaderText = "存货编码";
             this.cinvCode.Name = "cinvCode";
             this.cinvCode.ReadOnly = true;
-            this.cinvCode.UseColumnTextForButtonValue = true;
+            this.cinvCode.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cinvCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // cinvName
             // 
@@ -239,6 +270,12 @@
             this.ProgramDeliveryQuantity.HeaderText = "计划发货数量";
             this.ProgramDeliveryQuantity.Name = "ProgramDeliveryQuantity";
             this.ProgramDeliveryQuantity.ReadOnly = true;
+            // 
+            // memo
+            // 
+            this.memo.HeaderText = "备注";
+            this.memo.Name = "memo";
+            this.memo.ReadOnly = true;
             // 
             // deliverySchedule
             // 
@@ -278,9 +315,10 @@
         private System.Windows.Forms.SplitContainer SCdeliverySchedule;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.DataGridViewButtonColumn cinvCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cinvCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn cinvName;
         private System.Windows.Forms.DataGridViewTextBoxColumn cinvStd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProgramDeliveryQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memo;
     }
 }

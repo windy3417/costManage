@@ -396,11 +396,12 @@ namespace U8common.UIbase
         {
             this.Close();
         }
-/// <summary>
-/// 关闭父窗体
-/// </summary>
-/// <param name="sender"></param>
-/// <param name="e"></param>
+
+        /// <summary>
+        /// 关闭父窗体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmReport_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Parent.Dispose();

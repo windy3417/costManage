@@ -36,6 +36,11 @@
             this.生产管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.生产报工ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.合同管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.POContractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.销售合同清单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.销售管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.月度发货计划ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.成本计算ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.成本对象写入ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,9 +55,6 @@
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.u8任务清除ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.图片格式转换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.合同管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.POContractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.销售合同清单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpProvider_mainForm = new System.Windows.Forms.HelpProvider();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -60,8 +62,6 @@
             this.statusStrip_dbInfo = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Label_accountIDtext = new System.Windows.Forms.ToolStripStatusLabel();
-            this.销售管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.月度发货计划ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -123,6 +123,43 @@
             this.testSheetToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.testSheetToolStripMenuItem.Text = "testSheet";
             this.testSheetToolStripMenuItem.Click += new System.EventHandler(this.testSheetToolStripMenuItem_Click);
+            // 
+            // 合同管理ToolStripMenuItem
+            // 
+            this.合同管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.POContractToolStripMenuItem,
+            this.销售合同清单ToolStripMenuItem});
+            this.合同管理ToolStripMenuItem.Name = "合同管理ToolStripMenuItem";
+            this.合同管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.合同管理ToolStripMenuItem.Text = "合同管理";
+            // 
+            // POContractToolStripMenuItem
+            // 
+            this.POContractToolStripMenuItem.Name = "POContractToolStripMenuItem";
+            this.POContractToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.POContractToolStripMenuItem.Text = "采购合同清单";
+            this.POContractToolStripMenuItem.Click += new System.EventHandler(this.POContractToolStripMenuItem_Click);
+            // 
+            // 销售合同清单ToolStripMenuItem
+            // 
+            this.销售合同清单ToolStripMenuItem.Name = "销售合同清单ToolStripMenuItem";
+            this.销售合同清单ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.销售合同清单ToolStripMenuItem.Text = "销售合同清单";
+            // 
+            // 销售管理ToolStripMenuItem
+            // 
+            this.销售管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.月度发货计划ToolStripMenuItem});
+            this.销售管理ToolStripMenuItem.Name = "销售管理ToolStripMenuItem";
+            this.销售管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.销售管理ToolStripMenuItem.Text = "销售管理";
+            // 
+            // 月度发货计划ToolStripMenuItem
+            // 
+            this.月度发货计划ToolStripMenuItem.Name = "月度发货计划ToolStripMenuItem";
+            this.月度发货计划ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.月度发货计划ToolStripMenuItem.Text = "月度发货计划";
+            this.月度发货计划ToolStripMenuItem.Click += new System.EventHandler(this.月度发货计划ToolStripMenuItem_Click);
             // 
             // 成本计算ToolStripMenuItem
             // 
@@ -234,28 +271,6 @@
             this.图片格式转换ToolStripMenuItem.Text = "图片格式转换";
             this.图片格式转换ToolStripMenuItem.Click += new System.EventHandler(this.图片格式转换ToolStripMenuItem_Click);
             // 
-            // 合同管理ToolStripMenuItem
-            // 
-            this.合同管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.POContractToolStripMenuItem,
-            this.销售合同清单ToolStripMenuItem});
-            this.合同管理ToolStripMenuItem.Name = "合同管理ToolStripMenuItem";
-            this.合同管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.合同管理ToolStripMenuItem.Text = "合同管理";
-            // 
-            // POContractToolStripMenuItem
-            // 
-            this.POContractToolStripMenuItem.Name = "POContractToolStripMenuItem";
-            this.POContractToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.POContractToolStripMenuItem.Text = "采购合同清单";
-            this.POContractToolStripMenuItem.Click += new System.EventHandler(this.POContractToolStripMenuItem_Click);
-            // 
-            // 销售合同清单ToolStripMenuItem
-            // 
-            this.销售合同清单ToolStripMenuItem.Name = "销售合同清单ToolStripMenuItem";
-            this.销售合同清单ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.销售合同清单ToolStripMenuItem.Text = "销售合同清单";
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -323,21 +338,6 @@
             // 
             this.Label_accountIDtext.Name = "Label_accountIDtext";
             this.Label_accountIDtext.Size = new System.Drawing.Size(0, 17);
-            // 
-            // 销售管理ToolStripMenuItem
-            // 
-            this.销售管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.月度发货计划ToolStripMenuItem});
-            this.销售管理ToolStripMenuItem.Name = "销售管理ToolStripMenuItem";
-            this.销售管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.销售管理ToolStripMenuItem.Text = "销售管理";
-            // 
-            // 月度发货计划ToolStripMenuItem
-            // 
-            this.月度发货计划ToolStripMenuItem.Name = "月度发货计划ToolStripMenuItem";
-            this.月度发货计划ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.月度发货计划ToolStripMenuItem.Text = "月度发货计划";
-            this.月度发货计划ToolStripMenuItem.Click += new System.EventHandler(this.月度发货计划ToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
