@@ -62,6 +62,7 @@
             this.statusStrip_dbInfo = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Label_accountIDtext = new System.Windows.Forms.ToolStripStatusLabel();
+            this.成本结构表导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -71,7 +72,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.数据录入ToolStripMenuItem,
             this.生产管理ToolStripMenuItem,
@@ -90,7 +91,8 @@
             // 数据录入ToolStripMenuItem
             // 
             this.数据录入ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.产成品单价导入ToolStripMenuItem});
+            this.产成品单价导入ToolStripMenuItem,
+            this.成本结构表导入ToolStripMenuItem});
             this.数据录入ToolStripMenuItem.Name = "数据录入ToolStripMenuItem";
             this.数据录入ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.数据录入ToolStripMenuItem.Text = "数据录入";
@@ -98,7 +100,7 @@
             // 产成品单价导入ToolStripMenuItem
             // 
             this.产成品单价导入ToolStripMenuItem.Name = "产成品单价导入ToolStripMenuItem";
-            this.产成品单价导入ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.产成品单价导入ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.产成品单价导入ToolStripMenuItem.Text = "产成品单价导入";
             this.产成品单价导入ToolStripMenuItem.Click += new System.EventHandler(this.产成品单价导入ToolStripMenuItem_Click);
             // 
@@ -136,14 +138,14 @@
             // POContractToolStripMenuItem
             // 
             this.POContractToolStripMenuItem.Name = "POContractToolStripMenuItem";
-            this.POContractToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.POContractToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.POContractToolStripMenuItem.Text = "采购合同清单";
             this.POContractToolStripMenuItem.Click += new System.EventHandler(this.POContractToolStripMenuItem_Click);
             // 
             // 销售合同清单ToolStripMenuItem
             // 
             this.销售合同清单ToolStripMenuItem.Name = "销售合同清单ToolStripMenuItem";
-            this.销售合同清单ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.销售合同清单ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.销售合同清单ToolStripMenuItem.Text = "销售合同清单";
             // 
             // 销售管理ToolStripMenuItem
@@ -276,7 +278,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 25);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 3, 1, 3);
@@ -339,11 +341,18 @@
             this.Label_accountIDtext.Name = "Label_accountIDtext";
             this.Label_accountIDtext.Size = new System.Drawing.Size(0, 17);
             // 
+            // 成本结构表导入ToolStripMenuItem
+            // 
+            this.成本结构表导入ToolStripMenuItem.Name = "成本结构表导入ToolStripMenuItem";
+            this.成本结构表导入ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.成本结构表导入ToolStripMenuItem.Text = "成本结构表导入";
+            this.成本结构表导入ToolStripMenuItem.Click += new System.EventHandler(this.成本结构表导入ToolStripMenuItem_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(948, 550);
             this.Controls.Add(this.statusStrip_dbInfo);
             this.Controls.Add(this.menuStrip1);
@@ -400,6 +409,7 @@
         private System.Windows.Forms.ToolStripMenuItem 销售合同清单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 销售管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 月度发货计划ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 成本结构表导入ToolStripMenuItem;
     }
 }
 

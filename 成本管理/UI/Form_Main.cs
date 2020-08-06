@@ -501,10 +501,17 @@ namespace 成本管理.UI
             openForm(po, tabPageText);
         }
 
-      
+        private void 成本结构表导入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_unitCost uc = new frm_unitCost();
+            string tabPageText = uc.Text;
+            openForm(uc, tabPageText);
+
+        }
     }
 
     #endregion
+
 
     #region 打开成本计算系列窗体
 

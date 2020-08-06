@@ -108,6 +108,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource_ximai.resx</DependentUpon>
     </Compile>
+    <Compile Include="UI\dataImport\Frm_unitCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\dataImport\Frm_unitCost.Designer.cs">
+      <DependentUpon>Frm_unitCost.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormPOContractList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     <EmbeddedResource Include="Resource_ximai.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource_ximai.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\dataImport\Frm_unitCost.resx">
+      <DependentUpon>Frm_unitCost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormPOContractList.resx">
       <DependentUpon>FormPOContractList.cs</DependentUpon>
