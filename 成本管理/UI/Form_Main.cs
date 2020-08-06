@@ -55,6 +55,99 @@ namespace 成本管理.UI
         }
 
         /// <summary>
+        /// 选择树形菜单节点同步触发主菜单相应事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            switch (e.Node.Text)
+            {
+                case "U8数据库配置":
+                    {
+                        this.数据库配置ToolStripMenuItem1_Click(sender, e);
+                        break;
+                    }
+                case "成本结构表导入":
+                    {
+                        this.成本结构表导入ToolStripMenuItem_Click(sender, e);
+                        break;
+                    }
+                case "材料出库单":
+                    {
+                        this.材料出库单ToolStripMenuItem_Click(sender, e);
+                        break;
+                    }
+                case "项目目录检查":
+                    {
+                        if (this.成本对象写入ToolStripMenuItem1.Enabled == false)
+                        {
+                            break;
+                        }
+                        this.项目目录检查ToolStripMenuItem1_Click(sender, e);
+                        break;
+                    }
+
+                case "写入成本对象":
+                    {
+                        if (this.成本对象写入ToolStripMenuItem1.Enabled == false)
+                        {
+                            break;
+                        }
+                        this.写入成本对象ToolStripMenuItem1_Click(sender, e);
+                        break;
+                    }
+
+                case "成本计算":
+                    {
+                        this.成本计算ToolStripMenuItem_Click(sender, e);
+                        break;
+                    }
+                case "u8任务清除":
+                    {
+                        this.u8任务清除ToolStripMenuItem_Click(sender, e);
+                        break;
+                    }
+
+                case "产成品单价导入":
+                    {
+                        this.产成品单价导入ToolStripMenuItem_Click(sender, e);
+                        break;
+                    }
+                case "图片格式转换":
+                    {
+                        this.图片格式转换ToolStripMenuItem_Click(sender, e);
+                        break;
+                    }
+
+            }
+
+
+
+
+            //Type t = this.GetType();
+            //MethodInfo[] mi=  t.GetMethods();
+            //if (treeView1.SelectedNode != null)
+            //{
+            //    foreach (MethodInfo item in mi)
+            //    {
+            //        List<string> lt = new List<string>();
+            //        lt.Add(item.Name);
+            //        logWrite(lt);
+            //        if (item.Name==treeView1.SelectedNode.Text+ "ToolStripMenuItem_Click")
+            //        {
+
+            //            item.Invoke(this, null);
+
+
+            //        }
+
+
+            //    }
+            //}
+        }
+
+        /// <summary>
         /// 刷新状态栏
         /// </summary>
         public void brushtStateStrip()
@@ -233,93 +326,7 @@ namespace 成本管理.UI
 
         #endregion
 
-        /// <summary>
-        /// 选择树形菜单节点同步触发主菜单相应事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            switch (e.Node.Text)
-            {
-                case "数据库配置":
-                    {
-                        this.数据库配置ToolStripMenuItem_Click(sender, e);
-                        break;
-                    }
-                case "材料出库单":
-                    {
-                        this.材料出库单ToolStripMenuItem_Click(sender, e);
-                        break;
-                    }
-                case "项目目录检查":
-                    {
-                        if (this.成本对象写入ToolStripMenuItem1.Enabled == false)
-                        {
-                            break;
-                        }
-                        this.项目目录检查ToolStripMenuItem1_Click(sender, e);
-                        break;
-                    }
-
-                case "写入成本对象":
-                    {
-                        if (this.成本对象写入ToolStripMenuItem1.Enabled == false)
-                        {
-                            break;
-                        }
-                        this.写入成本对象ToolStripMenuItem1_Click(sender, e);
-                        break;
-                    }
-
-                case "成本计算":
-                    {
-                        this.成本计算ToolStripMenuItem_Click(sender, e);
-                        break;
-                    }
-                case "u8任务清除":
-                    {
-                        this.u8任务清除ToolStripMenuItem_Click(sender, e);
-                        break;
-                    }
-
-                case "产成品单价导入":
-                    {
-                        this.产成品单价导入ToolStripMenuItem_Click(sender, e);
-                        break;
-                    }
-                case "图片格式转换":
-                    {
-                        this.图片格式转换ToolStripMenuItem_Click(sender, e);
-                        break;
-                    }
-
-            }
-
-
-
-
-            //Type t = this.GetType();
-            //MethodInfo[] mi=  t.GetMethods();
-            //if (treeView1.SelectedNode != null)
-            //{
-            //    foreach (MethodInfo item in mi)
-            //    {
-            //        List<string> lt = new List<string>();
-            //        lt.Add(item.Name);
-            //        logWrite(lt);
-            //        if (item.Name==treeView1.SelectedNode.Text+ "ToolStripMenuItem_Click")
-            //        {
-
-            //            item.Invoke(this, null);
-
-
-            //        }
-
-
-            //    }
-            //}
-        }
+       
 
 
         #region 将MenuStrip控件中的信息添加到TreeView控件中
@@ -418,15 +425,15 @@ namespace 成本管理.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void 数据库配置ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //初始化嵌入式窗体组件
-            Form_config config = new Form_config();
-            string tabPageText = config.Text;
-            openForm(config, tabPageText);
+        //private void 数据库配置ToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    //初始化嵌入式窗体组件
+        //    Form_config config = new Form_config();
+        //    string tabPageText = config.Text;
+        //    openForm(config, tabPageText);
 
-            DataBaseInfo.DataBaseChangedEventHandle += brushtStateStrip;
-        }
+        //    DataBaseInfo.DataBaseChangedEventHandle += brushtStateStrip;
+        //}
 
 
         #region 打开报表窗体
@@ -507,6 +514,16 @@ namespace 成本管理.UI
             string tabPageText = uc.Text;
             openForm(uc, tabPageText);
 
+        }
+
+        private void 数据库配置ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //初始化嵌入式窗体组件
+            Form_config config = new Form_config();
+            string tabPageText = config.Text;
+            openForm(config, tabPageText);
+
+            DataBaseInfo.DataBaseChangedEventHandle += brushtStateStrip;
         }
     }
 

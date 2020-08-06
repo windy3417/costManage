@@ -24,6 +24,7 @@ namespace 成本管理.UI
 
         }
 
+        //作为dataGrid的数据源，也作为导入到数据库的数据源，故作为该类的字段用于多方共享
         DataTable dt_excel = new DataTable();
         DataTable dt_productUnitHeader = new DataTable();
 
@@ -180,16 +181,30 @@ namespace 成本管理.UI
             new SqlParameter ("@Unit_Variable_DirectLabour_Cost",SqlDbType.Float  ),
             new SqlParameter ("@Unit_fixed_IndirectLabour_Cost",SqlDbType.Float ),
             new SqlParameter ("@Unit_fixed_DepreciationCost",SqlDbType.Float ),
+            new SqlParameter ("@Unit_Variable_PowerCost",SqlDbType.Float ),
+            new SqlParameter ("@Unit_fixed_rentCost",SqlDbType.Float),
+            new SqlParameter ("@Unit_Variable_MaintenancCost",SqlDbType.Float ),
+            new SqlParameter ("@Unit_TransportationCost",SqlDbType.Float  ),
+            new SqlParameter ("@Unit_Variable_installCost",SqlDbType.Float ),
+            new SqlParameter ("@Unit_Variable_testService_Cost",SqlDbType.Float ),
+            new SqlParameter ("@Unit_Variable_Subcontracting_Cost",SqlDbType.Float  ),
+            new SqlParameter ("@Unit_CustomDuty_cost",SqlDbType.Float ),
+            new SqlParameter ("@Unit_Variable_meteringCost",SqlDbType.Float ),
+            new SqlParameter ("@Unit_MoldCost",SqlDbType.Float ),
             new SqlParameter ("@FID",SqlDbType.NVarChar,10  )
    };
                     command.CommandText =
                       "INSERT INTO xm_plug_t_unitCosts (FID, ProductCode, Unit_BOMCost, " +
                       "Unit_Variable_AUXCost, Unit_Variable_toolsCost," +
                       " Unit_packagecost, Unit_Variable_DirectLabour_Cost, Unit_fixed_IndirectLabour_Cost, " +
-                      "Unit_fixed_DepreciationCost)" +
+                      "Unit_fixed_DepreciationCost ,[Unit_Variable_PowerCost], [Unit_fixed_rentCost], [Unit_Variable_MaintenancCost]," +
+                      " [Unit_TransportationCost], [Unit_Variable_installCost], [Unit_Variable_testService_Cost], [Unit_Variable_Subcontracting_Cost]," +
+                      " [Unit_CustomDuty_cost], [Unit_Variable_meteringCost], [Unit_MoldCost])" +
                       " VALUES(@FID,@ProductCode,@Unit_BOMCost,@Unit_Variable_AUXCost," +
                       "@Unit_Variable_toolsCost,@Unit_packagecost,@Unit_Variable_DirectLabour_Cost,@Unit_fixed_IndirectLabour_Cost," +
-                      "@Unit_fixed_DepreciationCost)";
+                      "@Unit_fixed_DepreciationCost,@Unit_Variable_PowerCost, @Unit_fixed_rentCost, @Unit_Variable_MaintenancCost, " +
+                      "@Unit_TransportationCost, @Unit_Variable_installCost, @Unit_Variable_testService_Cost, @Unit_Variable_Subcontracting_Cost, " +
+                      "@Unit_CustomDuty_cost, @Unit_Variable_meteringCost, @Unit_MoldCost)";
                     if (dataGridViewDisplayExcel.Rows.Count > 0)
                     {
                         DataRow dr = null;
@@ -204,7 +219,17 @@ namespace 成本管理.UI
                             paras[5].Value = dr[5];
                             paras[6].Value = dr[6];
                             paras[7].Value = dr[7];
-                            paras[8].Value = tex_no.Text;
+                            paras[8].Value = dr[8];
+                            paras[9].Value = dr[9];
+                            paras[10].Value = dr[10];
+                            paras[11].Value = dr[11];
+                            paras[12].Value = dr[12];
+                            paras[13].Value = dr[13];
+                            paras[14].Value = dr[14];
+                            paras[15].Value = dr[15];
+                            paras[16].Value = dr[16];
+                            paras[17].Value = dr[17];
+                            paras[18].Value = tex_no.Text;
                             //paras[9].Value = dr[9];
                             command.Parameters.AddRange(paras);
                             Console.Write(command.CommandText);
