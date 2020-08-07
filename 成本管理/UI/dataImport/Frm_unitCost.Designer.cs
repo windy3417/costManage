@@ -39,6 +39,7 @@
             this.toolStripButtonQuit = new System.Windows.Forms.ToolStripButton();
             this.lbl_no = new System.Windows.Forms.Label();
             this.tex_no = new System.Windows.Forms.TextBox();
+            this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplayExcel)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -111,6 +112,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButtonSave,
+            this.tsb_delete,
             this.toolStripButtonQuit});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -162,6 +164,16 @@
             this.tex_no.Size = new System.Drawing.Size(123, 21);
             this.tex_no.TabIndex = 5;
             // 
+            // tsb_delete
+            // 
+            this.tsb_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_delete.Image = global::成本管理.Properties.Resources.delete;
+            this.tsb_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_delete.Name = "tsb_delete";
+            this.tsb_delete.Size = new System.Drawing.Size(23, 22);
+            this.tsb_delete.Text = "toolStripButton2";
+            this.tsb_delete.Click += new System.EventHandler(this.tsb_delete_Click);
+            // 
             // frm_unitCost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -197,5 +209,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonQuit;
         private System.Windows.Forms.Label lbl_no;
         private System.Windows.Forms.TextBox tex_no;
+        private System.Windows.Forms.ToolStripButton tsb_delete;
     }
 }

@@ -287,5 +287,80 @@ namespace 成本管理.UI
         {
             this.tex_no.Text = this.comboBox1.Text + this.comboBox2.Text;
         }
+
+        /// <summary>
+        /// 删除已经存在的成本明细结构表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsb_delete_Click(object sender, EventArgs e)
+        {
+            string no = this.tex_no.Text;
+            using (SqlConnection connection = conectiongString.creatConection_manage())
+            {
+                connection.Open();
+
+              
+
+                // 删除前检查是否存在数据
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText="select ID from xm_plug_t_unitCost where ID="+"'"+ no + "'";
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                   //一次连接只能处理一个事情，所以需要先关闭前次连接才能启用后面的事务
+                    reader.Close();
+                    // Start a local transaction.
+                    SqlTransaction sqlTran = connection.BeginTransaction();
+                    command.Transaction = sqlTran;
+
+                    try
+                    {
+                        // Execute two separate commands.
+                        //删除子表与主表
+                        command.Parameters.AddWithValue("@no", tex_no.Text);
+
+                        command.CommandText =
+                          "delete  xm_plug_t_unitCosts where FID=@no";
+
+                        command.ExecuteNonQuery();
+                        command.CommandText =
+                         "delete  xm_plug_t_unitCost where ID=@no";
+                        command.ExecuteNonQuery();
+
+
+
+                        // Commit the transaction.
+                        sqlTran.Commit();
+                        MessageBox.Show("数据删除成功！", "数据删除提示");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle the exception if the transaction fails to commit.
+                        Console.WriteLine(ex.Message);
+
+                        try
+                        {
+                            // Attempt to roll back the transaction.
+                            sqlTran.Rollback();
+                        }
+                        catch (Exception exRollback)
+                        {
+                            // Throws an InvalidOperationException if the connection
+                            // is closed or the transaction has already been rolled
+                            // back on the server.
+                            Console.WriteLine(exRollback.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你所删除的数据不存在！", "数据删除提示");
+                }
+               
+            }
+
+        }
     }
 }
