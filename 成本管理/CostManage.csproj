@@ -372,13 +372,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\tools\imageFormatConvert\utility.csproj">
-      <Project>{afdb869a-cd72-4cd6-a0c4-a9efc3cec00e}</Project>
-      <Name>utility</Name>
-    </ProjectReference>
     <ProjectReference Include="..\common\U8Common.csproj">
       <Project>{abf22586-6b96-4281-b564-0661a6a6f973}</Project>
       <Name>U8Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{4b0a5906-3194-45cc-85d6-37c8387ef04e}</Project>
+      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
