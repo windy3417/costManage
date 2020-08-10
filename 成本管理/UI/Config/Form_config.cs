@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using utility;
 using 成本管理.Model;
 
 namespace 成本管理.UI
@@ -93,8 +93,9 @@ namespace 成本管理.UI
         {
             bool isModified = false;    //记录该连接串是否已经存在
             
-            string conString = "Data Source=" + textBox_server.Text + ";Initial Catalog=" + textBox_database.Text + ";User ID=" + textBox_user.Text + ";Password="
-                + textBox_password.Text + ";Pooling=False;";
+            string conString = "Data Source=" + textBox_server.Text + ";Initial Catalog=" + textBox_database.Text + ";" +
+                "User ID=" + textBox_user.Text + ";Password="
+                + utility.Encrypt.Encode(textBox_password.Text) + ";Pooling=False;";
             if (ConfigurationManager.ConnectionStrings["myConcetion"] != null)
             {
                 isModified = true;

@@ -16,8 +16,9 @@ using 成本管理.UI;
 using 成本管理.UI.saleManage;
 
 using System.Configuration;
-using imageFormatConvert;
+
 using 成本管理.Model;
+using utility;
 
 namespace 成本管理.UI
 {

@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CostManage", "成本管理\CostManage.csproj", "{7727BEC1-6F88-4484-9FAE-6A405383180D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imageFormatConvert", "..\tools\imageFormatConvert\imageFormatConvert.csproj", "{AFDB869A-CD72-4CD6-A0C4-A9EFC3CEC00E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utility", "..\tools\imageFormatConvert\utility.csproj", "{AFDB869A-CD72-4CD6-A0C4-A9EFC3CEC00E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "成本管理Tests", "成本管理Tests\成本管理Tests.csproj", "{8D737491-9916-48D0-B464-15EA8B2CE11A}"
 EndProject
@@ -36,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F18FD8D-FA74-4E8D-B71E-5BE6B4550864}
 	EndGlobalSection
 EndGlobal
