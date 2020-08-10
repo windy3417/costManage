@@ -1,4 +1,4 @@
-﻿namespace utility
+﻿namespace Utility
 
 {
     partial class Form_imageFormatConvert

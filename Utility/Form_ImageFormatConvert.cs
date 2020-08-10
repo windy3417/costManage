@@ -9,15 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 
-namespace utility
+namespace Utility
 
 {
     public partial class Form_imageFormatConvert : Form
     {
-        public Form_imageFormatConvert()
-        {
-            InitializeComponent();
-        }
+        public Form_imageFormatConvert() => InitializeComponent();
 
         private void toolStripButton_openFile_Click(object sender, EventArgs e)
         {
