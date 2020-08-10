@@ -122,10 +122,10 @@
     <Compile Include="UI\dataImport\Frm_unitCost.Designer.cs">
       <DependentUpon>Frm_unitCost.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FormPOContractList.cs">
+    <Compile Include="UI\ContractManage\FormPOContractList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FormPOContractList.Designer.cs">
+    <Compile Include="UI\ContractManage\FormPOContractList.Designer.cs">
       <DependentUpon>FormPOContractList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_Main.cs">
@@ -157,28 +157,28 @@
     <Compile Include="UI\Config\Form_config.Designer.cs">
       <DependentUpon>Form_config.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_MaterialsOutSheet.cs">
+    <Compile Include="UI\ProductionManage\Form_MaterialsOutSheet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_MaterialsOutSheet.Designer.cs">
+    <Compile Include="UI\ProductionManage\Form_MaterialsOutSheet.Designer.cs">
       <DependentUpon>Form_MaterialsOutSheet.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_ProductionOrders.cs">
+    <Compile Include="UI\ProductionManage\Form_ProductionOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_ProductionOrders.Designer.cs">
+    <Compile Include="UI\ProductionManage\Form_ProductionOrders.Designer.cs">
       <DependentUpon>Form_ProductionOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_PurchsingOrders.cs">
+    <Compile Include="UI\PurchaseManage\Form_PurchsingOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_PurchsingOrders.Designer.cs">
+    <Compile Include="UI\PurchaseManage\Form_PurchsingOrders.Designer.cs">
       <DependentUpon>Form_PurchsingOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_SaleOrders.cs">
+    <Compile Include="UI\saleManage\Form_SaleOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_SaleOrders.Designer.cs">
+    <Compile Include="UI\saleManage\Form_SaleOrders.Designer.cs">
       <DependentUpon>Form_SaleOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_SheetTest.cs">
@@ -187,28 +187,28 @@
     <Compile Include="UI\Form_SheetTest.Designer.cs">
       <DependentUpon>Form_SheetTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_WriteCostObject.cs">
+    <Compile Include="UI\cost\Form_WriteCostObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_WriteCostObject.Designer.cs">
+    <Compile Include="UI\cost\Form_WriteCostObject.Designer.cs">
       <DependentUpon>Form_WriteCostObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_InspectItem.cs">
+    <Compile Include="UI\cost\Form_InspectItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_InspectItem.Designer.cs">
+    <Compile Include="UI\cost\Form_InspectItem.Designer.cs">
       <DependentUpon>Form_InspectItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_MaterialsOut.cs">
+    <Compile Include="UI\ProductionManage\Form_MaterialsOut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_MaterialsOut.Designer.cs">
+    <Compile Include="UI\ProductionManage\Form_MaterialsOut.Designer.cs">
       <DependentUpon>Form_MaterialsOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_ProductionPriceInport.cs">
+    <Compile Include="UI\dataImport\Form_ProductionPriceInport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_ProductionPriceInport.Designer.cs">
+    <Compile Include="UI\dataImport\Form_ProductionPriceInport.Designer.cs">
       <DependentUpon>Form_ProductionPriceInport.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Frm_progressBar.cs">
@@ -230,7 +230,7 @@
     <EmbeddedResource Include="UI\dataImport\Frm_unitCost.resx">
       <DependentUpon>Frm_unitCost.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FormPOContractList.resx">
+    <EmbeddedResource Include="UI\ContractManage\FormPOContractList.resx">
       <DependentUpon>FormPOContractList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Main.resx">
@@ -249,22 +249,22 @@
     <EmbeddedResource Include="UI\Config\Form_config.resx">
       <DependentUpon>Form_config.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_MaterialsOutSheet.resx">
+    <EmbeddedResource Include="UI\ProductionManage\Form_MaterialsOutSheet.resx">
       <DependentUpon>Form_MaterialsOutSheet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_ProductionOrders.resx">
+    <EmbeddedResource Include="UI\ProductionManage\Form_ProductionOrders.resx">
       <DependentUpon>Form_ProductionOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_WriteCostObject.resx">
+    <EmbeddedResource Include="UI\cost\Form_WriteCostObject.resx">
       <DependentUpon>Form_WriteCostObject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_InspectItem.resx">
+    <EmbeddedResource Include="UI\cost\Form_InspectItem.resx">
       <DependentUpon>Form_InspectItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_MaterialsOut.resx">
+    <EmbeddedResource Include="UI\ProductionManage\Form_MaterialsOut.resx">
       <DependentUpon>Form_MaterialsOut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_ProductionPriceInport.resx">
+    <EmbeddedResource Include="UI\dataImport\Form_ProductionPriceInport.resx">
       <DependentUpon>Form_ProductionPriceInport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_progressBar.resx">
@@ -411,10 +411,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\cost\" />
-    <Folder Include="UI\ProductionManage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
