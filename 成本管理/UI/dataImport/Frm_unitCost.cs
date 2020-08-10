@@ -10,6 +10,9 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using 成本管理.DAL;
 using 成本管理.Model;
+using System.IO;
+using Microsoft.Office.Interop;
+using Microsoft.Vbe.Interop;
 
 namespace 成本管理.UI
 {
@@ -62,7 +65,7 @@ namespace 成本管理.UI
                 comm.CommandText = "select * from [sheet1$]";
                 comm.Connection = conn;
                 conn.Open();
-                comm.ExecuteNonQuery();
+                //comm.ExecuteNonQuery();该命令是多余的，严重影响速度
                 da.SelectCommand = comm;
                 da.Fill(dt_excel);
 
@@ -361,6 +364,21 @@ namespace 成本管理.UI
                
             }
 
+        }
+        /// <summary>
+        /// 直接调用EXCEL打开模板文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsb_importTemplate_Click(object sender, EventArgs e)
+        {
+            //注意转义字符，\\两个反斜杠才能表示一个反斜杠\
+            string myUrl = Environment.CurrentDirectory + "\\" + "resources\\template\\成本结构表导入模板.xlsx";
+            Microsoft.Office.Interop.Excel.Application excel =new Microsoft.Office.Interop.Excel.Application(); //引用Excel对象
+            Microsoft.Office.Interop.Excel.Workbook book =excel.Application.Workbooks.Add(myUrl);
+            //引用Excel工作簿
+            excel.Visible = true; //使Excel可视
+           
         }
     }
 }

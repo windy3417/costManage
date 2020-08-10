@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\U8SOFT\成本管理\</PublishUrl>
+    <PublishUrl>\\192.168.10.200\software\Z自开软件\costManage\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -22,12 +22,16 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\192.168.10.141\安装文件\成本管理\</InstallUrl>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ProductName>成本管理</ProductName>
+    <PublisherName>长沙熙迈机械制造有限公司</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -60,6 +64,9 @@
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>mainFormIco.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
@@ -75,6 +82,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -203,6 +211,12 @@
     <Compile Include="UI\Form_ProductionPriceInport.Designer.cs">
       <DependentUpon>Form_ProductionPriceInport.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Frm_progressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frm_progressBar.Designer.cs">
+      <DependentUpon>Frm_progressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\saleManage\deliverySchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +267,9 @@
     <EmbeddedResource Include="UI\Form_ProductionPriceInport.resx">
       <DependentUpon>Form_ProductionPriceInport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frm_progressBar.resx">
+      <DependentUpon>Frm_progressBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\saleManage\deliverySchedule.resx">
       <DependentUpon>deliverySchedule.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,9 +293,30 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Resources\template\成本结构表导入模板.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="成本管理_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="MSChart20Lib">
       <Guid>{65E121D4-0C60-11D2-A9FC-0000F8754DA1}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -301,6 +339,15 @@
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>
       <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -335,6 +382,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mainFormIco.ico" />
     <Content Include="Model\productUnitHeader.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>productUnitHeader.edmx</DependentUpon>
@@ -346,7 +394,12 @@
       <LastGenOutput>productUnitHeader.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\abandon.png" />
+    <Content Include="Resources\add.gif" />
+    <Content Include="Resources\clear.gif" />
     <Content Include="Resources\delete.gif" />
+    <Content Include="Resources\down.png" />
+    <None Include="Resources\Image1.bmp" />
+    <Content Include="Resources\mainFormIco.ico" />
     <None Include="Resources\add1.gif" />
     <None Include="Resources\icon_export.gif" />
     <None Include="Resources\save.png" />

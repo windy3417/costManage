@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_unitCost));
             this.dataGridViewDisplayExcel = new System.Windows.Forms.DataGridView();
             this.labelYear = new System.Windows.Forms.Label();
             this.labelMonth = new System.Windows.Forms.Label();
@@ -36,10 +37,11 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonQuit = new System.Windows.Forms.ToolStripButton();
+            this.tsb_importTemplate = new System.Windows.Forms.ToolStripButton();
             this.lbl_no = new System.Windows.Forms.Label();
             this.tex_no = new System.Windows.Forms.TextBox();
-            this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplayExcel)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -113,6 +115,7 @@
             this.toolStripButton1,
             this.toolStripButtonSave,
             this.tsb_delete,
+            this.tsb_importTemplate,
             this.toolStripButtonQuit});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -122,9 +125,11 @@
             // 
             // toolStripButton1
             // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::成本管理.Properties.Resources.importdir_wiz;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(36, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "导入";
             this.toolStripButton1.Click += new System.EventHandler(this.ImportExcelData);
             // 
@@ -138,6 +143,16 @@
             this.toolStripButtonSave.Text = "保存";
             this.toolStripButtonSave.Click += new System.EventHandler(this.SaveToDatabase);
             // 
+            // tsb_delete
+            // 
+            this.tsb_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_delete.Image = ((System.Drawing.Image)(resources.GetObject("tsb_delete.Image")));
+            this.tsb_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_delete.Name = "tsb_delete";
+            this.tsb_delete.Size = new System.Drawing.Size(23, 22);
+            this.tsb_delete.Text = "toolStripButton2";
+            this.tsb_delete.Click += new System.EventHandler(this.tsb_delete_Click);
+            // 
             // toolStripButtonQuit
             // 
             this.toolStripButtonQuit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -147,6 +162,17 @@
             this.toolStripButtonQuit.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonQuit.Text = "退出";
             this.toolStripButtonQuit.Click += new System.EventHandler(this.toolStripButtonQuit_Click);
+            // 
+            // tsb_importTemplate
+            // 
+            this.tsb_importTemplate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_importTemplate.Image = ((System.Drawing.Image)(resources.GetObject("tsb_importTemplate.Image")));
+            this.tsb_importTemplate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_importTemplate.Name = "tsb_importTemplate";
+            this.tsb_importTemplate.Size = new System.Drawing.Size(23, 22);
+            this.tsb_importTemplate.Text = "模板";
+            this.tsb_importTemplate.ToolTipText = "导入模板";
+            this.tsb_importTemplate.Click += new System.EventHandler(this.tsb_importTemplate_Click);
             // 
             // lbl_no
             // 
@@ -163,16 +189,6 @@
             this.tex_no.Name = "tex_no";
             this.tex_no.Size = new System.Drawing.Size(123, 21);
             this.tex_no.TabIndex = 5;
-            // 
-            // tsb_delete
-            // 
-            this.tsb_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_delete.Image = global::成本管理.Properties.Resources.delete;
-            this.tsb_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_delete.Name = "tsb_delete";
-            this.tsb_delete.Size = new System.Drawing.Size(23, 22);
-            this.tsb_delete.Text = "toolStripButton2";
-            this.tsb_delete.Click += new System.EventHandler(this.tsb_delete_Click);
             // 
             // frm_unitCost
             // 
@@ -210,5 +226,6 @@
         private System.Windows.Forms.Label lbl_no;
         private System.Windows.Forms.TextBox tex_no;
         private System.Windows.Forms.ToolStripButton tsb_delete;
+        private System.Windows.Forms.ToolStripButton tsb_importTemplate;
     }
 }
