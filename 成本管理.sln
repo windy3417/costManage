@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CostManage", "成本管理\CostManage.csproj", "{7727BEC1-6F88-4484-9FAE-6A405383180D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "成本管理Tests", "成本管理Tests\成本管理Tests.csproj", "{8D737491-9916-48D0-B464-15EA8B2CE11A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U8Common", "common\U8Common.csproj", "{ABF22586-6B96-4281-B564-0661A6A6F973}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{4B0A5906-3194-45CC-85D6-37C8387EF04E}"
@@ -21,10 +19,6 @@ Global
 		{7727BEC1-6F88-4484-9FAE-6A405383180D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7727BEC1-6F88-4484-9FAE-6A405383180D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7727BEC1-6F88-4484-9FAE-6A405383180D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8D737491-9916-48D0-B464-15EA8B2CE11A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D737491-9916-48D0-B464-15EA8B2CE11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D737491-9916-48D0-B464-15EA8B2CE11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D737491-9916-48D0-B464-15EA8B2CE11A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ABF22586-6B96-4281-B564-0661A6A6F973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ABF22586-6B96-4281-B564-0661A6A6F973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABF22586-6B96-4281-B564-0661A6A6F973}.Release|Any CPU.ActiveCfg = Release|Any CPU
