@@ -83,7 +83,7 @@ namespace utility.FilesUpAndDown
             fileSize = 0;
 
             string Result = "";
-            bool typeFlag = false;
+            //bool typeFlag = false;
             string FilePath = filePath;
             int MaxSize = maxSize;
             string strFileName, strNewName, strFilePath;

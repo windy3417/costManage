@@ -19,6 +19,7 @@ using System.Configuration;
 
 using 成本管理.Model;
 using utility;
+using Utility;
 
 namespace 成本管理.UI
 {

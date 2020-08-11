@@ -13,6 +13,7 @@ using 成本管理.Model;
 using System.IO;
 using Microsoft.Office.Interop;
 using Microsoft.Vbe.Interop;
+using System.Threading;
 
 namespace 成本管理.UI
 {
@@ -55,6 +56,8 @@ namespace 成本管理.UI
             OleDbDataAdapter da = new OleDbDataAdapter();
             OleDbCommand comm = new OleDbCommand();
 
+            
+
             //获取excel文件名
             string excelFileName = openExcel();
             if (excelFileName.Length > 0)
@@ -67,8 +70,10 @@ namespace 成本管理.UI
                 conn.Open();
                 //comm.ExecuteNonQuery();该命令是多余的，严重影响速度
                 da.SelectCommand = comm;
+ 
+               
                 da.Fill(dt_excel);
-
+               
                 dataGridViewDisplayExcel.DataSource = dt_excel;
 
                 conn.Close();
@@ -285,10 +290,30 @@ namespace 成本管理.UI
             this.Parent.Dispose();
 
         }
-
+        /// <summary>
+        /// 生成单据编号
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.tex_no.Text = this.comboBox1.Text + this.comboBox2.Text;
+
+            //若不判断SelectedIndex!=-1，则置空命令也会触发提示框
+            if (this.comboBox1.Text=="" & comboBox2.SelectedIndex!=-1 )
+
+            {
+               
+                MessageBox.Show("请先选择会计年度", "选择提示");
+
+                //this.comboBox2.Text=""不能清空该组合框的内容
+                this.comboBox2.SelectedIndex = -1;
+                
+            }
+            else
+            {
+                this.tex_no.Text = this.comboBox1.Text + this.comboBox2.Text;
+            }
+            
         }
 
         /// <summary>
@@ -373,13 +398,29 @@ namespace 成本管理.UI
         /// <param name="e"></param>
         private void tsb_importTemplate_Click(object sender, EventArgs e)
         {
-            //注意转义字符，\\两个反斜杠才能表示一个反斜杠\
+            ////注意转义字符，\\两个反斜杠才能表示一个反斜杠\
+            //string myUrl = Environment.CurrentDirectory + "\\" + "resources\\template\\成本结构表导入模板.xlsx";
+            //Microsoft.Office.Interop.Excel.Application excel =new Microsoft.Office.Interop.Excel.Application(); //引用Excel对象
+            //Microsoft.Office.Interop.Excel.Workbook book =excel.Application.Workbooks.Add(myUrl);
+            ////引用Excel工作簿
+            //excel.Visible = true; //使Excel可视
+
+            ////以上代码在安装有office2016时正常,但office2007时无法打开工作簿
             string myUrl = Environment.CurrentDirectory + "\\" + "resources\\template\\成本结构表导入模板.xlsx";
-            Microsoft.Office.Interop.Excel.Application excel =new Microsoft.Office.Interop.Excel.Application(); //引用Excel对象
-            Microsoft.Office.Interop.Excel.Workbook book =excel.Application.Workbooks.Add(myUrl);
-            //引用Excel工作簿
-            excel.Visible = true; //使Excel可视
+            string saveDir;
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.ShowDialog();
+            //指定存储的路径
+            saveDir = fbd.SelectedPath+"\\成本结构表导入模板.xlsx";
+            Console.WriteLine(saveDir);
            
+           
+            if (File.Exists(myUrl))//必须判断要复制的文件是否存在
+            {
+                File.Copy(myUrl, saveDir, true);//三个参数分别是源文件路径，存储路径，若存储路径有相同文件是否替换
+                MessageBox.Show("文件保存成功", "文件下载提示");
+            }
+
         }
     }
 }
