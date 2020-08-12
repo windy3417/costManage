@@ -25,12 +25,15 @@ namespace 成本管理.UI
             InitializeComponent();
             //窗体的事件传送在构造函数中写明
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.parentForm_Closed);
-
+            BW_import.WorkerReportsProgress = true;
+            BW_import.WorkerSupportsCancellation = true;
         }
 
         //作为dataGrid的数据源，也作为导入到数据库的数据源，故作为该类的字段用于多方共享
         DataTable dt_excel = new DataTable();
         DataTable dt_productUnitHeader = new DataTable();
+        string excelFileName;
+        Frm_progressBar progressBar=new Frm_progressBar();
 
         #region 读取Excel数据
         /// <summary>
@@ -52,34 +55,23 @@ namespace 成本管理.UI
         /// <param name="e"></param> 
         private void ImportExcelData(object sender, EventArgs e)
         {
-            OleDbConnection conn = new OleDbConnection();
-            OleDbDataAdapter da = new OleDbDataAdapter();
-            OleDbCommand comm = new OleDbCommand();
-
-            
-
+          
+                       
             //获取excel文件名
-            string excelFileName = openExcel();
-            if (excelFileName.Length > 0)
+            excelFileName = openExcel();
+            if (BW_import.IsBusy != true)
             {
-                string stringConectExcel = "Provider=Microsoft.ace.OLEDB.12.0;" + "Data Source=" + excelFileName + ";" +
-               "Extended Properties='Excel 12.0 xml;HDR=YES'";
-                conn.ConnectionString = stringConectExcel;
-                comm.CommandText = "select * from [sheet1$]";
-                comm.Connection = conn;
-                conn.Open();
-                //comm.ExecuteNonQuery();该命令是多余的，严重影响速度
-                da.SelectCommand = comm;
- 
-               
-                da.Fill(dt_excel);
-               
-                dataGridViewDisplayExcel.DataSource = dt_excel;
-
-                conn.Close();
+                // Start the asynchronous operation.执行数据导入工作
+                //该方法对应的后台dowork事件绑定了excuteDataImport方法
+                BW_import.RunWorkerAsync();
+                progressBar.Show();
             }
 
+          
+
         }
+    
+     
         #endregion
 
 
@@ -142,9 +134,8 @@ namespace 成本管理.UI
         }
 
         /// <summary>
-        /// 数据导入
+        /// 数据导入到数据库
         /// </summary>
-
 
         private void dataImport()
         {
@@ -421,6 +412,31 @@ namespace 成本管理.UI
                 MessageBox.Show("文件保存成功", "文件下载提示");
             }
 
+        }
+
+        private void excuteDataImport(object sender, DoWorkEventArgs e)
+        {
+            OleDbConnection conn = new OleDbConnection();
+            OleDbDataAdapter da = new OleDbDataAdapter();
+            OleDbCommand comm = new OleDbCommand();
+            if (excelFileName.Length > 0)
+            {
+                string stringConectExcel = "Provider=Microsoft.ace.OLEDB.12.0;" + "Data Source=" + excelFileName + ";" +
+               "Extended Properties='Excel 12.0 xml;HDR=YES'";
+                conn.ConnectionString = stringConectExcel;
+                comm.CommandText = "select * from [sheet1$]";
+                comm.Connection = conn;
+                conn.Open();
+                //comm.ExecuteNonQuery();该命令是多余的，严重影响速度
+                da.SelectCommand = comm;
+
+
+                da.Fill(dt_excel);
+
+                dataGridViewDisplayExcel.DataSource = dt_excel;
+
+                conn.Close();
+            }
         }
     }
 }

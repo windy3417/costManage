@@ -189,6 +189,10 @@
             this.tex_no.Size = new System.Drawing.Size(123, 21);
             this.tex_no.TabIndex = 5;
             // 
+            // BW_import
+            // 
+            this.BW_import.DoWork += new System.ComponentModel.DoWorkEventHandler(this.excuteDataImport);
+            // 
             // frm_unitCost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
