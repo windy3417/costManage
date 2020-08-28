@@ -19,6 +19,7 @@ namespace 成本管理.UI
         public formProductionUnitPriceImport()
         {
             InitializeComponent();
+            this.FormClosed += new FormClosedEventHandler(this.parentForm_Closed);
 
         }
         
@@ -202,6 +203,17 @@ namespace 成本管理.UI
         private void toolStripButtonQuit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// 窗体关闭后母窗体也关闭
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void parentForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            this.Parent.Dispose();
+
         }
     }
 }

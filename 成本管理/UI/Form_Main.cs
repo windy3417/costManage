@@ -57,6 +57,24 @@ namespace 成本管理.UI
         }
 
         /// <summary>
+        /// 窗体加载时事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FromMainLoad(object sender, EventArgs e)
+        {
+            treeView1.Nodes.Clear();//清空导航菜单
+                                    //调用GetMenu方法，将menuStrip1控件的子菜单添加到treeView1控件中
+            GetMenu(treeView1, menuStrip1);
+            this.treeView1.ExpandAll();
+            this.treeView1.ImageList = this.imageList1;
+            this.treeView1.ImageIndex = 2;
+            this.treeView1.SelectedImageIndex = 2;
+
+
+        }
+
+        /// <summary>
         /// 选择树形菜单节点同步触发主菜单相应事件
         /// </summary>
         /// <param name="sender"></param>
@@ -148,6 +166,65 @@ namespace 成本管理.UI
             //    }
             //}
         }
+
+        /// <summary>
+        /// 释放选择节点，否则第二次选中时无法触发afterSelect事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeView1_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.treeView1.SelectedNode = null;
+        }
+
+        #region 将MenuStrip控件中的信息添加到TreeView控件中
+        /// <summary>
+        /// 将MenuStrip控件中的信息添加到TreeView控件中
+        /// </summary>
+        /// <param name="treeV">TreeView控件</param>
+        /// <param name="MenuS">MenuStrip控件</param>
+        public void GetMenu(TreeView treeV, MenuStrip MenuS)
+        {
+
+            List<string> lt = new List<string>();
+            for (int i = 0; i < MenuS.Items.Count; i++) //遍历MenuStrip组件中的一级菜单项
+            {
+                //将一级菜单项的名称添加到TreeView组件的根节点中，并设置当前节点的子节点newNode1
+                TreeNode newNode1 = treeV.Nodes.Add(MenuS.Items[i].Text);//变量newNode1仅仅为精减代码，因为它等价于TreeVies.Nodes
+                //将当前菜单项的所有相关信息存入到ToolStripDropDownItem对象中
+                ToolStripDropDownItem newmenu = (ToolStripDropDownItem)MenuS.Items[i];
+                //写日志用
+                lt.Add(MenuS.Items[i].Text);
+                lt.Add(MenuS.Items[i].GetType().ToString());
+
+                //判断当前菜单项中是否有二级菜单项,因容器TreeNode无法分级，故即便有变量ToolStripDropDownItem存在，也无法采用递归算法
+                if (newmenu.HasDropDownItems && newmenu.DropDownItems.Count > 0)
+                    for (int j = 0; j < newmenu.DropDownItems.Count; j++) //遍历二级菜单项
+                    {
+                        //将二级菜单名称添加到TreeView组件的子节点newNode1中，并设置当前节点的子节点newNode2
+                        TreeNode newNode2 = newNode1.Nodes.Add(newmenu.DropDownItems[j].Text);
+                        //将当前菜单项的所有相关信息存入到ToolStripDropDownItem对象中
+                        ToolStripDropDownItem newmenu2 = (ToolStripDropDownItem)newmenu.DropDownItems[j];
+                        lt.Add(newmenu.DropDownItems[j].Text);
+                        lt.Add(newmenu.DropDownItems[j].GetType().ToString());
+
+                        //判断二级菜单项中是否有三级菜单项
+                        if (newmenu2.HasDropDownItems && newmenu2.DropDownItems.Count > 0)
+                            for (int p = 0; p < newmenu2.DropDownItems.Count; p++) //遍历三级菜单项
+                                                                                   //将三级菜单名称添加到TreeView组件的子节点newNode2中
+                            {
+                                newNode2.Nodes.Add(newmenu2.DropDownItems[p].Text);
+                                lt.Add(newmenu2.DropDownItems[p].Text);
+                                lt.Add(newmenu2.DropDownItems[p].GetType().ToString());
+                            }
+                    }
+            }
+            logWrite(lt);
+        }
+
+
+        #endregion
+
 
         /// <summary>
         /// 刷新状态栏
@@ -265,23 +342,7 @@ namespace 成本管理.UI
 
         }
 
-        /// <summary>
-        /// 窗体加载时事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void FromMainLoad(object sender, EventArgs e)
-        {
-            treeView1.Nodes.Clear();//清空导航菜单
-                                    //调用GetMenu方法，将menuStrip1控件的子菜单添加到treeView1控件中
-            GetMenu(treeView1, menuStrip1);
-            this.treeView1.ExpandAll();
-            this.treeView1.ImageList = this.imageList1;
-            this.treeView1.ImageIndex = 2;
-            this.treeView1.SelectedImageIndex = 2;
-
-
-        }
+   
 
         #region 子窗体嵌入打开与关闭
 
@@ -331,53 +392,7 @@ namespace 成本管理.UI
        
 
 
-        #region 将MenuStrip控件中的信息添加到TreeView控件中
-        /// <summary>
-        /// 将MenuStrip控件中的信息添加到TreeView控件中
-        /// </summary>
-        /// <param name="treeV">TreeView控件</param>
-        /// <param name="MenuS">MenuStrip控件</param>
-        public void GetMenu(TreeView treeV, MenuStrip MenuS)
-        {
-
-            List<string> lt = new List<string>();
-            for (int i = 0; i < MenuS.Items.Count; i++) //遍历MenuStrip组件中的一级菜单项
-            {
-                //将一级菜单项的名称添加到TreeView组件的根节点中，并设置当前节点的子节点newNode1
-                TreeNode newNode1 = treeV.Nodes.Add(MenuS.Items[i].Text);//变量newNode1仅仅为精减代码，因为它等价于TreeVies.Nodes
-                //将当前菜单项的所有相关信息存入到ToolStripDropDownItem对象中
-                ToolStripDropDownItem newmenu = (ToolStripDropDownItem)MenuS.Items[i];
-                //写日志用
-                lt.Add(MenuS.Items[i].Text);
-                lt.Add(MenuS.Items[i].GetType().ToString());
-
-                //判断当前菜单项中是否有二级菜单项,因容器TreeNode无法分级，故即便有变量ToolStripDropDownItem存在，也无法采用递归算法
-                if (newmenu.HasDropDownItems && newmenu.DropDownItems.Count > 0)
-                    for (int j = 0; j < newmenu.DropDownItems.Count; j++) //遍历二级菜单项
-                    {
-                        //将二级菜单名称添加到TreeView组件的子节点newNode1中，并设置当前节点的子节点newNode2
-                        TreeNode newNode2 = newNode1.Nodes.Add(newmenu.DropDownItems[j].Text);
-                        //将当前菜单项的所有相关信息存入到ToolStripDropDownItem对象中
-                        ToolStripDropDownItem newmenu2 = (ToolStripDropDownItem)newmenu.DropDownItems[j];
-                        lt.Add(newmenu.DropDownItems[j].Text);
-                        lt.Add(newmenu.DropDownItems[j].GetType().ToString());
-
-                        //判断二级菜单项中是否有三级菜单项
-                        if (newmenu2.HasDropDownItems && newmenu2.DropDownItems.Count > 0)
-                            for (int p = 0; p < newmenu2.DropDownItems.Count; p++) //遍历三级菜单项
-                                                                                   //将三级菜单名称添加到TreeView组件的子节点newNode2中
-                            {
-                                newNode2.Nodes.Add(newmenu2.DropDownItems[p].Text);
-                                lt.Add(newmenu2.DropDownItems[p].Text);
-                                lt.Add(newmenu2.DropDownItems[p].GetType().ToString());
-                            }
-                    }
-            }
-            logWrite(lt);
-        }
-
-
-        #endregion
+       
 
 
         /// <summary>
@@ -527,6 +542,8 @@ namespace 成本管理.UI
 
             DataBaseInfo.DataBaseChangedEventHandle += brushtStateStrip;
         }
+
+       
     }
 
     #endregion

@@ -32,8 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.数据录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.产成品单价导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.成本结构表导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.产成品单价导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.成本计算ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.成本对象写入ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.项目目录检查ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.写入成本对象ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.成本结构表查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.生产管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.生产报工ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,10 +47,6 @@
             this.销售合同清单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.销售管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.月度发货计划ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.成本计算ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.成本对象写入ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.项目目录检查ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.写入成本对象ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.报表toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.材料出库单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.生产订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +56,9 @@
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.u8任务清除ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.图片格式转换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据库配置ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.外挂数据库配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpProvider_mainForm = new System.Windows.Forms.HelpProvider();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -62,10 +66,6 @@
             this.statusStrip_dbInfo = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Label_accountIDtext = new System.Windows.Forms.ToolStripStatusLabel();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.数据库配置ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.外挂数据库配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.成本结构表查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -101,6 +101,13 @@
             this.数据录入ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.数据录入ToolStripMenuItem.Text = "数据录入";
             // 
+            // 成本结构表导入ToolStripMenuItem
+            // 
+            this.成本结构表导入ToolStripMenuItem.Name = "成本结构表导入ToolStripMenuItem";
+            this.成本结构表导入ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.成本结构表导入ToolStripMenuItem.Text = "成本结构表导入";
+            this.成本结构表导入ToolStripMenuItem.Click += new System.EventHandler(this.成本结构表导入ToolStripMenuItem_Click);
+            // 
             // 产成品单价导入ToolStripMenuItem
             // 
             this.产成品单价导入ToolStripMenuItem.Name = "产成品单价导入ToolStripMenuItem";
@@ -108,12 +115,44 @@
             this.产成品单价导入ToolStripMenuItem.Text = "产成品单价导入";
             this.产成品单价导入ToolStripMenuItem.Click += new System.EventHandler(this.产成品单价导入ToolStripMenuItem_Click);
             // 
-            // 成本结构表导入ToolStripMenuItem
+            // 成本计算ToolStripMenuItem
             // 
-            this.成本结构表导入ToolStripMenuItem.Name = "成本结构表导入ToolStripMenuItem";
-            this.成本结构表导入ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.成本结构表导入ToolStripMenuItem.Text = "成本结构表导入";
-            this.成本结构表导入ToolStripMenuItem.Click += new System.EventHandler(this.成本结构表导入ToolStripMenuItem_Click);
+            this.成本计算ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.成本对象写入ToolStripMenuItem1,
+            this.成本结构表查询ToolStripMenuItem});
+            this.成本计算ToolStripMenuItem.Name = "成本计算ToolStripMenuItem";
+            this.成本计算ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.成本计算ToolStripMenuItem.Text = "成本管理";
+            this.成本计算ToolStripMenuItem.Click += new System.EventHandler(this.成本计算ToolStripMenuItem_Click);
+            // 
+            // 成本对象写入ToolStripMenuItem1
+            // 
+            this.成本对象写入ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.项目目录检查ToolStripMenuItem1,
+            this.写入成本对象ToolStripMenuItem1});
+            this.成本对象写入ToolStripMenuItem1.Name = "成本对象写入ToolStripMenuItem1";
+            this.成本对象写入ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.成本对象写入ToolStripMenuItem1.Text = "成本对象写入";
+            // 
+            // 项目目录检查ToolStripMenuItem1
+            // 
+            this.项目目录检查ToolStripMenuItem1.Name = "项目目录检查ToolStripMenuItem1";
+            this.项目目录检查ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.项目目录检查ToolStripMenuItem1.Text = "项目目录检查";
+            this.项目目录检查ToolStripMenuItem1.Click += new System.EventHandler(this.项目目录检查ToolStripMenuItem1_Click);
+            // 
+            // 写入成本对象ToolStripMenuItem1
+            // 
+            this.写入成本对象ToolStripMenuItem1.Name = "写入成本对象ToolStripMenuItem1";
+            this.写入成本对象ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.写入成本对象ToolStripMenuItem1.Text = "写入成本对象";
+            this.写入成本对象ToolStripMenuItem1.Click += new System.EventHandler(this.写入成本对象ToolStripMenuItem1_Click);
+            // 
+            // 成本结构表查询ToolStripMenuItem
+            // 
+            this.成本结构表查询ToolStripMenuItem.Name = "成本结构表查询ToolStripMenuItem";
+            this.成本结构表查询ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.成本结构表查询ToolStripMenuItem.Text = "成本结构表查询";
             // 
             // 生产管理ToolStripMenuItem
             // 
@@ -174,39 +213,6 @@
             this.月度发货计划ToolStripMenuItem.Text = "月度发货计划";
             this.月度发货计划ToolStripMenuItem.Click += new System.EventHandler(this.月度发货计划ToolStripMenuItem_Click);
             // 
-            // 成本计算ToolStripMenuItem
-            // 
-            this.成本计算ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.成本对象写入ToolStripMenuItem1,
-            this.成本结构表查询ToolStripMenuItem});
-            this.成本计算ToolStripMenuItem.Name = "成本计算ToolStripMenuItem";
-            this.成本计算ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.成本计算ToolStripMenuItem.Text = "成本管理";
-            this.成本计算ToolStripMenuItem.Click += new System.EventHandler(this.成本计算ToolStripMenuItem_Click);
-            // 
-            // 成本对象写入ToolStripMenuItem1
-            // 
-            this.成本对象写入ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.项目目录检查ToolStripMenuItem1,
-            this.写入成本对象ToolStripMenuItem1});
-            this.成本对象写入ToolStripMenuItem1.Name = "成本对象写入ToolStripMenuItem1";
-            this.成本对象写入ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.成本对象写入ToolStripMenuItem1.Text = "成本对象写入";
-            // 
-            // 项目目录检查ToolStripMenuItem1
-            // 
-            this.项目目录检查ToolStripMenuItem1.Name = "项目目录检查ToolStripMenuItem1";
-            this.项目目录检查ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
-            this.项目目录检查ToolStripMenuItem1.Text = "项目目录检查";
-            this.项目目录检查ToolStripMenuItem1.Click += new System.EventHandler(this.项目目录检查ToolStripMenuItem1_Click);
-            // 
-            // 写入成本对象ToolStripMenuItem1
-            // 
-            this.写入成本对象ToolStripMenuItem1.Name = "写入成本对象ToolStripMenuItem1";
-            this.写入成本对象ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
-            this.写入成本对象ToolStripMenuItem1.Text = "写入成本对象";
-            this.写入成本对象ToolStripMenuItem1.Click += new System.EventHandler(this.写入成本对象ToolStripMenuItem1_Click);
-            // 
             // 报表toolStripMenuItem
             // 
             this.报表toolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -266,16 +272,38 @@
             // u8任务清除ToolStripMenuItem1
             // 
             this.u8任务清除ToolStripMenuItem1.Name = "u8任务清除ToolStripMenuItem1";
-            this.u8任务清除ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.u8任务清除ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
             this.u8任务清除ToolStripMenuItem1.Text = "U8任务清除";
             this.u8任务清除ToolStripMenuItem1.Click += new System.EventHandler(this.u8任务清除ToolStripMenuItem_Click);
             // 
             // 图片格式转换ToolStripMenuItem
             // 
             this.图片格式转换ToolStripMenuItem.Name = "图片格式转换ToolStripMenuItem";
-            this.图片格式转换ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.图片格式转换ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.图片格式转换ToolStripMenuItem.Text = "图片格式转换";
             this.图片格式转换ToolStripMenuItem.Click += new System.EventHandler(this.图片格式转换ToolStripMenuItem_Click);
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.数据库配置ToolStripMenuItem1,
+            this.外挂数据库配置ToolStripMenuItem});
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.设置ToolStripMenuItem.Text = "设置";
+            // 
+            // 数据库配置ToolStripMenuItem1
+            // 
+            this.数据库配置ToolStripMenuItem1.Name = "数据库配置ToolStripMenuItem1";
+            this.数据库配置ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.数据库配置ToolStripMenuItem1.Text = "U8数据库配置";
+            this.数据库配置ToolStripMenuItem1.Click += new System.EventHandler(this.数据库配置ToolStripMenuItem1_Click);
+            // 
+            // 外挂数据库配置ToolStripMenuItem
+            // 
+            this.外挂数据库配置ToolStripMenuItem.Name = "外挂数据库配置ToolStripMenuItem";
+            this.外挂数据库配置ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.外挂数据库配置ToolStripMenuItem.Text = "外挂数据库配置";
             // 
             // splitContainer1
             // 
@@ -313,6 +341,7 @@
             this.treeView1.Size = new System.Drawing.Size(177, 298);
             this.treeView1.TabIndex = 3;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.treeView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseUp);
             // 
             // imageList1
             // 
@@ -344,34 +373,6 @@
             // 
             this.Label_accountIDtext.Name = "Label_accountIDtext";
             this.Label_accountIDtext.Size = new System.Drawing.Size(0, 17);
-            // 
-            // 设置ToolStripMenuItem
-            // 
-            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.数据库配置ToolStripMenuItem1,
-            this.外挂数据库配置ToolStripMenuItem});
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.设置ToolStripMenuItem.Text = "设置";
-            // 
-            // 数据库配置ToolStripMenuItem1
-            // 
-            this.数据库配置ToolStripMenuItem1.Name = "数据库配置ToolStripMenuItem1";
-            this.数据库配置ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.数据库配置ToolStripMenuItem1.Text = "U8数据库配置";
-            this.数据库配置ToolStripMenuItem1.Click += new System.EventHandler(this.数据库配置ToolStripMenuItem1_Click);
-            // 
-            // 外挂数据库配置ToolStripMenuItem
-            // 
-            this.外挂数据库配置ToolStripMenuItem.Name = "外挂数据库配置ToolStripMenuItem";
-            this.外挂数据库配置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.外挂数据库配置ToolStripMenuItem.Text = "外挂数据库配置";
-            // 
-            // 成本结构表查询ToolStripMenuItem
-            // 
-            this.成本结构表查询ToolStripMenuItem.Name = "成本结构表查询ToolStripMenuItem";
-            this.成本结构表查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.成本结构表查询ToolStripMenuItem.Text = "成本结构表查询";
             // 
             // Form_Main
             // 

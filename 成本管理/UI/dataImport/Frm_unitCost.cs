@@ -142,15 +142,13 @@ namespace 成本管理.UI
         }
 
         /// <summary>
-        /// 数据导入
+        /// 数据保存到数据库
         /// </summary>
 
 
         private void dataImport()
         {
-            
-            
-            
+                                  
 
             using (SqlConnection connection = conectiongString.creatConection_manage())
             {
@@ -250,7 +248,10 @@ namespace 成本管理.UI
 
                     // Commit the transaction.
                     sqlTran.Commit();
-                    MessageBox.Show("数据导入成功！", "数据导入提示");
+                    MessageBox.Show("数据保存成功！", "数据导入提示");
+                    this.dataGridViewDisplayExcel.DataSource = null;
+                    dt_excel.Clear();
+
 
                 }
                 catch (Exception ex)
@@ -409,17 +410,22 @@ namespace 成本管理.UI
             string myUrl = Environment.CurrentDirectory + "\\" + "resources\\template\\成本结构表导入模板.xlsx";
             string saveDir;
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.ShowDialog();
+           DialogResult result= fbd.ShowDialog();
             //指定存储的路径
-            saveDir = fbd.SelectedPath+"\\成本结构表导入模板.xlsx";
-            Console.WriteLine(saveDir);
-           
-           
-            if (File.Exists(myUrl))//必须判断要复制的文件是否存在
+            if (result==DialogResult.OK)
             {
-                File.Copy(myUrl, saveDir, true);//三个参数分别是源文件路径，存储路径，若存储路径有相同文件是否替换
-                MessageBox.Show("文件保存成功", "文件下载提示");
+                saveDir = fbd.SelectedPath + "\\成本结构表导入模板.xlsx";
+                if (File.Exists(myUrl))//必须判断要复制的文件是否存在
+                {
+                    File.Copy(myUrl, saveDir, true);//三个参数分别是源文件路径，存储路径，若存储路径有相同文件是否替换
+                    MessageBox.Show("文件保存成功", "文件下载提示");
+                }
             }
+            
+            
+           
+           
+           
 
         }
     }
