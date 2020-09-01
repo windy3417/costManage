@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl_databaseConfigRead = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.rb_plug = new System.Windows.Forms.RadioButton();
+            this.rb_u8 = new System.Windows.Forms.RadioButton();
             this.button_confirm = new System.Windows.Forms.Button();
             this.button_testConect = new System.Windows.Forms.Button();
             this.textBox_server = new System.Windows.Forms.TextBox();
@@ -49,6 +51,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonQuit = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.rb_U8config = new System.Windows.Forms.RadioButton();
+            this.rb_plugConfig = new System.Windows.Forms.RadioButton();
             this.tabControl_databaseConfigRead.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -72,6 +76,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.rb_plug);
+            this.tabPage1.Controls.Add(this.rb_u8);
             this.tabPage1.Controls.Add(this.button_confirm);
             this.tabPage1.Controls.Add(this.button_testConect);
             this.tabPage1.Controls.Add(this.textBox_server);
@@ -90,9 +96,32 @@
             this.tabPage1.Text = "数据库连接";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // rb_plug
+            // 
+            this.rb_plug.AutoSize = true;
+            this.rb_plug.Location = new System.Drawing.Point(222, 24);
+            this.rb_plug.Name = "rb_plug";
+            this.rb_plug.Size = new System.Drawing.Size(83, 16);
+            this.rb_plug.TabIndex = 12;
+            this.rb_plug.TabStop = true;
+            this.rb_plug.Text = "外挂数据库";
+            this.rb_plug.UseVisualStyleBackColor = true;
+            // 
+            // rb_u8
+            // 
+            this.rb_u8.AutoSize = true;
+            this.rb_u8.Checked = true;
+            this.rb_u8.Location = new System.Drawing.Point(83, 24);
+            this.rb_u8.Name = "rb_u8";
+            this.rb_u8.Size = new System.Drawing.Size(71, 16);
+            this.rb_u8.TabIndex = 12;
+            this.rb_u8.TabStop = true;
+            this.rb_u8.Text = "U8数据库";
+            this.rb_u8.UseVisualStyleBackColor = true;
+            // 
             // button_confirm
             // 
-            this.button_confirm.Location = new System.Drawing.Point(135, 168);
+            this.button_confirm.Location = new System.Drawing.Point(242, 219);
             this.button_confirm.Name = "button_confirm";
             this.button_confirm.Size = new System.Drawing.Size(75, 23);
             this.button_confirm.TabIndex = 6;
@@ -102,7 +131,7 @@
             // 
             // button_testConect
             // 
-            this.button_testConect.Location = new System.Drawing.Point(22, 168);
+            this.button_testConect.Location = new System.Drawing.Point(129, 219);
             this.button_testConect.Name = "button_testConect";
             this.button_testConect.Size = new System.Drawing.Size(75, 23);
             this.button_testConect.TabIndex = 5;
@@ -112,7 +141,7 @@
             // 
             // textBox_server
             // 
-            this.textBox_server.Location = new System.Drawing.Point(80, 8);
+            this.textBox_server.Location = new System.Drawing.Point(187, 59);
             this.textBox_server.Name = "textBox_server";
             this.textBox_server.Size = new System.Drawing.Size(100, 21);
             this.textBox_server.TabIndex = 1;
@@ -120,7 +149,7 @@
             // label_server
             // 
             this.label_server.AutoSize = true;
-            this.label_server.Location = new System.Drawing.Point(20, 17);
+            this.label_server.Location = new System.Drawing.Point(127, 68);
             this.label_server.Name = "label_server";
             this.label_server.Size = new System.Drawing.Size(41, 12);
             this.label_server.TabIndex = 11;
@@ -128,7 +157,7 @@
             // 
             // textBox_password
             // 
-            this.textBox_password.Location = new System.Drawing.Point(80, 111);
+            this.textBox_password.Location = new System.Drawing.Point(187, 162);
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.PasswordChar = '*';
             this.textBox_password.Size = new System.Drawing.Size(100, 21);
@@ -137,7 +166,7 @@
             // label_password
             // 
             this.label_password.AutoSize = true;
-            this.label_password.Location = new System.Drawing.Point(20, 111);
+            this.label_password.Location = new System.Drawing.Point(127, 162);
             this.label_password.Name = "label_password";
             this.label_password.Size = new System.Drawing.Size(29, 12);
             this.label_password.TabIndex = 8;
@@ -146,7 +175,7 @@
             // label_database
             // 
             this.label_database.AutoSize = true;
-            this.label_database.Location = new System.Drawing.Point(20, 44);
+            this.label_database.Location = new System.Drawing.Point(127, 95);
             this.label_database.Name = "label_database";
             this.label_database.Size = new System.Drawing.Size(41, 12);
             this.label_database.TabIndex = 10;
@@ -155,7 +184,7 @@
             // label_user
             // 
             this.label_user.AutoSize = true;
-            this.label_user.Location = new System.Drawing.Point(20, 80);
+            this.label_user.Location = new System.Drawing.Point(127, 131);
             this.label_user.Name = "label_user";
             this.label_user.Size = new System.Drawing.Size(41, 12);
             this.label_user.TabIndex = 9;
@@ -163,20 +192,22 @@
             // 
             // textBox_user
             // 
-            this.textBox_user.Location = new System.Drawing.Point(80, 77);
+            this.textBox_user.Location = new System.Drawing.Point(187, 128);
             this.textBox_user.Name = "textBox_user";
             this.textBox_user.Size = new System.Drawing.Size(100, 21);
             this.textBox_user.TabIndex = 3;
             // 
             // textBox_database
             // 
-            this.textBox_database.Location = new System.Drawing.Point(80, 41);
+            this.textBox_database.Location = new System.Drawing.Point(187, 92);
             this.textBox_database.Name = "textBox_database";
             this.textBox_database.Size = new System.Drawing.Size(100, 21);
             this.textBox_database.TabIndex = 2;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.rb_plugConfig);
+            this.tabPage2.Controls.Add(this.rb_U8config);
             this.tabPage2.Controls.Add(this.button_deleteConfig);
             this.tabPage2.Controls.Add(this.textBox_configedDatabase);
             this.tabPage2.Controls.Add(this.label1);
@@ -190,7 +221,7 @@
             // 
             // button_deleteConfig
             // 
-            this.button_deleteConfig.Location = new System.Drawing.Point(112, 110);
+            this.button_deleteConfig.Location = new System.Drawing.Point(116, 158);
             this.button_deleteConfig.Name = "button_deleteConfig";
             this.button_deleteConfig.Size = new System.Drawing.Size(75, 23);
             this.button_deleteConfig.TabIndex = 2;
@@ -200,7 +231,7 @@
             // 
             // textBox_configedDatabase
             // 
-            this.textBox_configedDatabase.Location = new System.Drawing.Point(100, 28);
+            this.textBox_configedDatabase.Location = new System.Drawing.Point(154, 93);
             this.textBox_configedDatabase.Name = "textBox_configedDatabase";
             this.textBox_configedDatabase.Size = new System.Drawing.Size(100, 21);
             this.textBox_configedDatabase.TabIndex = 1;
@@ -208,11 +239,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 31);
+            this.label1.Location = new System.Drawing.Point(81, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "数据库";
+            this.label1.Text = "数据库名：";
             // 
             // tabPageQuit
             // 
@@ -248,6 +279,28 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // rb_U8config
+            // 
+            this.rb_U8config.AutoSize = true;
+            this.rb_U8config.Checked = true;
+            this.rb_U8config.Location = new System.Drawing.Point(41, 43);
+            this.rb_U8config.Name = "rb_U8config";
+            this.rb_U8config.Size = new System.Drawing.Size(119, 16);
+            this.rb_U8config.TabIndex = 5;
+            this.rb_U8config.TabStop = true;
+            this.rb_U8config.Text = "U8数据库配置信息";
+            this.rb_U8config.UseVisualStyleBackColor = true;
+            // 
+            // rb_plugConfig
+            // 
+            this.rb_plugConfig.AutoSize = true;
+            this.rb_plugConfig.Location = new System.Drawing.Point(183, 43);
+            this.rb_plugConfig.Name = "rb_plugConfig";
+            this.rb_plugConfig.Size = new System.Drawing.Size(107, 16);
+            this.rb_plugConfig.TabIndex = 5;
+            this.rb_plugConfig.Text = "外挂数据库配置";
+            this.rb_plugConfig.UseVisualStyleBackColor = true;
             // 
             // Form_config
             // 
@@ -294,5 +347,9 @@
         private System.Windows.Forms.TabPage tabPageQuit;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonQuit;
+        private System.Windows.Forms.RadioButton rb_plug;
+        private System.Windows.Forms.RadioButton rb_u8;
+        private System.Windows.Forms.RadioButton rb_plugConfig;
+        private System.Windows.Forms.RadioButton rb_U8config;
     }
 }

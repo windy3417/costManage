@@ -18,7 +18,7 @@ using 成本管理.UI.saleManage;
 using System.Configuration;
 
 using 成本管理.Model;
-using utility;
+using 成本管理.UI.cost;
 using Utility;
 
 namespace 成本管理.UI
@@ -91,6 +91,11 @@ namespace 成本管理.UI
                 case "成本结构表导入":
                     {
                         this.成本结构表导入ToolStripMenuItem_Click(sender, e);
+                        break;
+                    }
+                case "BOM材料单价":
+                    {
+                        this.BOM材料单价ToolStripMenuItem_Click(sender, e);
                         break;
                     }
                 case "材料出库单":
@@ -232,14 +237,15 @@ namespace 成本管理.UI
         public void brushtStateStrip()
         {
 
-            if (ConfigurationManager.ConnectionStrings["myConcetion"] != null)
+            if (ConfigurationManager.ConnectionStrings["myConcetionU8数据库"] != null)
             {
 
-                ConnectionStringSettings conString = ConfigurationManager.ConnectionStrings["myConcetion"];
-                int dataBaseIndex = conString.ConnectionString.IndexOf("Catalog=");
-                int UserIndex = conString.ConnectionString.IndexOf(";User");
+                string conString = ConfigurationManager.ConnectionStrings["myConcetionU8数据库"].ToString();
+                string deConString = utility.Encrypt.Decode(conString);
+                int dataBaseIndex = deConString.IndexOf("Catalog=");
+                int UserIndex = deConString.IndexOf(";User");
 
-                Label_accountIDtext.Text = conString.ConnectionString.Substring(dataBaseIndex + 8, UserIndex - (dataBaseIndex + 8));
+                Label_accountIDtext.Text = deConString.Substring(dataBaseIndex + 8, UserIndex - (dataBaseIndex + 8));
                 DataBaseInfo.dataBaseName = Label_accountIDtext.Text;
 
             }
@@ -531,6 +537,13 @@ namespace 成本管理.UI
             string tabPageText = uc.Text;
             openForm(uc, tabPageText);
 
+        }
+
+        private void BOM材料单价ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_bomMaterial_unitPrice fbu = new frm_bomMaterial_unitPrice();
+            string tabPageText = fbu.Text;
+            openForm(fbu, tabPageText);
         }
 
         private void 数据库配置ToolStripMenuItem1_Click(object sender, EventArgs e)

@@ -92,17 +92,33 @@ namespace 成本管理.UI
         private void button_confirm_Click_1(object sender, EventArgs e)
         {
             bool isModified = false;    //记录该连接串是否已经存在
+            string dataBaseType;
             
             string conString = "Data Source=" + textBox_server.Text + ";Initial Catalog=" + textBox_database.Text + ";" +
                 "User ID=" + textBox_user.Text + ";Password="
-                + utility.Encrypt.Encode(textBox_password.Text) + ";Pooling=False;";
-            if (ConfigurationManager.ConnectionStrings["myConcetion"] != null)
+                + textBox_password.Text + ";Pooling=False;";
+            //加密码连接字符串
+            string encryptConString = Encrypt.Encode(conString);
+            
+
+            if (rb_u8.Checked)
+            {
+                dataBaseType = rb_u8.Text;
+                
+               
+            }
+            else
+            {
+                dataBaseType = rb_plug.Text;
+            }
+
+            if (ConfigurationManager.ConnectionStrings["myConcetion" + dataBaseType] != null)
             {
                 isModified = true;
             }
             //新建一个连接字符串实例 
 
-            ConnectionStringSettings mySettings = new ConnectionStringSettings("myConcetion", conString);
+            ConnectionStringSettings mySettings = new ConnectionStringSettings("myConcetion"+dataBaseType, encryptConString);
 
             // 打开可执行的配置文件*.exe.config 
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -110,7 +126,7 @@ namespace 成本管理.UI
             // 如果连接串已存在，首先删除它 
             if (isModified)
             {
-                config.ConnectionStrings.ConnectionStrings.Remove("myConcetion");
+                config.ConnectionStrings.ConnectionStrings.Remove("myConcetion"+dataBaseType);
             }
             // 将新的连接串添加到配置文件中. 
             config.ConnectionStrings.ConnectionStrings.Add(mySettings);
@@ -121,6 +137,7 @@ namespace 成本管理.UI
 
             MessageBox.Show("数据库配置成功", "数据库配置");
             //刷新主窗体状态栏
+
 
             DataBaseInfo.dataBaseName = this.textBox_database.Text; 
         }
@@ -133,13 +150,14 @@ namespace 成本管理.UI
    
         private void tabControl_databaseConfigRead_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (ConfigurationManager.ConnectionStrings["myConcetion"] != null)
+            if (ConfigurationManager.ConnectionStrings["myConcetionU8数据库"] != null)
             {
-                ConnectionStringSettings conString = ConfigurationManager.ConnectionStrings["myConcetion"];
-                int dataBaseIndex = conString.ConnectionString.IndexOf("Catalog=");
-                int UserIndex = conString.ConnectionString.IndexOf(";User");
+                string conString = ConfigurationManager.ConnectionStrings["myConcetionU8数据库"].ToString();
+                string deConString = Encrypt.Decode(conString);
+                int dataBaseIndex = deConString.IndexOf("Catalog=");
+                int UserIndex = deConString.IndexOf(";User");
 
-                textBox_configedDatabase.Text = conString.ConnectionString.Substring(dataBaseIndex + 8, UserIndex - (dataBaseIndex + 8));
+                textBox_configedDatabase.Text = deConString.Substring(dataBaseIndex + 8, UserIndex - (dataBaseIndex + 8));
                 
             }
             else

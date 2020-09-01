@@ -168,7 +168,7 @@
             // toolStripButtonQuit
             // 
             this.toolStripButtonQuit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonQuit.Image = global::成本管理.Properties.Resources.icon_quit;
+            this.toolStripButtonQuit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonQuit.Image")));
             this.toolStripButtonQuit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonQuit.Name = "toolStripButtonQuit";
             this.toolStripButtonQuit.Size = new System.Drawing.Size(23, 22);

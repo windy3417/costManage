@@ -13,20 +13,24 @@ namespace 成本管理.DAL
     class SQLcommand
     {
         /// <summary>
-        /// 执行外挂数据库存储过程
+        /// 执行数据库存储过程
         /// </summary>
         /// <param name="StoredProcedureName"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static DataTable ExecuteProcedure(string StoredProcedureName, SqlParameter[] parameters)
+        public static DataTable ExecuteProcedure(string StoredProcedureName, SqlParameter[] parameters,DBName dBName)
         {
-            using (SqlConnection conn = conectiongString.creatConection_UF_out_manage())
+            using (SqlConnection conn = conectiongString.creatConection(dBName))
             {
-                 
+
                 sqlHelperBase s = new sqlHelperBase();
-                DataTable dt=s.ExecuteProc(conn, StoredProcedureName, parameters);
+                DataTable dt = s.ExecuteProc(conn, StoredProcedureName, parameters);
                 return dt;
             }
         }
     }
+
+    
+ 
 }
+

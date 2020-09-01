@@ -35,6 +35,7 @@
             this.成本结构表导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.产成品单价导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.成本计算ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOM材料单价ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.成本对象写入ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.项目目录检查ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.写入成本对象ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +59,6 @@
             this.图片格式转换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库配置ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.外挂数据库配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpProvider_mainForm = new System.Windows.Forms.HelpProvider();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -118,12 +118,20 @@
             // 成本计算ToolStripMenuItem
             // 
             this.成本计算ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bOM材料单价ToolStripMenuItem,
             this.成本对象写入ToolStripMenuItem1,
             this.成本结构表查询ToolStripMenuItem});
             this.成本计算ToolStripMenuItem.Name = "成本计算ToolStripMenuItem";
             this.成本计算ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.成本计算ToolStripMenuItem.Text = "成本管理";
             this.成本计算ToolStripMenuItem.Click += new System.EventHandler(this.成本计算ToolStripMenuItem_Click);
+            // 
+            // bOM材料单价ToolStripMenuItem
+            // 
+            this.bOM材料单价ToolStripMenuItem.Name = "bOM材料单价ToolStripMenuItem";
+            this.bOM材料单价ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.bOM材料单价ToolStripMenuItem.Text = "BOM材料单价";
+            this.bOM材料单价ToolStripMenuItem.Click += new System.EventHandler(this.BOM材料单价ToolStripMenuItem_Click);
             // 
             // 成本对象写入ToolStripMenuItem1
             // 
@@ -286,8 +294,7 @@
             // 设置ToolStripMenuItem
             // 
             this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.数据库配置ToolStripMenuItem1,
-            this.外挂数据库配置ToolStripMenuItem});
+            this.数据库配置ToolStripMenuItem1});
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
             this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.设置ToolStripMenuItem.Text = "设置";
@@ -295,15 +302,9 @@
             // 数据库配置ToolStripMenuItem1
             // 
             this.数据库配置ToolStripMenuItem1.Name = "数据库配置ToolStripMenuItem1";
-            this.数据库配置ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
-            this.数据库配置ToolStripMenuItem1.Text = "U8数据库配置";
+            this.数据库配置ToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.数据库配置ToolStripMenuItem1.Text = "数据库配置";
             this.数据库配置ToolStripMenuItem1.Click += new System.EventHandler(this.数据库配置ToolStripMenuItem1_Click);
-            // 
-            // 外挂数据库配置ToolStripMenuItem
-            // 
-            this.外挂数据库配置ToolStripMenuItem.Name = "外挂数据库配置ToolStripMenuItem";
-            this.外挂数据库配置ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.外挂数据库配置ToolStripMenuItem.Text = "外挂数据库配置";
             // 
             // splitContainer1
             // 
@@ -366,8 +367,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(56, 17);
-            this.toolStripStatusLabel1.Text = "当前账套";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(75, 17);
+            this.toolStripStatusLabel1.Text = "当前U8账套:";
             // 
             // Label_accountIDtext
             // 
@@ -437,8 +438,8 @@
         private System.Windows.Forms.ToolStripMenuItem 成本结构表导入ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据库配置ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 外挂数据库配置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 成本结构表查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bOM材料单价ToolStripMenuItem;
     }
 }
 

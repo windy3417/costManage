@@ -18,7 +18,7 @@ namespace 成本管理.DAL.Reports
         public DataTable MaterialsOutSheet(params SqlParameter[] parameters)
         {
 
-            DataTable dt = SQLcommand.ExecuteProcedure("Usp_MaterialsOutSheet", parameters);
+            DataTable dt = SQLcommand.ExecuteProcedure("Usp_MaterialsOutSheet", parameters,DBName.plug);
             return dt;
 
         }

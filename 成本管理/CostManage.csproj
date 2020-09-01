@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="BLL\PurchasingOrdersManage.cs" />
     <Compile Include="DAL\conectionString.cs" />
+    <Compile Include="DAL\DBname.cs" />
     <Compile Include="DAL\Reports\InspectItemService.cs" />
     <Compile Include="DAL\Reports\MaterialsOutSheetService.cs" />
     <Compile Include="DAL\Reports\ProductionOrdersService.cs" />
@@ -114,6 +115,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource_ximai.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\cost\frm_bomMaterial_unitPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\cost\frm_bomMaterial_unitPrice.Designer.cs">
+      <DependentUpon>frm_bomMaterial_unitPrice.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\dataImport\Frm_unitCost.cs">
       <SubType>Form</SubType>
@@ -226,6 +233,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource_ximai.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\cost\frm_bomMaterial_unitPrice.resx">
+      <DependentUpon>frm_bomMaterial_unitPrice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\dataImport\Frm_unitCost.resx">
       <DependentUpon>Frm_unitCost.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +303,35 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Content Include="InstallationEnvironment.txt" />
+    <Content Include="Resources\abandon.png" />
+    <Content Include="Resources\account.gif" />
+    <Content Include="Resources\add.gif" />
+    <Content Include="Resources\add1.gif" />
+    <Content Include="Resources\clear.gif" />
+    <Content Include="Resources\delete.gif" />
+    <Content Include="Resources\down.png" />
+    <Content Include="Resources\icon_edit2.gif" />
+    <Content Include="Resources\icon_export.gif" />
+    <Content Include="Resources\icon_quit.ICO" />
+    <Content Include="Resources\ico\abandon.png" />
+    <Content Include="Resources\ico\account.gif" />
+    <Content Include="Resources\ico\add.gif" />
+    <Content Include="Resources\ico\add1.gif" />
+    <Content Include="Resources\ico\clear.gif" />
+    <Content Include="Resources\ico\delete.gif" />
+    <Content Include="Resources\ico\down.png" />
+    <Content Include="Resources\ico\edit2.gif" />
+    <Content Include="Resources\ico\export.gif" />
+    <Content Include="Resources\ico\Search1.gif" />
+    <Content Include="Resources\ico\importdir_wiz.gif" />
+    <Content Include="Resources\ico\mainFormIco.ico" />
+    <Content Include="Resources\ico\quit.ICO" />
+    <Content Include="Resources\ico\save.png" />
+    <Content Include="Resources\importdir_wiz.gif" />
+    <Content Include="Resources\mainFormIco.ico" />
+    <Content Include="Resources\quit.ICO" />
+    <Content Include="Resources\save.png" />
+    <Content Include="Resources\icon_Search1.gif" />
     <Content Include="Resources\template\成本结构表导入模板.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -393,20 +432,6 @@
       <DependentUpon>productUnitHeader.edmx</DependentUpon>
       <LastGenOutput>productUnitHeader.cs</LastGenOutput>
     </Content>
-    <Content Include="Resources\abandon.png" />
-    <Content Include="Resources\add.gif" />
-    <Content Include="Resources\clear.gif" />
-    <Content Include="Resources\delete.gif" />
-    <Content Include="Resources\down.png" />
-    <None Include="Resources\Image1.bmp" />
-    <Content Include="Resources\mainFormIco.ico" />
-    <None Include="Resources\add1.gif" />
-    <None Include="Resources\icon_export.gif" />
-    <None Include="Resources\save.png" />
-    <None Include="Resources\importdir_wiz.gif" />
-    <None Include="Resources\icon_quit.ICO" />
-    <None Include="Resources\Icon_Search1.gif" />
-    <None Include="Resources\icon_edit2.gif" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
