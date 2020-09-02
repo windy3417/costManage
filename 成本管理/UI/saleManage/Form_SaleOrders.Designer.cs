@@ -28,9 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.groupBox_Filter.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // button_confirm
+            // 
+            this.button_confirm.Click += new System.EventHandler(this.Button_confirm_Click_1);
+            // 
+            // textBox_startDate
+            // 
+            this.textBox_startDate.Text = "2020-09-01";
+            // 
+            // textBox_endDate
+            // 
+            this.textBox_endDate.Text = "2020-09-02";
+            // 
+            // Form_SaleOrders
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1030, 738);
+            this.Name = "Form_SaleOrders";
             this.Text = "Form_SaleOrders";
+            this.groupBox_Filter.ResumeLayout(false);
+            this.groupBox_Filter.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

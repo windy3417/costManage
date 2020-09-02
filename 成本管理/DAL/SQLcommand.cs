@@ -13,11 +13,12 @@ namespace 成本管理.DAL
     class SQLcommand
     {
         /// <summary>
-        /// 执行数据库存储过程
+        /// 执行数据库存储过程,并返回DataTable
         /// </summary>
         /// <param name="StoredProcedureName"></param>
         /// <param name="parameters"></param>
-        /// <returns></returns>
+        /// <param name="dBName">连接U8或外挂数据库，使用DBname的枚举值</param>
+        /// <returns>DataTable</returns>
         public static DataTable ExecuteProcedure(string StoredProcedureName, SqlParameter[] parameters,DBName dBName)
         {
             using (SqlConnection conn = conectiongString.creatConection(dBName))

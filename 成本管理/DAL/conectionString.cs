@@ -30,18 +30,23 @@ namespace 成本管理.DAL
 
         }
         /// <summary>
-        /// 连接业务数据库
+        /// 连接U8业务数据库
         /// </summary>
         /// <returns></returns>
         public static SqlConnection creatConection_myConcetion()
         {
           
-            ConnectionStringSettings conStrings = ConfigurationManager.ConnectionStrings["myConcetion"];
+            ConnectionStringSettings conStrings = ConfigurationManager.ConnectionStrings["myConcetionU8数据库"];
             SqlConnection conn = new SqlConnection(conStrings.ConnectionString);
             return conn;
 
         }
 
+        /// <summary>
+        /// 创建数据库连接
+        /// </summary>
+        /// <param name="dBName">确定U8或是外挂数据库，使用DBname枚举值</param>
+        /// <returns></returns>
         public static SqlConnection creatConection(DBName dBName)
         {
 
@@ -71,6 +76,8 @@ namespace 成本管理.DAL
            
 
         }
+       
+        
         /// <summary>
         /// 连接外挂数据库
         /// </summary>

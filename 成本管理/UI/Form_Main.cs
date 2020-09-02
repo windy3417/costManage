@@ -517,13 +517,6 @@ namespace 成本管理.UI
             openForm(mos, tabPageText);
         }
 
-        private void testSheetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form_SheetTest ts = new Form_SheetTest();
-            string tabPageText = ts.Text;
-            openForm(ts, tabPageText);
-        }
-
         private void POContractToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormPOContractList po = new FormPOContractList();
@@ -556,7 +549,12 @@ namespace 成本管理.UI
             DataBaseInfo.DataBaseChangedEventHandle += brushtStateStrip;
         }
 
-       
+        private void Tsmi_materialOutList_Click(object sender, EventArgs e)
+        {
+            Form_MaterialsOut report_materialsOut = new Form_MaterialsOut();
+            string tabPageText = report_materialsOut.Text;
+            openForm(report_materialsOut, tabPageText);
+        }
     }
 
     #endregion

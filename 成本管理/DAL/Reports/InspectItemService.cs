@@ -28,7 +28,7 @@ namespace 成本管理.DAL.Reports
             " on a.InvCode = f.citemcode" +
     " where a.InvCode like '4%'  and f.citemcode is null";
 
-            DataTable dt = sqlHelper.GetDataTable(SqlStr);
+            DataTable dt = sqlHelper.GetDataTable(SqlStr,DBName.u8);
             return dt;
 
 

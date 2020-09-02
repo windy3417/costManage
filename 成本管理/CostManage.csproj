@@ -279,8 +279,14 @@
     <EmbeddedResource Include="UI\Frm_progressBar.resx">
       <DependentUpon>Frm_progressBar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\PurchaseManage\Form_PurchsingOrders.resx">
+      <DependentUpon>Form_PurchsingOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\saleManage\deliverySchedule.resx">
       <DependentUpon>deliverySchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\saleManage\Form_SaleOrders.resx">
+      <DependentUpon>Form_SaleOrders.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>

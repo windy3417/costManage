@@ -75,27 +75,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_Report.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Report.Location = new System.Drawing.Point(0, 91);
+            this.dataGridView_Report.Location = new System.Drawing.Point(0, 117);
             this.dataGridView_Report.Name = "dataGridView_Report";
             this.dataGridView_Report.ReadOnly = true;
             this.dataGridView_Report.RowTemplate.Height = 23;
-            this.dataGridView_Report.Size = new System.Drawing.Size(1358, 610);
+            this.dataGridView_Report.Size = new System.Drawing.Size(1018, 575);
             this.dataGridView_Report.TabIndex = 0;
             this.dataGridView_Report.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_MaterialsOut_RowPostPaint);
             // 
             // label_startDate
             // 
             this.label_startDate.AutoSize = true;
-            this.label_startDate.Location = new System.Drawing.Point(66, 23);
+            this.label_startDate.Location = new System.Drawing.Point(379, 22);
             this.label_startDate.Name = "label_startDate";
-            this.label_startDate.Size = new System.Drawing.Size(53, 12);
+            this.label_startDate.Size = new System.Drawing.Size(59, 12);
             this.label_startDate.TabIndex = 1;
-            this.label_startDate.Text = "开始日期";
+            this.label_startDate.Text = "开始日期:";
             // 
             // dateTimePicker_startDate
             // 
             this.dateTimePicker_startDate.CustomFormat = "yyyy-mm-dd";
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(246, 20);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(559, 19);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
             this.dateTimePicker_startDate.Size = new System.Drawing.Size(17, 21);
             this.dateTimePicker_startDate.TabIndex = 2;
@@ -104,24 +104,24 @@
             // label_endDate
             // 
             this.label_endDate.AutoSize = true;
-            this.label_endDate.Location = new System.Drawing.Point(335, 23);
+            this.label_endDate.Location = new System.Drawing.Point(601, 22);
             this.label_endDate.Name = "label_endDate";
-            this.label_endDate.Size = new System.Drawing.Size(53, 12);
+            this.label_endDate.Size = new System.Drawing.Size(59, 12);
             this.label_endDate.TabIndex = 1;
-            this.label_endDate.Text = "结束日期";
+            this.label_endDate.Text = "结束日期:";
             // 
             // button_confirm
             // 
-            this.button_confirm.Location = new System.Drawing.Point(992, 17);
+            this.button_confirm.Location = new System.Drawing.Point(834, 17);
             this.button_confirm.Name = "button_confirm";
             this.button_confirm.Size = new System.Drawing.Size(75, 23);
             this.button_confirm.TabIndex = 3;
-            this.button_confirm.Text = "确定";
+            this.button_confirm.Text = "查询";
             this.button_confirm.UseVisualStyleBackColor = true;
             // 
             // textBox_startDate
             // 
-            this.textBox_startDate.Location = new System.Drawing.Point(125, 20);
+            this.textBox_startDate.Location = new System.Drawing.Point(438, 19);
             this.textBox_startDate.Name = "textBox_startDate";
             this.textBox_startDate.Size = new System.Drawing.Size(121, 21);
             this.textBox_startDate.TabIndex = 4;
@@ -129,7 +129,7 @@
             // dateTimePicker_endDate
             // 
             this.dateTimePicker_endDate.CustomFormat = "yyyy-mm-dd";
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(553, 20);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(785, 19);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
             this.dateTimePicker_endDate.Size = new System.Drawing.Size(17, 21);
             this.dateTimePicker_endDate.TabIndex = 5;
@@ -137,7 +137,7 @@
             // 
             // textBox_endDate
             // 
-            this.textBox_endDate.Location = new System.Drawing.Point(432, 20);
+            this.textBox_endDate.Location = new System.Drawing.Point(664, 19);
             this.textBox_endDate.Name = "textBox_endDate";
             this.textBox_endDate.Size = new System.Drawing.Size(121, 21);
             this.textBox_endDate.TabIndex = 6;
@@ -145,8 +145,7 @@
             // bindingNavigator_pageUp
             // 
             this.bindingNavigator_pageUp.AddNewItem = null;
-            this.bindingNavigator_pageUp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bindingNavigator_pageUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bindingNavigator_pageUp.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator_pageUp.DeleteItem = null;
             this.bindingNavigator_pageUp.Dock = System.Windows.Forms.DockStyle.None;
@@ -167,14 +166,14 @@
             this.toolStripLabel_totalPageCount,
             this.toolStripButton2,
             this.toolStripLabel_totalCount});
-            this.bindingNavigator_pageUp.Location = new System.Drawing.Point(821, 710);
+            this.bindingNavigator_pageUp.Location = new System.Drawing.Point(325, 704);
             this.bindingNavigator_pageUp.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator_pageUp.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator_pageUp.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.bindingNavigator_pageUp.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator_pageUp.Name = "bindingNavigator_pageUp";
             this.bindingNavigator_pageUp.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator_pageUp.Size = new System.Drawing.Size(477, 25);
+            this.bindingNavigator_pageUp.Size = new System.Drawing.Size(565, 25);
             this.bindingNavigator_pageUp.TabIndex = 7;
             this.bindingNavigator_pageUp.Text = "bindingNavigator1";
             this.bindingNavigator_pageUp.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.bdnInfo_ItemClicked);
@@ -213,6 +212,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "位置";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -229,7 +229,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveNextItem.Text = "移到下一条记录";
             this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
             // 
@@ -239,7 +239,7 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveLastItem.Text = "移到最后一条记录";
             // 
             // bindingNavigatorSeparator2
@@ -250,13 +250,14 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(56, 17);
             this.toolStripLabel1.Text = "每页显示";
             // 
             // toolStripTextBox_CountPerPage
             // 
+            this.toolStripTextBox_CountPerPage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox_CountPerPage.Name = "toolStripTextBox_CountPerPage";
-            this.toolStripTextBox_CountPerPage.Size = new System.Drawing.Size(50, 25);
+            this.toolStripTextBox_CountPerPage.Size = new System.Drawing.Size(50, 23);
             this.toolStripTextBox_CountPerPage.Text = "100";
             this.toolStripTextBox_CountPerPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxCountPerPage_KeyDown);
             // 
@@ -266,19 +267,20 @@
             this.toolStripButton_PrePage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_PrePage.Image")));
             this.toolStripButton_PrePage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_PrePage.Name = "toolStripButton_PrePage";
-            this.toolStripButton_PrePage.Size = new System.Drawing.Size(48, 22);
+            this.toolStripButton_PrePage.Size = new System.Drawing.Size(48, 21);
             this.toolStripButton_PrePage.Text = "上一页";
             // 
             // toolStripTextBox_CurrentPage
             // 
+            this.toolStripTextBox_CurrentPage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox_CurrentPage.Name = "toolStripTextBox_CurrentPage";
-            this.toolStripTextBox_CurrentPage.Size = new System.Drawing.Size(50, 25);
+            this.toolStripTextBox_CurrentPage.Size = new System.Drawing.Size(50, 23);
             this.toolStripTextBox_CurrentPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox_CurrentPage_KeyDown);
             // 
             // toolStripLabel_totalPageCount
             // 
             this.toolStripLabel_totalPageCount.Name = "toolStripLabel_totalPageCount";
-            this.toolStripLabel_totalPageCount.Size = new System.Drawing.Size(32, 22);
+            this.toolStripLabel_totalPageCount.Size = new System.Drawing.Size(32, 17);
             this.toolStripLabel_totalPageCount.Text = "/ {0}";
             // 
             // toolStripButton2
@@ -287,13 +289,13 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(48, 22);
+            this.toolStripButton2.Size = new System.Drawing.Size(48, 21);
             this.toolStripButton2.Text = "下一页";
             // 
             // toolStripLabel_totalCount
             // 
             this.toolStripLabel_totalCount.Name = "toolStripLabel_totalCount";
-            this.toolStripLabel_totalCount.Size = new System.Drawing.Size(71, 22);
+            this.toolStripLabel_totalCount.Size = new System.Drawing.Size(71, 17);
             this.toolStripLabel_totalCount.Text = "共{0}条记录";
             // 
             // toolStrip1
@@ -303,15 +305,16 @@
             this.toolStripButton_Export});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1370, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1030, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripButton_close
             // 
+            this.toolStripButton_close.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_close.Image")));
             this.toolStripButton_close.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_close.Name = "toolStripButton_close";
-            this.toolStripButton_close.Size = new System.Drawing.Size(36, 22);
+            this.toolStripButton_close.Size = new System.Drawing.Size(52, 22);
             this.toolStripButton_close.Text = "关闭";
             this.toolStripButton_close.ToolTipText = "关闭";
             this.toolStripButton_close.Click += new System.EventHandler(this.toolStripButton_close_Click);
@@ -338,16 +341,16 @@
             this.groupBox_Filter.Controls.Add(this.textBox_endDate);
             this.groupBox_Filter.Location = new System.Drawing.Point(0, 28);
             this.groupBox_Filter.Name = "groupBox_Filter";
-            this.groupBox_Filter.Size = new System.Drawing.Size(1358, 57);
+            this.groupBox_Filter.Size = new System.Drawing.Size(1018, 83);
             this.groupBox_Filter.TabIndex = 10;
             this.groupBox_Filter.TabStop = false;
-            this.groupBox_Filter.Text = "查询条件";
+            this.groupBox_Filter.Text = "条件";
             // 
             // Form_ReportBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 738);
+            this.ClientSize = new System.Drawing.Size(1030, 738);
             this.Controls.Add(this.groupBox_Filter);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.bindingNavigator_pageUp);

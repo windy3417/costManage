@@ -40,5 +40,10 @@ namespace 成本管理.UI
 
             this.InitDataSet();
         }
+
+        private void Button_confirm_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
