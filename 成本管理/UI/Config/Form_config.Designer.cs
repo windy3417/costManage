@@ -44,6 +44,8 @@
             this.textBox_user = new System.Windows.Forms.TextBox();
             this.textBox_database = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rb_plugConfig = new System.Windows.Forms.RadioButton();
+            this.rb_U8config = new System.Windows.Forms.RadioButton();
             this.button_deleteConfig = new System.Windows.Forms.Button();
             this.textBox_configedDatabase = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonQuit = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.rb_U8config = new System.Windows.Forms.RadioButton();
-            this.rb_plugConfig = new System.Windows.Forms.RadioButton();
             this.tabControl_databaseConfigRead.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -219,6 +219,30 @@
             this.tabPage2.Text = "配置信息";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // rb_plugConfig
+            // 
+            this.rb_plugConfig.AutoSize = true;
+            this.rb_plugConfig.Location = new System.Drawing.Point(183, 43);
+            this.rb_plugConfig.Name = "rb_plugConfig";
+            this.rb_plugConfig.Size = new System.Drawing.Size(107, 16);
+            this.rb_plugConfig.TabIndex = 5;
+            this.rb_plugConfig.Text = "外挂数据库配置";
+            this.rb_plugConfig.UseVisualStyleBackColor = true;
+            this.rb_plugConfig.Click += new System.EventHandler(this.Rb_plugConfig_Click);
+            // 
+            // rb_U8config
+            // 
+            this.rb_U8config.AutoSize = true;
+            this.rb_U8config.Checked = true;
+            this.rb_U8config.Location = new System.Drawing.Point(41, 43);
+            this.rb_U8config.Name = "rb_U8config";
+            this.rb_U8config.Size = new System.Drawing.Size(119, 16);
+            this.rb_U8config.TabIndex = 5;
+            this.rb_U8config.TabStop = true;
+            this.rb_U8config.Text = "U8数据库配置信息";
+            this.rb_U8config.UseVisualStyleBackColor = true;
+            this.rb_U8config.Click += new System.EventHandler(this.Rb_U8config_Click);
+            // 
             // button_deleteConfig
             // 
             this.button_deleteConfig.Location = new System.Drawing.Point(116, 158);
@@ -279,28 +303,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // rb_U8config
-            // 
-            this.rb_U8config.AutoSize = true;
-            this.rb_U8config.Checked = true;
-            this.rb_U8config.Location = new System.Drawing.Point(41, 43);
-            this.rb_U8config.Name = "rb_U8config";
-            this.rb_U8config.Size = new System.Drawing.Size(119, 16);
-            this.rb_U8config.TabIndex = 5;
-            this.rb_U8config.TabStop = true;
-            this.rb_U8config.Text = "U8数据库配置信息";
-            this.rb_U8config.UseVisualStyleBackColor = true;
-            // 
-            // rb_plugConfig
-            // 
-            this.rb_plugConfig.AutoSize = true;
-            this.rb_plugConfig.Location = new System.Drawing.Point(183, 43);
-            this.rb_plugConfig.Name = "rb_plugConfig";
-            this.rb_plugConfig.Size = new System.Drawing.Size(107, 16);
-            this.rb_plugConfig.TabIndex = 5;
-            this.rb_plugConfig.Text = "外挂数据库配置";
-            this.rb_plugConfig.UseVisualStyleBackColor = true;
             // 
             // Form_config
             // 

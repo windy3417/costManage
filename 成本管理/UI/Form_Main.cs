@@ -32,7 +32,7 @@ namespace 成本管理.UI
         public Form_Main()
         {
             InitializeComponent();
-            //初始化状态栏
+            //初始化数据库连接状态栏
             brushtStateStrip();
             //初始化tabControl
 

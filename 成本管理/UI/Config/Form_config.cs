@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using utility;
 using 成本管理.Model;
+using 成本管理.DAL;
 
 namespace 成本管理.UI
 {
@@ -136,35 +137,75 @@ namespace 成本管理.UI
             ConfigurationManager.RefreshSection("connectionStrings");
 
             MessageBox.Show("数据库配置成功", "数据库配置");
+            
             //刷新主窗体状态栏
-
-
-            DataBaseInfo.dataBaseName = this.textBox_database.Text; 
+              DataBaseInfo.dataBaseName = this.textBox_database.Text; 
         }
 
         /// <summary>
-        /// 读取数据库连接信息中的数据库信息
+        /// 默认读取数据库连接信息中的数据库信息
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
    
         private void tabControl_databaseConfigRead_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (ConfigurationManager.ConnectionStrings["myConcetionU8数据库"] != null)
+            this.readDataBase(DBName.u8.ToString());
+        }
+
+
+        /// <summary>
+        /// 选择外挂数据库
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Rb_plugConfig_Click(object sender, EventArgs e)
+        {
+            this.readDataBase(DBName.plug.ToString());
+        }
+
+
+        /// <summary>
+        /// 选择U8数据库
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Rb_U8config_Click(object sender, EventArgs e)
+        {
+            this.readDataBase(DBName.u8.ToString());
+        }
+
+        /// <summary>
+        /// 读取数据库连接信息中的数据库信息
+        /// </summary>
+        /// <param name="dataBaseType">选定U8或外挂数据库，接受DBname的枚举值</param>
+        private void readDataBase(string dataBaseType)
+        {
+             string conectDataBase;
+            if (dataBaseType==DBName.u8.ToString())
             {
-                string conString = ConfigurationManager.ConnectionStrings["myConcetionU8数据库"].ToString();
+                conectDataBase = "myConcetionU8数据库";
+            }
+            else
+            {
+                conectDataBase = "myConcetion外挂数据库";
+            }
+            if (ConfigurationManager.ConnectionStrings[conectDataBase] != null)
+            {
+                string conString = ConfigurationManager.ConnectionStrings[conectDataBase].ToString();
                 string deConString = Encrypt.Decode(conString);
                 int dataBaseIndex = deConString.IndexOf("Catalog=");
                 int UserIndex = deConString.IndexOf(";User");
 
                 textBox_configedDatabase.Text = deConString.Substring(dataBaseIndex + 8, UserIndex - (dataBaseIndex + 8));
-                
+
             }
             else
             {
                 textBox_configedDatabase.Text = "";
             }
         }
+
         /// <summary>
         /// 删除数据库配置信息
         /// </summary>
@@ -172,15 +213,32 @@ namespace 成本管理.UI
         /// <param name="e"></param>
         private void button_deleteConfig_Click(object sender, EventArgs e)
         {
-            if(textBox_configedDatabase.Text!=null)
+            if(textBox_configedDatabase.Text!="")
             {
+                string conectionInformation;
+                if (rb_plugConfig.Checked)
+                {
+                    conectionInformation = "myConcetion外挂数据库";
+                }
+                else
+                {
+                    conectionInformation = "myConcetionU8数据库";
+                }
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                config.ConnectionStrings.ConnectionStrings.Remove("myConcetion");
+                config.ConnectionStrings.ConnectionStrings.Remove(conectionInformation);
                 config.Save(ConfigurationSaveMode.Modified);
                 MessageBox.Show("数据库配置删除成功", "删除提示");
                 ConfigurationManager.RefreshSection("connectionStrings");
                 textBox_configedDatabase.Text = "";
+                //刷新主窗体状态栏
 
+
+                DataBaseInfo.dataBaseName = this.textBox_database.Text;
+
+            }
+            else
+            {
+                MessageBox.Show("没有可删除的数据库连接", "删除提示");
             }
         }
 
@@ -193,6 +251,8 @@ namespace 成本管理.UI
         {
             this.Close();
         }
+
+
     }
     
 }
