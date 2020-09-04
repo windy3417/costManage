@@ -28,19 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_bomMaterial_unitPrice));
             this.cmb_year = new System.Windows.Forms.ComboBox();
             this.lbl_startDate = new System.Windows.Forms.Label();
             this.tsb_caculate = new System.Windows.Forms.ToolStripButton();
-            this.tbd_startDate = new U8Common.UControl.TextBoxWithDate();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_caculater = new System.Windows.Forms.ToolStripButton();
             this.tsb_save = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
             this.dgv_bomMaterialUnit = new System.Windows.Forms.DataGridView();
-            this.tbd_endDate = new U8Common.UControl.TextBoxWithDate();
             this.lbl_endDate = new System.Windows.Forms.Label();
             this.lbl_year = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bomMaterialUnit)).BeginInit();
             this.SuspendLayout();
@@ -72,13 +76,6 @@
             this.tsb_caculate.Name = "tsb_caculate";
             this.tsb_caculate.Size = new System.Drawing.Size(52, 22);
             this.tsb_caculate.Text = "计算";
-            // 
-            // tbd_startDate
-            // 
-            this.tbd_startDate.Location = new System.Drawing.Point(372, 48);
-            this.tbd_startDate.Name = "tbd_startDate";
-            this.tbd_startDate.Size = new System.Drawing.Size(125, 21);
-            this.tbd_startDate.TabIndex = 5;
             // 
             // toolStrip1
             // 
@@ -133,13 +130,6 @@
             this.dgv_bomMaterialUnit.Size = new System.Drawing.Size(1041, 309);
             this.dgv_bomMaterialUnit.TabIndex = 7;
             // 
-            // tbd_endDate
-            // 
-            this.tbd_endDate.Location = new System.Drawing.Point(681, 48);
-            this.tbd_endDate.Name = "tbd_endDate";
-            this.tbd_endDate.Size = new System.Drawing.Size(125, 21);
-            this.tbd_endDate.TabIndex = 5;
-            // 
             // lbl_endDate
             // 
             this.lbl_endDate.AutoSize = true;
@@ -158,15 +148,44 @@
             this.lbl_year.TabIndex = 4;
             this.lbl_year.Text = "会计年度：";
             // 
+            // dtp_startDate
+            // 
+            this.dtp_startDate.Location = new System.Drawing.Point(363, 49);
+            this.dtp_startDate.Name = "dtp_startDate";
+            this.dtp_startDate.Size = new System.Drawing.Size(138, 21);
+            this.dtp_startDate.TabIndex = 8;
+            // 
+            // dtp_endDate
+            // 
+            this.dtp_endDate.Location = new System.Drawing.Point(672, 49);
+            this.dtp_endDate.Name = "dtp_endDate";
+            this.dtp_endDate.Size = new System.Drawing.Size(138, 21);
+            this.dtp_endDate.TabIndex = 8;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(462, 256);
+            this.progressBar1.Maximum = 10;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(120, 23);
+            this.progressBar1.Step = 2;
+            this.progressBar1.TabIndex = 9;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker1_RunWorkerCompleted);
+            // 
             // frm_bomMaterial_unitPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 450);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.dtp_endDate);
+            this.Controls.Add(this.dtp_startDate);
             this.Controls.Add(this.dgv_bomMaterialUnit);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.tbd_endDate);
-            this.Controls.Add(this.tbd_startDate);
             this.Controls.Add(this.lbl_year);
             this.Controls.Add(this.lbl_endDate);
             this.Controls.Add(this.lbl_startDate);
@@ -185,14 +204,17 @@
         private System.Windows.Forms.ComboBox cmb_year;
         private System.Windows.Forms.Label lbl_startDate;
         private System.Windows.Forms.ToolStripButton tsb_caculate;
-        private U8Common.UControl.TextBoxWithDate tbd_startDate;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsb_caculater;
         private System.Windows.Forms.ToolStripButton tsb_save;
         private System.Windows.Forms.ToolStripButton tsb_close;
         private System.Windows.Forms.DataGridView dgv_bomMaterialUnit;
-        private U8Common.UControl.TextBoxWithDate tbd_endDate;
         private System.Windows.Forms.Label lbl_endDate;
         private System.Windows.Forms.Label lbl_year;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DateTimePicker dtp_startDate;
+        private System.Windows.Forms.DateTimePicker dtp_endDate;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

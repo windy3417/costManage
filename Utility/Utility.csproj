@@ -61,9 +61,18 @@
     <Compile Include="Form_ImageFormatConvert.Designer.cs">
       <DependentUpon>Form_ImageFormatConvert.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_progressMemtion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_progressMemtion.Designer.cs">
+      <DependentUpon>Frm_progressMemtion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_ImageFormatConvert.resx">
       <DependentUpon>Form_ImageFormatConvert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_progressMemtion.resx">
+      <DependentUpon>Frm_progressMemtion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
