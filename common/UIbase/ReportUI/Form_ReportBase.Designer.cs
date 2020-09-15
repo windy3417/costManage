@@ -118,6 +118,7 @@
             this.button_confirm.TabIndex = 3;
             this.button_confirm.Text = "查询";
             this.button_confirm.UseVisualStyleBackColor = true;
+        
             // 
             // textBox_startDate
             // 
@@ -229,7 +230,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "移到下一条记录";
             this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
             // 
@@ -239,7 +240,7 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "移到最后一条记录";
             // 
             // bindingNavigatorSeparator2
@@ -250,14 +251,14 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(56, 17);
+            this.toolStripLabel1.Size = new System.Drawing.Size(56, 22);
             this.toolStripLabel1.Text = "每页显示";
             // 
             // toolStripTextBox_CountPerPage
             // 
             this.toolStripTextBox_CountPerPage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox_CountPerPage.Name = "toolStripTextBox_CountPerPage";
-            this.toolStripTextBox_CountPerPage.Size = new System.Drawing.Size(50, 23);
+            this.toolStripTextBox_CountPerPage.Size = new System.Drawing.Size(50, 25);
             this.toolStripTextBox_CountPerPage.Text = "100";
             this.toolStripTextBox_CountPerPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxCountPerPage_KeyDown);
             // 
@@ -267,20 +268,20 @@
             this.toolStripButton_PrePage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_PrePage.Image")));
             this.toolStripButton_PrePage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_PrePage.Name = "toolStripButton_PrePage";
-            this.toolStripButton_PrePage.Size = new System.Drawing.Size(48, 21);
+            this.toolStripButton_PrePage.Size = new System.Drawing.Size(48, 22);
             this.toolStripButton_PrePage.Text = "上一页";
             // 
             // toolStripTextBox_CurrentPage
             // 
             this.toolStripTextBox_CurrentPage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox_CurrentPage.Name = "toolStripTextBox_CurrentPage";
-            this.toolStripTextBox_CurrentPage.Size = new System.Drawing.Size(50, 23);
+            this.toolStripTextBox_CurrentPage.Size = new System.Drawing.Size(50, 25);
             this.toolStripTextBox_CurrentPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox_CurrentPage_KeyDown);
             // 
             // toolStripLabel_totalPageCount
             // 
             this.toolStripLabel_totalPageCount.Name = "toolStripLabel_totalPageCount";
-            this.toolStripLabel_totalPageCount.Size = new System.Drawing.Size(32, 17);
+            this.toolStripLabel_totalPageCount.Size = new System.Drawing.Size(32, 22);
             this.toolStripLabel_totalPageCount.Text = "/ {0}";
             // 
             // toolStripButton2
@@ -289,13 +290,13 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(48, 21);
+            this.toolStripButton2.Size = new System.Drawing.Size(48, 22);
             this.toolStripButton2.Text = "下一页";
             // 
             // toolStripLabel_totalCount
             // 
             this.toolStripLabel_totalCount.Name = "toolStripLabel_totalCount";
-            this.toolStripLabel_totalCount.Size = new System.Drawing.Size(71, 17);
+            this.toolStripLabel_totalCount.Size = new System.Drawing.Size(71, 22);
             this.toolStripLabel_totalCount.Text = "共{0}条记录";
             // 
             // toolStrip1

@@ -1,4 +1,4 @@
-﻿namespace 成本管理.UI.cost
+﻿namespace 成本管理.UI.Cost
 {
     partial class frm_bomMaterial_unitPrice
     {
@@ -30,44 +30,29 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_bomMaterial_unitPrice));
-            this.cmb_year = new System.Windows.Forms.ComboBox();
-            this.lbl_startDate = new System.Windows.Forms.Label();
             this.tsb_caculate = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_caculater = new System.Windows.Forms.ToolStripButton();
             this.tsb_save = new System.Windows.Forms.ToolStripButton();
+            this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
             this.dgv_bomMaterialUnit = new System.Windows.Forms.DataGridView();
-            this.lbl_endDate = new System.Windows.Forms.Label();
-            this.lbl_year = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
-            this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.gp_condition = new System.Windows.Forms.GroupBox();
+            this.txt_voucherNO = new System.Windows.Forms.TextBox();
+            this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
+            this.lbl_vocherNO = new System.Windows.Forms.Label();
+            this.lbl_year = new System.Windows.Forms.Label();
+            this.lbl_endDate = new System.Windows.Forms.Label();
+            this.lbl_startDate = new System.Windows.Forms.Label();
+            this.cmb_year = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bomMaterialUnit)).BeginInit();
+            this.gp_condition.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cmb_year
-            // 
-            this.cmb_year.FormattingEnabled = true;
-            this.cmb_year.Items.AddRange(new object[] {
-            "2020",
-            "2021"});
-            this.cmb_year.Location = new System.Drawing.Point(101, 50);
-            this.cmb_year.Name = "cmb_year";
-            this.cmb_year.Size = new System.Drawing.Size(121, 20);
-            this.cmb_year.TabIndex = 2;
-            // 
-            // lbl_startDate
-            // 
-            this.lbl_startDate.AutoSize = true;
-            this.lbl_startDate.Location = new System.Drawing.Point(301, 53);
-            this.lbl_startDate.Name = "lbl_startDate";
-            this.lbl_startDate.Size = new System.Drawing.Size(65, 12);
-            this.lbl_startDate.TabIndex = 4;
-            this.lbl_startDate.Text = "开始日期：";
             // 
             // tsb_caculate
             // 
@@ -82,6 +67,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsb_caculater,
             this.tsb_save,
+            this.tsb_delete,
             this.tsb_close});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -107,6 +93,16 @@
             this.tsb_save.Name = "tsb_save";
             this.tsb_save.Size = new System.Drawing.Size(23, 22);
             this.tsb_save.Text = "保存";
+            this.tsb_save.Click += new System.EventHandler(this.Tsb_save_Click);
+            // 
+            // tsb_delete
+            // 
+            this.tsb_delete.Image = global::成本管理.Properties.Resources.delete;
+            this.tsb_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_delete.Name = "tsb_delete";
+            this.tsb_delete.Size = new System.Drawing.Size(52, 22);
+            this.tsb_delete.Text = "删除";
+            this.tsb_delete.Click += new System.EventHandler(this.tsb_delete_Click);
             // 
             // tsb_close
             // 
@@ -130,38 +126,6 @@
             this.dgv_bomMaterialUnit.Size = new System.Drawing.Size(1041, 309);
             this.dgv_bomMaterialUnit.TabIndex = 7;
             // 
-            // lbl_endDate
-            // 
-            this.lbl_endDate.AutoSize = true;
-            this.lbl_endDate.Location = new System.Drawing.Point(610, 53);
-            this.lbl_endDate.Name = "lbl_endDate";
-            this.lbl_endDate.Size = new System.Drawing.Size(65, 12);
-            this.lbl_endDate.TabIndex = 4;
-            this.lbl_endDate.Text = "结束日期：";
-            // 
-            // lbl_year
-            // 
-            this.lbl_year.AutoSize = true;
-            this.lbl_year.Location = new System.Drawing.Point(30, 53);
-            this.lbl_year.Name = "lbl_year";
-            this.lbl_year.Size = new System.Drawing.Size(65, 12);
-            this.lbl_year.TabIndex = 4;
-            this.lbl_year.Text = "会计年度：";
-            // 
-            // dtp_startDate
-            // 
-            this.dtp_startDate.Location = new System.Drawing.Point(363, 49);
-            this.dtp_startDate.Name = "dtp_startDate";
-            this.dtp_startDate.Size = new System.Drawing.Size(138, 21);
-            this.dtp_startDate.TabIndex = 8;
-            // 
-            // dtp_endDate
-            // 
-            this.dtp_endDate.Location = new System.Drawing.Point(672, 49);
-            this.dtp_endDate.Name = "dtp_endDate";
-            this.dtp_endDate.Size = new System.Drawing.Size(138, 21);
-            this.dtp_endDate.TabIndex = 8;
-            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(462, 256);
@@ -176,45 +140,138 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker1_RunWorkerCompleted);
             // 
+            // gp_condition
+            // 
+            this.gp_condition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gp_condition.Controls.Add(this.txt_voucherNO);
+            this.gp_condition.Controls.Add(this.dtp_endDate);
+            this.gp_condition.Controls.Add(this.dtp_startDate);
+            this.gp_condition.Controls.Add(this.lbl_vocherNO);
+            this.gp_condition.Controls.Add(this.lbl_year);
+            this.gp_condition.Controls.Add(this.lbl_endDate);
+            this.gp_condition.Controls.Add(this.lbl_startDate);
+            this.gp_condition.Controls.Add(this.cmb_year);
+            this.gp_condition.Location = new System.Drawing.Point(12, 28);
+            this.gp_condition.Name = "gp_condition";
+            this.gp_condition.Size = new System.Drawing.Size(1041, 86);
+            this.gp_condition.TabIndex = 11;
+            this.gp_condition.TabStop = false;
+            this.gp_condition.Text = "条件";
+            // 
+            // txt_voucherNO
+            // 
+            this.txt_voucherNO.Location = new System.Drawing.Point(159, 33);
+            this.txt_voucherNO.Name = "txt_voucherNO";
+            this.txt_voucherNO.Size = new System.Drawing.Size(100, 21);
+            this.txt_voucherNO.TabIndex = 34;
+            this.txt_voucherNO.Tag = "单据编号";
+            // 
+            // dtp_endDate
+            // 
+            this.dtp_endDate.Location = new System.Drawing.Point(828, 33);
+            this.dtp_endDate.Name = "dtp_endDate";
+            this.dtp_endDate.Size = new System.Drawing.Size(138, 21);
+            this.dtp_endDate.TabIndex = 32;
+            this.dtp_endDate.Tag = "结束日期";
+            this.dtp_endDate.ValueChanged += new System.EventHandler(this.Dtp_endDate_ValueChanged);
+            // 
+            // dtp_startDate
+            // 
+            this.dtp_startDate.Location = new System.Drawing.Point(599, 33);
+            this.dtp_startDate.Name = "dtp_startDate";
+            this.dtp_startDate.Size = new System.Drawing.Size(138, 21);
+            this.dtp_startDate.TabIndex = 33;
+            this.dtp_startDate.Tag = "开始日期";
+            // 
+            // lbl_vocherNO
+            // 
+            this.lbl_vocherNO.AutoSize = true;
+            this.lbl_vocherNO.Location = new System.Drawing.Point(75, 36);
+            this.lbl_vocherNO.Name = "lbl_vocherNO";
+            this.lbl_vocherNO.Size = new System.Drawing.Size(65, 12);
+            this.lbl_vocherNO.TabIndex = 28;
+            this.lbl_vocherNO.Text = "单据编号：";
+            // 
+            // lbl_year
+            // 
+            this.lbl_year.AutoSize = true;
+            this.lbl_year.Location = new System.Drawing.Point(316, 36);
+            this.lbl_year.Name = "lbl_year";
+            this.lbl_year.Size = new System.Drawing.Size(65, 12);
+            this.lbl_year.TabIndex = 29;
+            this.lbl_year.Text = "会计年度：";
+            // 
+            // lbl_endDate
+            // 
+            this.lbl_endDate.AutoSize = true;
+            this.lbl_endDate.Location = new System.Drawing.Point(766, 36);
+            this.lbl_endDate.Name = "lbl_endDate";
+            this.lbl_endDate.Size = new System.Drawing.Size(65, 12);
+            this.lbl_endDate.TabIndex = 30;
+            this.lbl_endDate.Text = "结束日期：";
+            // 
+            // lbl_startDate
+            // 
+            this.lbl_startDate.AutoSize = true;
+            this.lbl_startDate.Location = new System.Drawing.Point(537, 36);
+            this.lbl_startDate.Name = "lbl_startDate";
+            this.lbl_startDate.Size = new System.Drawing.Size(65, 12);
+            this.lbl_startDate.TabIndex = 31;
+            this.lbl_startDate.Text = "开始日期：";
+            // 
+            // cmb_year
+            // 
+            this.cmb_year.FormattingEnabled = true;
+            this.cmb_year.Items.AddRange(new object[] {
+            "2020",
+            "2021"});
+            this.cmb_year.Location = new System.Drawing.Point(387, 34);
+            this.cmb_year.Name = "cmb_year";
+            this.cmb_year.Size = new System.Drawing.Size(100, 20);
+            this.cmb_year.TabIndex = 27;
+            this.cmb_year.Tag = "会计年度";
+            // 
             // frm_bomMaterial_unitPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 450);
+            this.Controls.Add(this.gp_condition);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.dtp_endDate);
-            this.Controls.Add(this.dtp_startDate);
             this.Controls.Add(this.dgv_bomMaterialUnit);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.lbl_year);
-            this.Controls.Add(this.lbl_endDate);
-            this.Controls.Add(this.lbl_startDate);
-            this.Controls.Add(this.cmb_year);
             this.Name = "frm_bomMaterial_unitPrice";
             this.Text = "BOM材料单价";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bomMaterialUnit)).EndInit();
+            this.gp_condition.ResumeLayout(false);
+            this.gp_condition.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cmb_year;
-        private System.Windows.Forms.Label lbl_startDate;
         private System.Windows.Forms.ToolStripButton tsb_caculate;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsb_caculater;
         private System.Windows.Forms.ToolStripButton tsb_save;
         private System.Windows.Forms.ToolStripButton tsb_close;
         private System.Windows.Forms.DataGridView dgv_bomMaterialUnit;
-        private System.Windows.Forms.Label lbl_endDate;
-        private System.Windows.Forms.Label lbl_year;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.DateTimePicker dtp_startDate;
-        private System.Windows.Forms.DateTimePicker dtp_endDate;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ToolStripButton tsb_delete;
+        private System.Windows.Forms.GroupBox gp_condition;
+        private System.Windows.Forms.TextBox txt_voucherNO;
+        private System.Windows.Forms.DateTimePicker dtp_endDate;
+        private System.Windows.Forms.DateTimePicker dtp_startDate;
+        private System.Windows.Forms.Label lbl_vocherNO;
+        private System.Windows.Forms.Label lbl_year;
+        private System.Windows.Forms.Label lbl_endDate;
+        private System.Windows.Forms.Label lbl_startDate;
+        private System.Windows.Forms.ComboBox cmb_year;
     }
 }

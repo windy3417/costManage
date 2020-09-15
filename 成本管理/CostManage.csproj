@@ -95,6 +95,21 @@
     <Compile Include="BLL\PurchasingOrdersManage.cs" />
     <Compile Include="DAL\conectionString.cs" />
     <Compile Include="DAL\DBname.cs" />
+    <Compile Include="DAL\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Reports\InspectItemService.cs" />
     <Compile Include="DAL\Reports\MaterialsOutSheetService.cs" />
     <Compile Include="DAL\Reports\ProductionOrdersService.cs" />
@@ -106,6 +121,12 @@
     <Compile Include="DAL\sheets\WareHouseService.cs" />
     <Compile Include="DAL\SQLcommand.cs" />
     <Compile Include="DAL\sqlHelper.cs" />
+    <Compile Include="DAL\xm_plug_t_materailUnitPrice_main.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\xm_plug_t_materialUnitPice.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CH001_0001_E001.cs">
       <DependentUpon>productUnitHeader.tt</DependentUpon>
     </Compile>
@@ -116,10 +137,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource_ximai.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\cost\frm_bomMaterial_unitPrice.cs">
+    <Compile Include="UI\Cost\frm_bomMaterial_unitPrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\cost\frm_bomMaterial_unitPrice.Designer.cs">
+    <Compile Include="UI\Cost\frm_bomMaterial_unitPrice.Designer.cs">
       <DependentUpon>frm_bomMaterial_unitPrice.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\dataImport\Frm_unitCost.cs">
@@ -193,16 +214,16 @@
     <Compile Include="UI\Form_SheetTest.Designer.cs">
       <DependentUpon>Form_SheetTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\cost\Form_WriteCostObject.cs">
+    <Compile Include="UI\Cost\Form_WriteCostObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\cost\Form_WriteCostObject.Designer.cs">
+    <Compile Include="UI\Cost\Form_WriteCostObject.Designer.cs">
       <DependentUpon>Form_WriteCostObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\cost\Form_InspectItem.cs">
+    <Compile Include="UI\Cost\Form_InspectItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\cost\Form_InspectItem.Designer.cs">
+    <Compile Include="UI\Cost\Form_InspectItem.Designer.cs">
       <DependentUpon>Form_InspectItem.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ProductionManage\Form_MaterialsOut.cs">
@@ -233,7 +254,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource_ximai.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\cost\frm_bomMaterial_unitPrice.resx">
+    <EmbeddedResource Include="UI\Cost\frm_bomMaterial_unitPrice.resx">
       <DependentUpon>frm_bomMaterial_unitPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\dataImport\Frm_unitCost.resx">
@@ -264,10 +285,10 @@
     <EmbeddedResource Include="UI\ProductionManage\Form_ProductionOrders.resx">
       <DependentUpon>Form_ProductionOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\cost\Form_WriteCostObject.resx">
+    <EmbeddedResource Include="UI\Cost\Form_WriteCostObject.resx">
       <DependentUpon>Form_WriteCostObject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\cost\Form_InspectItem.resx">
+    <EmbeddedResource Include="UI\Cost\Form_InspectItem.resx">
       <DependentUpon>Form_InspectItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ProductionManage\Form_MaterialsOut.resx">
@@ -291,6 +312,13 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <EntityDeploy Include="DAL\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <EntityDeploy Include="Model\productUnitHeader.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -308,6 +336,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="DAL\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="InstallationEnvironment.txt" />
     <Content Include="Resources\abandon.png" />
     <Content Include="Resources\account.gif" />

@@ -157,12 +157,11 @@
             // 
             // tsb_delete
             // 
-            this.tsb_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsb_delete.Image = ((System.Drawing.Image)(resources.GetObject("tsb_delete.Image")));
             this.tsb_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_delete.Name = "tsb_delete";
-            this.tsb_delete.Size = new System.Drawing.Size(23, 22);
-            this.tsb_delete.Text = "toolStripButton2";
+            this.tsb_delete.Size = new System.Drawing.Size(52, 22);
+            this.tsb_delete.Text = "删除";
             this.tsb_delete.Click += new System.EventHandler(this.tsb_delete_Click);
             // 
             // toolStripButtonQuit

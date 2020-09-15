@@ -145,7 +145,6 @@ namespace 成本管理.UI
         /// 数据保存到数据库
         /// </summary>
 
-
         private void dataImport()
         {
                                   
@@ -277,7 +276,6 @@ namespace 成本管理.UI
         }
 
         #endregion
-
 
 
         private void toolStripButtonQuit_Click(object sender, EventArgs e)

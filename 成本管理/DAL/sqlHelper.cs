@@ -181,6 +181,7 @@ namespace 成本管理.DAL
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = StoredProcedureName;
+                    cmd.CommandTimeout = 60;
                     foreach (SqlParameter p in parameters)
                     {
                         cmd.Parameters.Add(p);
@@ -188,6 +189,7 @@ namespace 成本管理.DAL
                     DataSet ds = new DataSet();
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
+                        
                         adapter.Fill(ds);
                         return ds.Tables[0];
                     }

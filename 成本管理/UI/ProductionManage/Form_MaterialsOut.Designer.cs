@@ -58,10 +58,10 @@
             this.toolStripLabel_totalCount = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_Export = new System.Windows.Forms.ToolStripButton();
             this.comboBox_WareHouseCode = new System.Windows.Forms.ComboBox();
             this.groupBox_Filter = new System.Windows.Forms.GroupBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.toolStripButton_Export = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MaterialsOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_pageUp)).BeginInit();
             this.bindingNavigator_pageUp.SuspendLayout();
@@ -221,6 +221,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "位置";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -263,6 +264,7 @@
             // 
             // toolStripTextBox_CountPerPage
             // 
+            this.toolStripTextBox_CountPerPage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox_CountPerPage.Name = "toolStripTextBox_CountPerPage";
             this.toolStripTextBox_CountPerPage.Size = new System.Drawing.Size(50, 25);
             this.toolStripTextBox_CountPerPage.Text = "100";
@@ -279,6 +281,7 @@
             // 
             // toolStripTextBox_CurrentPage
             // 
+            this.toolStripTextBox_CurrentPage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox_CurrentPage.Name = "toolStripTextBox_CurrentPage";
             this.toolStripTextBox_CurrentPage.Size = new System.Drawing.Size(50, 25);
             this.toolStripTextBox_CurrentPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox_CurrentPage_KeyDown);
@@ -317,13 +320,21 @@
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::成本管理.Properties.Resources.icon_quit;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(52, 22);
             this.toolStripButton1.Text = "退出";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton_Export
+            // 
+            this.toolStripButton_Export.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Export.Image")));
+            this.toolStripButton_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Export.Name = "toolStripButton_Export";
+            this.toolStripButton_Export.Size = new System.Drawing.Size(52, 22);
+            this.toolStripButton_Export.Text = "导出";
+            this.toolStripButton_Export.Click += new System.EventHandler(this.toolStrip_Export_Click);
             // 
             // comboBox_WareHouseCode
             // 
@@ -352,15 +363,6 @@
             this.groupBox_Filter.TabIndex = 10;
             this.groupBox_Filter.TabStop = false;
             this.groupBox_Filter.Text = "查询条件";
-            // 
-            // toolStripButton_Export
-            // 
-            this.toolStripButton_Export.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Export.Image")));
-            this.toolStripButton_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Export.Name = "toolStripButton_Export";
-            this.toolStripButton_Export.Size = new System.Drawing.Size(52, 22);
-            this.toolStripButton_Export.Text = "导出";
-            this.toolStripButton_Export.Click += new System.EventHandler(this.toolStrip_Export_Click);
             // 
             // Form_MaterialsOut
             // 

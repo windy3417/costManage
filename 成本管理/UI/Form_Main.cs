@@ -18,7 +18,7 @@ using 成本管理.UI.saleManage;
 using System.Configuration;
 
 using 成本管理.Model;
-using 成本管理.UI.cost;
+using 成本管理.UI.Cost;
 using Utility;
 
 namespace 成本管理.UI
