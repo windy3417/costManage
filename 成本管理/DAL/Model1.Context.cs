@@ -27,5 +27,6 @@ namespace 成本管理.DAL
     
         public virtual DbSet<xm_plug_t_materailUnitPrice_main> xm_plug_t_materailUnitPrice_main { get; set; }
         public virtual DbSet<xm_plug_t_materialUnitPice> xm_plug_t_materialUnitPice { get; set; }
+        public virtual DbSet<xm_plug_v_historyPriceForFisrtRecord> xm_plug_v_historyPriceForFisrtRecord { get; set; }
     }
 }

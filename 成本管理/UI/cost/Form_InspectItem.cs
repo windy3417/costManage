@@ -41,7 +41,7 @@ namespace 成本管理.UI
         private void button_inspect_Click(object sender, EventArgs e)
         {
             SqlCommand comm = new SqlCommand();
-            comm.Connection = conectiongString.creatConection_myConcetion();
+            comm.Connection = ConectiongString.creatConection_myConcetion();
             comm.CommandText = "select a.InvCode as BOM母件编码 ,i.cInvName as BOM母件名称, i.cInvStd as BOM母件规格型号, f.citemcode as 成本对象编码 " +
 "from bom_parent as o " +
 

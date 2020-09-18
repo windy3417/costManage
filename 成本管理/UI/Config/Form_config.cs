@@ -139,7 +139,13 @@ namespace 成本管理.UI
             MessageBox.Show("数据库配置成功", "数据库配置");
             
             //刷新主窗体状态栏
-              DataBaseInfo.dataBaseName = this.textBox_database.Text; 
+              DataBaseInfo.dataBaseName = this.textBox_database.Text;
+
+            //清空配置信息
+            foreach (Control item in tlp_config.Controls)
+            {
+                item.Text = "";
+            }
         }
 
         /// <summary>

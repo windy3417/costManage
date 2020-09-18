@@ -59,7 +59,7 @@ namespace 成本管理.DAL
         public static SqlDataReader GetSqlDataReader(string strSql, SqlParameter[] parameters)
         {
 
-            SqlConnection conn = conectiongString.creatConection_myConcetion();
+            SqlConnection conn = ConectiongString.creatConection_myConcetion();
             
                 conn.Open();
 
@@ -90,7 +90,7 @@ namespace 成本管理.DAL
         public static SqlDataReader GetSqlDataReader(string strSql)
         {
 
-            SqlConnection conn = conectiongString.creatConection_myConcetion();
+            SqlConnection conn = ConectiongString.creatConection_myConcetion();
 
             conn.Open();
 
@@ -118,7 +118,7 @@ namespace 成本管理.DAL
         /// <returns>返回一张查询结果表</returns> 
         public static DataTable GetDataTableWithParameters(string strSql, params SqlParameter[] parameters)
         {
-            using (SqlConnection conn =conectiongString.creatConection_myConcetion())
+            using (SqlConnection conn =ConectiongString.creatConection_myConcetion())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
@@ -147,7 +147,7 @@ namespace 成本管理.DAL
         /// <returns>返回一张查询结果表</returns> 
         public static DataTable GetDataTable(string strSql,DBName dbName)
         {
-            using (SqlConnection conn = conectiongString.creatConection(dbName))
+            using (SqlConnection conn = ConectiongString.creatConection(dbName))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
@@ -173,7 +173,7 @@ namespace 成本管理.DAL
         /// <param name="dBName">U8数据库或外挂数据库名，取值DBname的枚举值</param>
         public static DataTable ExecuteProc(string StoredProcedureName, SqlParameter[] parameters,DBName dBName)
         {
-            using (SqlConnection conn = conectiongString.creatConection(dBName))
+            using (SqlConnection conn = ConectiongString.creatConection(dBName))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
@@ -203,7 +203,7 @@ namespace 成本管理.DAL
         /// <param name="SQLstring"></param>
         public static void UpdateNOparameters(string SQLstring)
         {
-            using (SqlConnection conn = conectiongString.creatConection_myConcetion())
+            using (SqlConnection conn = ConectiongString.creatConection_myConcetion())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
@@ -223,7 +223,7 @@ namespace 成本管理.DAL
         /// <param name="parameters"></param> 
         public static void ExecuteNonQuery( string strSql, params SqlParameter[] parameters)
         {
-            using (SqlConnection conn = conectiongString.creatConection_myConcetion())
+            using (SqlConnection conn = ConectiongString.creatConection_myConcetion())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())

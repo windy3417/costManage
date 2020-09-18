@@ -84,7 +84,7 @@ namespace 成本管理.UI
             SqlDataAdapter da = new SqlDataAdapter();
            
 
-            comm.Connection = conectiongString.creatConection_manage();
+            comm.Connection = ConectiongString.creatConection_manage();
             comm.CommandText = "SELECT CH001_0001_E001_F010,CH001_0001_E001_F011 FROM CH001_0001_E001 where CH001_0001_E001_F010=" + "'" + comboBox1.Text + "'" + "and CH001_0001_E001_F011=" + "'" + comboBox2.Text + "'";
                 
             comm.Connection.Open();
@@ -136,7 +136,7 @@ namespace 成本管理.UI
 
             SqlCommand comm = new SqlCommand();
 
-            comm.Connection = conectiongString.creatConection_manage();
+            comm.Connection = ConectiongString.creatConection_manage();
             comm.Connection.Open();
             //
             //表头数据导入

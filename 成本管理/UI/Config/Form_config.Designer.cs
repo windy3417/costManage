@@ -53,11 +53,13 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonQuit = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tlp_config = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl_databaseConfigRead.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPageQuit.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.tlp_config.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_databaseConfigRead
@@ -76,18 +78,15 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.tlp_config);
+            this.tabPage1.Controls.Add(this.label_server);
+            this.tabPage1.Controls.Add(this.label_user);
+            this.tabPage1.Controls.Add(this.label_password);
+            this.tabPage1.Controls.Add(this.label_database);
             this.tabPage1.Controls.Add(this.rb_plug);
             this.tabPage1.Controls.Add(this.rb_u8);
             this.tabPage1.Controls.Add(this.button_confirm);
             this.tabPage1.Controls.Add(this.button_testConect);
-            this.tabPage1.Controls.Add(this.textBox_server);
-            this.tabPage1.Controls.Add(this.label_server);
-            this.tabPage1.Controls.Add(this.textBox_password);
-            this.tabPage1.Controls.Add(this.label_password);
-            this.tabPage1.Controls.Add(this.label_database);
-            this.tabPage1.Controls.Add(this.label_user);
-            this.tabPage1.Controls.Add(this.textBox_user);
-            this.tabPage1.Controls.Add(this.textBox_database);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -99,7 +98,7 @@
             // rb_plug
             // 
             this.rb_plug.AutoSize = true;
-            this.rb_plug.Location = new System.Drawing.Point(222, 24);
+            this.rb_plug.Location = new System.Drawing.Point(266, 24);
             this.rb_plug.Name = "rb_plug";
             this.rb_plug.Size = new System.Drawing.Size(83, 16);
             this.rb_plug.TabIndex = 12;
@@ -111,7 +110,7 @@
             // 
             this.rb_u8.AutoSize = true;
             this.rb_u8.Checked = true;
-            this.rb_u8.Location = new System.Drawing.Point(83, 24);
+            this.rb_u8.Location = new System.Drawing.Point(127, 24);
             this.rb_u8.Name = "rb_u8";
             this.rb_u8.Size = new System.Drawing.Size(71, 16);
             this.rb_u8.TabIndex = 12;
@@ -141,67 +140,75 @@
             // 
             // textBox_server
             // 
-            this.textBox_server.Location = new System.Drawing.Point(187, 59);
+            this.textBox_server.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_server.Location = new System.Drawing.Point(3, 3);
             this.textBox_server.Name = "textBox_server";
-            this.textBox_server.Size = new System.Drawing.Size(100, 21);
+            this.textBox_server.Size = new System.Drawing.Size(245, 21);
             this.textBox_server.TabIndex = 1;
             // 
             // label_server
             // 
+            this.label_server.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_server.AutoSize = true;
-            this.label_server.Location = new System.Drawing.Point(127, 68);
+            this.label_server.Location = new System.Drawing.Point(36, 76);
             this.label_server.Name = "label_server";
-            this.label_server.Size = new System.Drawing.Size(41, 12);
+            this.label_server.Size = new System.Drawing.Size(53, 12);
             this.label_server.TabIndex = 11;
-            this.label_server.Text = "服务器";
+            this.label_server.Text = "服务器：";
             // 
             // textBox_password
             // 
-            this.textBox_password.Location = new System.Drawing.Point(187, 162);
+            this.textBox_password.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_password.Location = new System.Drawing.Point(3, 90);
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.PasswordChar = '*';
-            this.textBox_password.Size = new System.Drawing.Size(100, 21);
+            this.textBox_password.Size = new System.Drawing.Size(245, 21);
             this.textBox_password.TabIndex = 4;
             // 
             // label_password
             // 
+            this.label_password.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_password.AutoSize = true;
-            this.label_password.Location = new System.Drawing.Point(127, 162);
+            this.label_password.Location = new System.Drawing.Point(36, 169);
             this.label_password.Name = "label_password";
-            this.label_password.Size = new System.Drawing.Size(29, 12);
+            this.label_password.Size = new System.Drawing.Size(41, 12);
             this.label_password.TabIndex = 8;
-            this.label_password.Text = "密码";
+            this.label_password.Text = "密码：";
             // 
             // label_database
             // 
+            this.label_database.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_database.AutoSize = true;
-            this.label_database.Location = new System.Drawing.Point(127, 95);
+            this.label_database.Location = new System.Drawing.Point(36, 105);
             this.label_database.Name = "label_database";
-            this.label_database.Size = new System.Drawing.Size(41, 12);
+            this.label_database.Size = new System.Drawing.Size(53, 12);
             this.label_database.TabIndex = 10;
-            this.label_database.Text = "数据库";
+            this.label_database.Text = "数据库：";
             // 
             // label_user
             // 
+            this.label_user.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_user.AutoSize = true;
-            this.label_user.Location = new System.Drawing.Point(127, 131);
+            this.label_user.Location = new System.Drawing.Point(36, 134);
             this.label_user.Name = "label_user";
-            this.label_user.Size = new System.Drawing.Size(41, 12);
+            this.label_user.Size = new System.Drawing.Size(53, 12);
             this.label_user.TabIndex = 9;
-            this.label_user.Text = "用户名";
+            this.label_user.Text = "用户名：";
             // 
             // textBox_user
             // 
-            this.textBox_user.Location = new System.Drawing.Point(187, 128);
+            this.textBox_user.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_user.Location = new System.Drawing.Point(3, 61);
             this.textBox_user.Name = "textBox_user";
-            this.textBox_user.Size = new System.Drawing.Size(100, 21);
+            this.textBox_user.Size = new System.Drawing.Size(245, 21);
             this.textBox_user.TabIndex = 3;
             // 
             // textBox_database
             // 
-            this.textBox_database.Location = new System.Drawing.Point(187, 92);
+            this.textBox_database.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_database.Location = new System.Drawing.Point(3, 32);
             this.textBox_database.Name = "textBox_database";
-            this.textBox_database.Size = new System.Drawing.Size(100, 21);
+            this.textBox_database.Size = new System.Drawing.Size(245, 21);
             this.textBox_database.TabIndex = 2;
             // 
             // tabPage2
@@ -304,6 +311,25 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // tlp_config
+            // 
+            this.tlp_config.ColumnCount = 1;
+            this.tlp_config.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_config.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_config.Controls.Add(this.textBox_server, 0, 0);
+            this.tlp_config.Controls.Add(this.textBox_database, 0, 1);
+            this.tlp_config.Controls.Add(this.textBox_password, 0, 3);
+            this.tlp_config.Controls.Add(this.textBox_user, 0, 2);
+            this.tlp_config.Location = new System.Drawing.Point(105, 70);
+            this.tlp_config.Name = "tlp_config";
+            this.tlp_config.RowCount = 4;
+            this.tlp_config.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlp_config.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlp_config.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlp_config.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlp_config.Size = new System.Drawing.Size(251, 118);
+            this.tlp_config.TabIndex = 13;
+            // 
             // Form_config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -323,6 +349,8 @@
             this.tabPageQuit.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.tlp_config.ResumeLayout(false);
+            this.tlp_config.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -353,5 +381,6 @@
         private System.Windows.Forms.RadioButton rb_u8;
         private System.Windows.Forms.RadioButton rb_plugConfig;
         private System.Windows.Forms.RadioButton rb_U8config;
+        private System.Windows.Forms.TableLayoutPanel tlp_config;
     }
 }

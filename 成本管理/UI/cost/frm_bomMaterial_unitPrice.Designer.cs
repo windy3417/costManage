@@ -32,10 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_bomMaterial_unitPrice));
             this.tsb_caculate = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsb_caculater = new System.Windows.Forms.ToolStripButton();
+            this.tsb_fetch = new System.Windows.Forms.ToolStripButton();
             this.tsb_save = new System.Windows.Forms.ToolStripButton();
             this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
+            this.tsb_supplement = new System.Windows.Forms.ToolStripButton();
+            this.tsb_generate = new System.Windows.Forms.ToolStripButton();
             this.dgv_bomMaterialUnit = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -65,9 +67,11 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb_caculater,
+            this.tsb_fetch,
+            this.tsb_supplement,
             this.tsb_save,
             this.tsb_delete,
+            this.tsb_generate,
             this.tsb_close});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -75,15 +79,15 @@
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsb_caculater
+            // tsb_fetch
             // 
-            this.tsb_caculater.Image = global::成本管理.Properties.Resources.account;
-            this.tsb_caculater.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_caculater.Name = "tsb_caculater";
-            this.tsb_caculater.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.tsb_caculater.Size = new System.Drawing.Size(52, 22);
-            this.tsb_caculater.Text = "计算";
-            this.tsb_caculater.Click += new System.EventHandler(this.Tsb_caculater_Click);
+            this.tsb_fetch.Image = ((System.Drawing.Image)(resources.GetObject("tsb_fetch.Image")));
+            this.tsb_fetch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_fetch.Name = "tsb_fetch";
+            this.tsb_fetch.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.tsb_fetch.Size = new System.Drawing.Size(52, 22);
+            this.tsb_fetch.Text = "取价";
+            this.tsb_fetch.Click += new System.EventHandler(this.Tsb_fetchPrice_Click);
             // 
             // tsb_save
             // 
@@ -113,6 +117,23 @@
             this.tsb_close.Size = new System.Drawing.Size(23, 22);
             this.tsb_close.Text = "关闭";
             this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
+            // 
+            // tsb_supplement
+            // 
+            this.tsb_supplement.Image = ((System.Drawing.Image)(resources.GetObject("tsb_supplement.Image")));
+            this.tsb_supplement.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_supplement.Name = "tsb_supplement";
+            this.tsb_supplement.Size = new System.Drawing.Size(52, 22);
+            this.tsb_supplement.Text = "补价";
+            this.tsb_supplement.Click += new System.EventHandler(this.Tsb_supplement_Click);
+            // 
+            // tsb_generate
+            // 
+            this.tsb_generate.Image = global::成本管理.Properties.Resources.account;
+            this.tsb_generate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_generate.Name = "tsb_generate";
+            this.tsb_generate.Size = new System.Drawing.Size(52, 22);
+            this.tsb_generate.Text = "计算";
             // 
             // dgv_bomMaterialUnit
             // 
@@ -242,7 +263,7 @@
             this.Controls.Add(this.dgv_bomMaterialUnit);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_bomMaterial_unitPrice";
-            this.Text = "BOM材料单价";
+            this.Text = "BOM材料成本";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bomMaterialUnit)).EndInit();
@@ -256,7 +277,7 @@
         #endregion
         private System.Windows.Forms.ToolStripButton tsb_caculate;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsb_caculater;
+        private System.Windows.Forms.ToolStripButton tsb_fetch;
         private System.Windows.Forms.ToolStripButton tsb_save;
         private System.Windows.Forms.ToolStripButton tsb_close;
         private System.Windows.Forms.DataGridView dgv_bomMaterialUnit;
@@ -273,5 +294,7 @@
         private System.Windows.Forms.Label lbl_endDate;
         private System.Windows.Forms.Label lbl_startDate;
         private System.Windows.Forms.ComboBox cmb_year;
+        private System.Windows.Forms.ToolStripButton tsb_supplement;
+        private System.Windows.Forms.ToolStripButton tsb_generate;
     }
 }

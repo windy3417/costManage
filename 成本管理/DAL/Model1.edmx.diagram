@@ -7,6 +7,7 @@
       <Diagram DiagramId="7f2d25b497cd4d00adcdef7b9600ca0c" Name="Diagram1">
         <EntityTypeShape EntityType="manageModel1.xm_plug_t_materailUnitPrice_main" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="manageModel1.xm_plug_t_materialUnitPice" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="manageModel1.xm_plug_v_historyPriceForFisrtRecord" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

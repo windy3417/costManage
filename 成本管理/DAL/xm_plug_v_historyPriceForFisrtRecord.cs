@@ -12,10 +12,8 @@ namespace 成本管理.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class xm_plug_t_materialUnitPice
+    public partial class xm_plug_v_historyPriceForFisrtRecord
     {
-        public int ID { get; set; }
-        public string FID { get; set; }
         public string cinvCode { get; set; }
         public double unitPrice { get; set; }
     }

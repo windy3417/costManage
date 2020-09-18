@@ -21,7 +21,7 @@ namespace 成本管理.DAL
         /// <returns>DataTable</returns>
         public static DataTable ExecuteProcedure(string StoredProcedureName, SqlParameter[] parameters,DBName dBName)
         {
-            using (SqlConnection conn = conectiongString.creatConection(dBName))
+            using (SqlConnection conn = ConectiongString.creatConection(dBName))
             {
 
                 sqlHelperBase s = new sqlHelperBase();

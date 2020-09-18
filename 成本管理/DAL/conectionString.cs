@@ -10,7 +10,7 @@ using utility;
 
 namespace 成本管理.DAL
 {
-   public class  conectiongString
+   public class  ConectiongString
     {
      
       
