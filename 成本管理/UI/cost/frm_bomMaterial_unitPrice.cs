@@ -27,12 +27,15 @@ namespace 成本管理.UI.Cost
 
         }
 
+        #region 变量
         //计算完成标志
         bool finishedFlag = false;
         //增删改查条件检标志
         bool conditionFlag = false;
         //需要返回的单价数据
         DataTable dataTable;
+        #endregion
+
         //初化控件
         private void initiallize()
         {
@@ -46,7 +49,9 @@ namespace 成本管理.UI.Cost
             //执行默认单据编号
 
             progressBar1.Visible = false;
+            this.tsb_supplement.Enabled = false;
             this.tsb_save.Enabled = false;
+            this.tsb_generate.Enabled = false;
 
         }
 
@@ -121,10 +126,9 @@ namespace 成本管理.UI.Cost
             this.Close();
         }
 
+        #region 抓取BOM材料当期价格清单单
         /// <summary>
-        /// 抓取BOM材料当期价格清单单
-        /// 
-        /// 
+        /// 开启取价事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -153,19 +157,17 @@ namespace 成本管理.UI.Cost
                 timer1.Interval = 1000;
                 this.timer1.Tick += new EventHandler(Timer1_Tick);
                 timer1.Start();
-                this.tsb_save.Enabled = true;
+
             }
 
 
 
         }
 
-        private void callProgressBar()
-        {
-            Frm_progressMemtion frm_ProgressMemtion = new Frm_progressMemtion();
-            frm_ProgressMemtion.Show();
-            frm_ProgressMemtion.progressBarValue();
-        }
+        /// <summary>
+        /// 调用进程提示
+        /// </summary>
+
 
         /// <summary>
         /// 用计时器体现查询进度表，非真实进度，仅是对用户的提示，因后台查询进度暂无法计算衡量
@@ -238,7 +240,68 @@ namespace 成本管理.UI.Cost
             finishedFlag = true;
             this.dgv_bomMaterialUnit.DataSource = dataTable;
             this.progressBar1.Visible = false;
+            this.tsb_save.Enabled = true;
+            this.tsb_supplement.Enabled = true;
         }
+
+        /// <summary>
+        /// 未取到到价的采用历史价格库取价
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Tsb_supplement_Click(object sender, EventArgs e)
+        {
+            using (var db = new Entities())
+
+            {
+
+                List<xm_plug_v_historyPriceForFisrtRecord> r = db.xm_plug_v_historyPriceForFisrtRecord.ToList<xm_plug_v_historyPriceForFisrtRecord>();
+
+                //var unitPrice = dataTable.AsEnumerable().Where(d =>d.Field<string>("unitPriceType")== "无法匹配单价");                          
+
+                //关联历史最新价
+                var query = from p in r
+                            join u in dataTable.AsEnumerable().Where(d => d.Field<string>("unitPriceType") == "无法匹配单价")
+                                 on p.cinvCode equals u.Field<string>("material_invcode")
+                            select new xm_plug_t_materialUnitPice
+                            {
+                                cinvCode = p.cinvCode,
+                                unitPrice = p.unitPrice
+                            };
+
+                foreach (var item in query)
+                {
+
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        if (dataTable.Rows[i].Field<string>("material_invcode") == item.cinvCode)
+                        {
+                            dataTable.Rows[i].SetField<double>("unitPrice", item.unitPrice);
+                        }
+                    }
+
+                    //log4net.ILog log = log4net.LogManager.GetLogger("testApp.Logging");//获取一个日志记录器
+
+                    //log.Info(item.cinvCode + ": login success");//写入一条新log
+
+                    this.dgv_bomMaterialUnit.DataSource = dataTable;
+
+                }
+            }
+
+            MessageBox.Show("历史取价完成", "补价提示");
+
+
+
+        }
+        #endregion
+
+
+
+
+
+
+
 
         //显示行标
         private void RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -279,7 +342,7 @@ namespace 成本管理.UI.Cost
         }
 
         /// <summary>
-        /// 保存数据
+        /// 保存当期BOM材料价格清单
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -327,6 +390,7 @@ namespace 成本管理.UI.Cost
                 MessageBox.Show("数据保存成功", "保存提示");
 
                 this.dgv_bomMaterialUnit.DataSource = "";
+                this.tsb_generate.Enabled = true;
 
             }
 
@@ -414,59 +478,49 @@ namespace 成本管理.UI.Cost
             }
         }
 
+        
+
         /// <summary>
-        /// 未取到到价的采用历史价格库取价
+        /// 计算出BOM材料成本
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Tsb_supplement_Click(object sender, EventArgs e)
+        private void Tsb_generate_Click(object sender, EventArgs e)
         {
-            using (var db = new Entities())
-           
+            try
             {
+                SqlParameter[] parameters = {
 
-                List<xm_plug_v_historyPriceForFisrtRecord> r = db.xm_plug_v_historyPriceForFisrtRecord.ToList<xm_plug_v_historyPriceForFisrtRecord>();
-                
-                //var unitPrice = dataTable.AsEnumerable().Where(d =>d.Field<string>("unitPriceType")== "无法匹配单价");                          
-                             
-                //关联历史最新价
-                var query = from p in r
-                            join u in dataTable.AsEnumerable().Where(d => d.Field<string>("unitPriceType") == "无法匹配单价")
-                                 on p.cinvCode equals u.Field<string>("material_invcode")
-                            select new xm_plug_t_materialUnitPice
-                            {
-                                cinvCode = p.cinvCode,
-                                unitPrice = p.unitPrice
-                            };
 
-                foreach (var item in query)
-                {
+                        new SqlParameter("@startDate",SqlDbType.Date ),
+                        new SqlParameter("@endDate",SqlDbType.Date )
 
-                    for (int i = 0; i < dataTable.Rows.Count; i++)
-                    {
-                        if (dataTable.Rows[i].Field<string>("material_invcode") == item.cinvCode)
-                        {
-                            dataTable.Rows[i].SetField<double>("unitPrice", item.unitPrice);
-                        }
-                    }
 
-                    //log4net.ILog log = log4net.LogManager.GetLogger("testApp.Logging");//获取一个日志记录器
+                       };
 
-                    //log.Info(item.cinvCode + ": login success");//写入一条新log
+                parameters[0].Value = this.dtp_startDate.Text;
+                parameters[1].Value = this.dtp_endDate.Text;
 
-                    this.dgv_bomMaterialUnit.DataSource = dataTable;
 
-                }
+                dataTable = null;
+                dataTable = sqlHelper.ExecuteProc("xm_plug_sp_BOMcost", parameters, DBName.u8);
+                this.dgv_bomMaterialUnit.DataSource = dataTable;
+                this.tsb_supplement.Enabled = false;
+                this.tsb_save.Enabled = false;
             }
 
-            MessageBox.Show("历史取价完成", "补价提示");
+            catch (Exception)
+            {
 
+                
+            }
 
 
         }
-        }
-
     }
+}
+
+
 
 
 

@@ -33,11 +33,11 @@
             this.tsb_caculate = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_fetch = new System.Windows.Forms.ToolStripButton();
+            this.tsb_supplement = new System.Windows.Forms.ToolStripButton();
             this.tsb_save = new System.Windows.Forms.ToolStripButton();
             this.tsb_delete = new System.Windows.Forms.ToolStripButton();
-            this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.tsb_supplement = new System.Windows.Forms.ToolStripButton();
             this.tsb_generate = new System.Windows.Forms.ToolStripButton();
+            this.tsb_close = new System.Windows.Forms.ToolStripButton();
             this.dgv_bomMaterialUnit = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -89,6 +89,15 @@
             this.tsb_fetch.Text = "取价";
             this.tsb_fetch.Click += new System.EventHandler(this.Tsb_fetchPrice_Click);
             // 
+            // tsb_supplement
+            // 
+            this.tsb_supplement.Image = ((System.Drawing.Image)(resources.GetObject("tsb_supplement.Image")));
+            this.tsb_supplement.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_supplement.Name = "tsb_supplement";
+            this.tsb_supplement.Size = new System.Drawing.Size(52, 22);
+            this.tsb_supplement.Text = "补价";
+            this.tsb_supplement.Click += new System.EventHandler(this.Tsb_supplement_Click);
+            // 
             // tsb_save
             // 
             this.tsb_save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -108,6 +117,15 @@
             this.tsb_delete.Text = "删除";
             this.tsb_delete.Click += new System.EventHandler(this.tsb_delete_Click);
             // 
+            // tsb_generate
+            // 
+            this.tsb_generate.Image = global::成本管理.Properties.Resources.account;
+            this.tsb_generate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_generate.Name = "tsb_generate";
+            this.tsb_generate.Size = new System.Drawing.Size(52, 22);
+            this.tsb_generate.Text = "计算";
+            this.tsb_generate.Click += new System.EventHandler(this.Tsb_generate_Click);
+            // 
             // tsb_close
             // 
             this.tsb_close.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -117,23 +135,6 @@
             this.tsb_close.Size = new System.Drawing.Size(23, 22);
             this.tsb_close.Text = "关闭";
             this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
-            // 
-            // tsb_supplement
-            // 
-            this.tsb_supplement.Image = ((System.Drawing.Image)(resources.GetObject("tsb_supplement.Image")));
-            this.tsb_supplement.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_supplement.Name = "tsb_supplement";
-            this.tsb_supplement.Size = new System.Drawing.Size(52, 22);
-            this.tsb_supplement.Text = "补价";
-            this.tsb_supplement.Click += new System.EventHandler(this.Tsb_supplement_Click);
-            // 
-            // tsb_generate
-            // 
-            this.tsb_generate.Image = global::成本管理.Properties.Resources.account;
-            this.tsb_generate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_generate.Name = "tsb_generate";
-            this.tsb_generate.Size = new System.Drawing.Size(52, 22);
-            this.tsb_generate.Text = "计算";
             // 
             // dgv_bomMaterialUnit
             // 
