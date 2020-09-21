@@ -52,6 +52,7 @@ namespace 成本管理.UI.Cost
             this.tsb_supplement.Enabled = false;
             this.tsb_save.Enabled = false;
             this.tsb_generate.Enabled = false;
+            this.tsb_export.Enabled = false;
 
         }
 
@@ -225,6 +226,7 @@ namespace 成本管理.UI.Cost
 
             //却能访问主线程的变量？以下语句能正确执行不会报错(主线程中的类变量是否是在进程中共享)
 
+            dataTable = null;
             dataTable = sqlHelper.ExecuteProc("xm_plug_sp_BOMmaterial_Variety_UnitPrice", parameters, DBName.u8);
 
 
@@ -507,6 +509,7 @@ namespace 成本管理.UI.Cost
                 this.dgv_bomMaterialUnit.DataSource = dataTable;
                 this.tsb_supplement.Enabled = false;
                 this.tsb_save.Enabled = false;
+                this.tsb_export.Enabled = true;
             }
 
             catch (Exception)
@@ -516,6 +519,12 @@ namespace 成本管理.UI.Cost
             }
 
 
+        }
+
+        private void Tsb_export_Click(object sender, EventArgs e)
+        {
+            ExportExcel exportExcel = new ExportExcel();
+            exportExcel.ExportExcelWithNPOI(dataTable, "BOM材料成本");
         }
     }
 }

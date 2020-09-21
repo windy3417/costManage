@@ -51,6 +51,7 @@
             this.lbl_endDate = new System.Windows.Forms.Label();
             this.lbl_startDate = new System.Windows.Forms.Label();
             this.cmb_year = new System.Windows.Forms.ComboBox();
+            this.tsb_export = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bomMaterialUnit)).BeginInit();
             this.gp_condition.SuspendLayout();
@@ -72,6 +73,7 @@
             this.tsb_save,
             this.tsb_delete,
             this.tsb_generate,
+            this.tsb_export,
             this.tsb_close});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -254,6 +256,16 @@
             this.cmb_year.TabIndex = 27;
             this.cmb_year.Tag = "会计年度";
             // 
+            // tsb_export
+            // 
+            this.tsb_export.Image = ((System.Drawing.Image)(resources.GetObject("tsb_export.Image")));
+            this.tsb_export.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_export.Name = "tsb_export";
+            this.tsb_export.Size = new System.Drawing.Size(52, 22);
+            this.tsb_export.Text = "导出";
+            this.tsb_export.ToolTipText = "导出至EXCEL";
+            this.tsb_export.Click += new System.EventHandler(this.Tsb_export_Click);
+            // 
             // frm_bomMaterial_unitPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -297,5 +309,6 @@
         private System.Windows.Forms.ComboBox cmb_year;
         private System.Windows.Forms.ToolStripButton tsb_supplement;
         private System.Windows.Forms.ToolStripButton tsb_generate;
+        private System.Windows.Forms.ToolStripButton tsb_export;
     }
 }
