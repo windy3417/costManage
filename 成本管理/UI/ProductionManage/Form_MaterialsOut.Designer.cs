@@ -78,7 +78,7 @@
             this.dataGridView_MaterialsOut.Location = new System.Drawing.Point(0, 91);
             this.dataGridView_MaterialsOut.Name = "dataGridView_MaterialsOut";
             this.dataGridView_MaterialsOut.RowTemplate.Height = 23;
-            this.dataGridView_MaterialsOut.Size = new System.Drawing.Size(1446, 610);
+            this.dataGridView_MaterialsOut.Size = new System.Drawing.Size(1358, 610);
             this.dataGridView_MaterialsOut.TabIndex = 0;
             this.dataGridView_MaterialsOut.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_MaterialsOut_RowPostPaint);
             // 
@@ -314,7 +314,7 @@
             this.toolStripButton_Export});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1458, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1370, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -359,7 +359,7 @@
             this.groupBox_Filter.Controls.Add(this.textBox_endDate);
             this.groupBox_Filter.Location = new System.Drawing.Point(0, 28);
             this.groupBox_Filter.Name = "groupBox_Filter";
-            this.groupBox_Filter.Size = new System.Drawing.Size(1446, 57);
+            this.groupBox_Filter.Size = new System.Drawing.Size(1358, 57);
             this.groupBox_Filter.TabIndex = 10;
             this.groupBox_Filter.TabStop = false;
             this.groupBox_Filter.Text = "查询条件";
@@ -368,7 +368,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1458, 738);
+            this.ClientSize = new System.Drawing.Size(1370, 738);
             this.Controls.Add(this.groupBox_Filter);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.bindingNavigator_pageUp);

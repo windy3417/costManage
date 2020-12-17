@@ -26,7 +26,7 @@
     <PublisherName>长沙熙迈机械制造有限公司</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -209,10 +209,10 @@
     <Compile Include="UI\PurchaseManage\Form_PurchsingOrders.Designer.cs">
       <DependentUpon>Form_PurchsingOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\saleManage\Form_SaleOrders.cs">
+    <Compile Include="UI\SaleManage\Form_SaleOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\saleManage\Form_SaleOrders.Designer.cs">
+    <Compile Include="UI\SaleManage\Form_SaleOrders.Designer.cs">
       <DependentUpon>Form_SaleOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_SheetTest.cs">
@@ -251,10 +251,10 @@
     <Compile Include="UI\Frm_progressBar.Designer.cs">
       <DependentUpon>Frm_progressBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\saleManage\deliverySchedule.cs">
+    <Compile Include="UI\SaleManage\deliverySchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\saleManage\deliverySchedule.Designer.cs">
+    <Compile Include="UI\SaleManage\deliverySchedule.Designer.cs">
       <DependentUpon>deliverySchedule.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Resource_ximai.resx">
@@ -310,10 +310,10 @@
     <EmbeddedResource Include="UI\PurchaseManage\Form_PurchsingOrders.resx">
       <DependentUpon>Form_PurchsingOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\saleManage\deliverySchedule.resx">
+    <EmbeddedResource Include="UI\SaleManage\deliverySchedule.resx">
       <DependentUpon>deliverySchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\saleManage\Form_SaleOrders.resx">
+    <EmbeddedResource Include="UI\SaleManage\Form_SaleOrders.resx">
       <DependentUpon>Form_SaleOrders.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">

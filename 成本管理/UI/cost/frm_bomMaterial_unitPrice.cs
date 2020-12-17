@@ -81,6 +81,7 @@ namespace 成本管理.UI.Cost
             return conditionFlag;
         }
 
+        #region 内部方法
 
         //设置默认起始日期
         private void setDefautDate()
@@ -106,6 +107,43 @@ namespace 成本管理.UI.Cost
 
         }
 
+        ///<summary>
+        ///数据保存前检查
+        ///</summary>
+        public bool existeMaterialUnit()
+        {
+
+            SqlCommand comm = new SqlCommand();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+
+
+
+            comm.Connection = ConectiongString.creatConection_manage();
+            comm.CommandText = comm.CommandText = "SELECT  [year],[month]  FROM [xm_plug_t_materailUnitPrice_main] where [year]=" + "'" +
+                this.dtp_endDate.Value.Year + "'" + "and [month]=" + "'" + this.dtp_endDate.Value.Month + "'"; ;
+
+            comm.Connection.Open();
+            SqlDataReader sqlDataReader = comm.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                MessageBox.Show("已经存在相同会计期间的材料单价清单", "错误提示");
+                return false;
+            }
+
+            // Call Close when done reading.
+            sqlDataReader.Close();
+            return true;
+
+
+        }
+
+
+        #endregion
+
+
+
         /// <summary>
         /// 关闭母窗体
         /// </summary>
@@ -116,16 +154,7 @@ namespace 成本管理.UI.Cost
             this.Parent.Dispose();
         }
 
-
-        /// <summary>
-        /// 关闭窗体
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Tsb_close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+                
 
         #region 抓取BOM材料当期价格清单单
         /// <summary>
@@ -150,7 +179,9 @@ namespace 成本管理.UI.Cost
                 sqlparameters.Add(year);
                 sqlparameters.Add(startDate);
                 sqlparameters.Add(endDate);
-                //开启后台查询线程
+                
+                //开启后台查询线程，即引发新线程的事件，同时提供事件参数
+                //注意backgroundWork中的DoWork事件，并编写事件处理程序
 
                 this.backgroundWorker1.RunWorkerAsync(sqlparameters);
 
@@ -241,6 +272,7 @@ namespace 成本管理.UI.Cost
         {
             finishedFlag = true;
             this.dgv_bomMaterialUnit.DataSource = dataTable;
+            //完成后进程条不可见
             this.progressBar1.Visible = false;
             this.tsb_save.Enabled = true;
             this.tsb_supplement.Enabled = true;
@@ -298,12 +330,7 @@ namespace 成本管理.UI.Cost
         }
         #endregion
 
-
-
-
-
-
-
+                                     
 
         //显示行标
         private void RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -311,37 +338,22 @@ namespace 成本管理.UI.Cost
             StyleDataGridView.DisplayRowHeader(e, this.dgv_bomMaterialUnit);
         }
 
-        ///<summary>
-        ///数据保存前检查
-        ///</summary>
-        public bool existeMaterialUnit()
+       
+     
+
+        /// <summary>
+        /// 自动生成单据编号
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Dtp_endDate_ValueChanged(object sender, EventArgs e)
         {
-
-            SqlCommand comm = new SqlCommand();
-            SqlDataAdapter da = new SqlDataAdapter();
-
-
-
-
-            comm.Connection = ConectiongString.creatConection_manage();
-            comm.CommandText = comm.CommandText = "SELECT  [year],[month]  FROM [xm_plug_t_materailUnitPrice_main] where [year]=" + "'" +
-                this.dtp_endDate.Value.Year + "'" + "and [month]=" + "'" + this.dtp_endDate.Value.Month + "'"; ;
-
-            comm.Connection.Open();
-            SqlDataReader sqlDataReader = comm.ExecuteReader();
-
-            while (sqlDataReader.Read())
-            {
-                MessageBox.Show("已经存在相同会计期间的材料单价清单", "错误提示");
-                return false;
-            }
-
-            // Call Close when done reading.
-            sqlDataReader.Close();
-            return true;
-
-
+            this.txt_voucherNO.Text = this.dtp_endDate.Value.Year.ToString() + this.dtp_endDate.Value.Date.ToString().Substring(5, 2);
         }
+
+        
+        #region 菜单事件处理
+
 
         /// <summary>
         /// 保存当期BOM材料价格清单
@@ -396,16 +408,6 @@ namespace 成本管理.UI.Cost
 
             }
 
-        }
-
-        /// <summary>
-        /// 自动生成单据编号
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Dtp_endDate_ValueChanged(object sender, EventArgs e)
-        {
-            this.txt_voucherNO.Text = this.dtp_endDate.Value.Year.ToString() + this.dtp_endDate.Value.Date.ToString().Substring(5, 2);
         }
 
         /// <summary>
@@ -480,7 +482,17 @@ namespace 成本管理.UI.Cost
             }
         }
 
-        
+        /// <summary>
+        /// 导出Excel表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Tsb_export_Click(object sender, EventArgs e)
+        {
+            
+            ExportExcel exportExcel = new ExportExcel();
+            exportExcel.ExportExcelWithNPOI(dataTable, "BOM材料成本");
+        }
 
         /// <summary>
         /// 计算出BOM材料成本
@@ -515,17 +527,28 @@ namespace 成本管理.UI.Cost
             catch (Exception)
             {
 
-                
+
             }
 
 
         }
 
-        private void Tsb_export_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// 关闭窗体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Tsb_close_Click(object sender, EventArgs e)
         {
-            ExportExcel exportExcel = new ExportExcel();
-            exportExcel.ExportExcelWithNPOI(dataTable, "BOM材料成本");
+            this.Close();
         }
+
+        #endregion
+
+
+
+
     }
 }
 
