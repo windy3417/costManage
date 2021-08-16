@@ -241,7 +241,7 @@ namespace 成本管理.UI
             {
 
                 string conString = ConfigurationManager.ConnectionStrings["myConcetionU8数据库"].ToString();
-                string deConString = utility.Encrypt.Decode(conString);
+                string deConString = Utility.Encrypt.Decode(conString);
                 int dataBaseIndex = deConString.IndexOf("Catalog=");
                 int UserIndex = deConString.IndexOf(";User");
 
@@ -296,7 +296,7 @@ namespace 成本管理.UI
         /// <param name="e"></param>
         private void 图片格式转换ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_imageFormatConvert imf = new Form_imageFormatConvert();
+            Frm_imageFormatConvert imf = new Frm_imageFormatConvert();
             string tabPageText = imf.Text;
             openForm(imf, tabPageText);
         }

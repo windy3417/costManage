@@ -7,7 +7,7 @@ using System.Text;
 using 成本管理;
 using System.Windows.Forms;
 using System.Configuration;
-using utility;
+using Utility;
 
 namespace 成本管理.DAL
 {

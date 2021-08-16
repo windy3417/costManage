@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-using utility;
+using Utility;
 using 成本管理.Model;
 using 成本管理.DAL;
 

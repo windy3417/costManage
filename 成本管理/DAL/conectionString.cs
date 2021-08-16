@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using 成本管理.UI;
-using utility;
+using Utility;
 
 namespace 成本管理.DAL
 {

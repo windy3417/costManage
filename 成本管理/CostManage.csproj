@@ -26,7 +26,7 @@
     <PublisherName>长沙熙迈机械制造有限公司</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -94,6 +94,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Utility\bin\Debug\Utility.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\PurchasingOrdersManage.cs" />
@@ -150,11 +154,11 @@
     <Compile Include="UI\Cost\frm_bomMaterial_unitPrice.Designer.cs">
       <DependentUpon>frm_bomMaterial_unitPrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\dataImport\Frm_unitCost.cs">
+    <Compile Include="UI\dataImport\FrmUnitCost.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\dataImport\Frm_unitCost.Designer.cs">
-      <DependentUpon>Frm_unitCost.cs</DependentUpon>
+    <Compile Include="UI\dataImport\FrmUnitCost.Designer.cs">
+      <DependentUpon>FrmUnitCost.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ContractManage\FormPOContractList.cs">
       <SubType>Form</SubType>
@@ -264,8 +268,8 @@
     <EmbeddedResource Include="UI\Cost\frm_bomMaterial_unitPrice.resx">
       <DependentUpon>frm_bomMaterial_unitPrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\dataImport\Frm_unitCost.resx">
-      <DependentUpon>Frm_unitCost.cs</DependentUpon>
+    <EmbeddedResource Include="UI\dataImport\FrmUnitCost.resx">
+      <DependentUpon>FrmUnitCost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ContractManage\FormPOContractList.resx">
       <DependentUpon>FormPOContractList.cs</DependentUpon>
@@ -466,10 +470,6 @@
     <ProjectReference Include="..\common\U8Common.csproj">
       <Project>{abf22586-6b96-4281-b564-0661a6a6f973}</Project>
       <Name>U8Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utility\Utility.csproj">
-      <Project>{4b0a5906-3194-45cc-85d6-37c8387ef04e}</Project>
-      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

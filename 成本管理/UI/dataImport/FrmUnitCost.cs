@@ -15,6 +15,7 @@ using Microsoft.Office.Interop;
 using Microsoft.Vbe.Interop;
 using System.Threading;
 
+
 namespace 成本管理.UI
 {
     public partial class frm_unitCost : Form
@@ -79,6 +80,12 @@ namespace 成本管理.UI
                 conn.Close();
             }
 
+        }
+
+        void importFromExcel(object sender, EventArgs e)
+        {
+            Utility.Files.ImportFromExcel importFromExcel = new Utility.Files.ImportFromExcel();
+            importFromExcel.ImportFileFromExcelWithNPOI(dataGridViewDisplayExcel, dt_excel);
         }
         #endregion
 

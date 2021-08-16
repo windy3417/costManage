@@ -36,7 +36,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_importTemplate = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tsbImport = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonQuit = new System.Windows.Forms.ToolStripButton();
@@ -116,7 +116,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsb_importTemplate,
-            this.toolStripButton1,
+            this.tsbImport,
             this.toolStripButtonSave,
             this.tsb_delete,
             this.toolStripButtonQuit});
@@ -136,14 +136,14 @@
             this.tsb_importTemplate.ToolTipText = "导入模板";
             this.tsb_importTemplate.Click += new System.EventHandler(this.tsb_importTemplate_Click);
             // 
-            // toolStripButton1
+            // tsbImport
             // 
-            this.toolStripButton1.Image = global::成本管理.Properties.Resources.importdir_wiz;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(52, 22);
-            this.toolStripButton1.Text = "导入";
-            this.toolStripButton1.Click += new System.EventHandler(this.ImportExcelData);
+            this.tsbImport.Image = global::成本管理.Properties.Resources.importdir_wiz;
+            this.tsbImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbImport.Name = "tsbImport";
+            this.tsbImport.Size = new System.Drawing.Size(52, 22);
+            this.tsbImport.Text = "导入";
+            this.tsbImport.Click += new System.EventHandler(this.importFromExcel);
             // 
             // toolStripButtonSave
             // 
@@ -220,7 +220,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton tsbImport;
         private System.Windows.Forms.ToolStripButton toolStripButtonSave;
         private System.Windows.Forms.ToolStripButton toolStripButtonQuit;
         private System.Windows.Forms.Label lbl_no;
