@@ -26,7 +26,7 @@
     <PublisherName>长沙熙迈机械制造有限公司</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -75,12 +75,16 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.9.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.10\lib\net40\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -90,10 +94,30 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Utility\bin\Debug\Utility.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\PurchasingOrdersManage.cs" />
     <Compile Include="DAL\conectionString.cs" />
+    <Compile Include="DAL\DBname.cs" />
+    <Compile Include="DAL\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Reports\InspectItemService.cs" />
     <Compile Include="DAL\Reports\MaterialsOutSheetService.cs" />
     <Compile Include="DAL\Reports\ProductionOrdersService.cs" />
@@ -105,6 +129,15 @@
     <Compile Include="DAL\sheets\WareHouseService.cs" />
     <Compile Include="DAL\SQLcommand.cs" />
     <Compile Include="DAL\sqlHelper.cs" />
+    <Compile Include="DAL\xm_plug_t_materailUnitPrice_main.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\xm_plug_t_materialUnitPice.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\xm_plug_v_historyPriceForFisrtRecord.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CH001_0001_E001.cs">
       <DependentUpon>productUnitHeader.tt</DependentUpon>
     </Compile>
@@ -115,11 +148,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource_ximai.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\dataImport\Frm_unitCost.cs">
+    <Compile Include="UI\Cost\frm_bomMaterial_unitPrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\dataImport\Frm_unitCost.Designer.cs">
-      <DependentUpon>Frm_unitCost.cs</DependentUpon>
+    <Compile Include="UI\Cost\frm_bomMaterial_unitPrice.Designer.cs">
+      <DependentUpon>frm_bomMaterial_unitPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\dataImport\FrmUnitCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\dataImport\FrmUnitCost.Designer.cs">
+      <DependentUpon>FrmUnitCost.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ContractManage\FormPOContractList.cs">
       <SubType>Form</SubType>
@@ -174,10 +213,10 @@
     <Compile Include="UI\PurchaseManage\Form_PurchsingOrders.Designer.cs">
       <DependentUpon>Form_PurchsingOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\saleManage\Form_SaleOrders.cs">
+    <Compile Include="UI\SaleManage\Form_SaleOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\saleManage\Form_SaleOrders.Designer.cs">
+    <Compile Include="UI\SaleManage\Form_SaleOrders.Designer.cs">
       <DependentUpon>Form_SaleOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_SheetTest.cs">
@@ -186,16 +225,16 @@
     <Compile Include="UI\Form_SheetTest.Designer.cs">
       <DependentUpon>Form_SheetTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\cost\Form_WriteCostObject.cs">
+    <Compile Include="UI\Cost\Form_WriteCostObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\cost\Form_WriteCostObject.Designer.cs">
+    <Compile Include="UI\Cost\Form_WriteCostObject.Designer.cs">
       <DependentUpon>Form_WriteCostObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\cost\Form_InspectItem.cs">
+    <Compile Include="UI\Cost\Form_InspectItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\cost\Form_InspectItem.Designer.cs">
+    <Compile Include="UI\Cost\Form_InspectItem.Designer.cs">
       <DependentUpon>Form_InspectItem.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ProductionManage\Form_MaterialsOut.cs">
@@ -216,18 +255,21 @@
     <Compile Include="UI\Frm_progressBar.Designer.cs">
       <DependentUpon>Frm_progressBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\saleManage\deliverySchedule.cs">
+    <Compile Include="UI\SaleManage\deliverySchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\saleManage\deliverySchedule.Designer.cs">
+    <Compile Include="UI\SaleManage\deliverySchedule.Designer.cs">
       <DependentUpon>deliverySchedule.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Resource_ximai.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource_ximai.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\dataImport\Frm_unitCost.resx">
-      <DependentUpon>Frm_unitCost.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Cost\frm_bomMaterial_unitPrice.resx">
+      <DependentUpon>frm_bomMaterial_unitPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\dataImport\FrmUnitCost.resx">
+      <DependentUpon>FrmUnitCost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ContractManage\FormPOContractList.resx">
       <DependentUpon>FormPOContractList.cs</DependentUpon>
@@ -254,10 +296,10 @@
     <EmbeddedResource Include="UI\ProductionManage\Form_ProductionOrders.resx">
       <DependentUpon>Form_ProductionOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\cost\Form_WriteCostObject.resx">
+    <EmbeddedResource Include="UI\Cost\Form_WriteCostObject.resx">
       <DependentUpon>Form_WriteCostObject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\cost\Form_InspectItem.resx">
+    <EmbeddedResource Include="UI\Cost\Form_InspectItem.resx">
       <DependentUpon>Form_InspectItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ProductionManage\Form_MaterialsOut.resx">
@@ -269,11 +311,24 @@
     <EmbeddedResource Include="UI\Frm_progressBar.resx">
       <DependentUpon>Frm_progressBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\saleManage\deliverySchedule.resx">
+    <EmbeddedResource Include="UI\PurchaseManage\Form_PurchsingOrders.resx">
+      <DependentUpon>Form_PurchsingOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SaleManage\deliverySchedule.resx">
       <DependentUpon>deliverySchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SaleManage\Form_SaleOrders.resx">
+      <DependentUpon>Form_SaleOrders.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="DAL\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <EntityDeploy Include="Model\productUnitHeader.edmx">
@@ -292,7 +347,47 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="DAL\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\Model1.edmx.sql" />
+    <Content Include="DAL\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="InstallationEnvironment.txt" />
+    <Content Include="Resources\abandon.png" />
+    <Content Include="Resources\account.gif" />
+    <Content Include="Resources\add.gif" />
+    <Content Include="Resources\add1.gif" />
+    <Content Include="Resources\clear.gif" />
+    <Content Include="Resources\delete.gif" />
+    <Content Include="Resources\down.png" />
+    <Content Include="Resources\icon_edit2.gif" />
+    <Content Include="Resources\icon_export.gif" />
+    <Content Include="Resources\icon_quit.ICO" />
+    <Content Include="Resources\ico\abandon.png" />
+    <Content Include="Resources\ico\account.gif" />
+    <Content Include="Resources\ico\add.gif" />
+    <Content Include="Resources\ico\add1.gif" />
+    <Content Include="Resources\ico\clear.gif" />
+    <Content Include="Resources\ico\delete.gif" />
+    <Content Include="Resources\ico\down.png" />
+    <Content Include="Resources\ico\edit2.gif" />
+    <Content Include="Resources\ico\export.gif" />
+    <Content Include="Resources\ico\Search1.gif" />
+    <Content Include="Resources\ico\importdir_wiz.gif" />
+    <Content Include="Resources\ico\mainFormIco.ico" />
+    <Content Include="Resources\ico\quit.ICO" />
+    <Content Include="Resources\ico\save.png" />
+    <Content Include="Resources\importdir_wiz.gif" />
+    <Content Include="Resources\mainFormIco.ico" />
+    <Content Include="Resources\quit.ICO" />
+    <Content Include="Resources\save.png" />
+    <Content Include="Resources\icon_Search1.gif" />
     <Content Include="Resources\template\成本结构表导入模板.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -376,10 +471,6 @@
       <Project>{abf22586-6b96-4281-b564-0661a6a6f973}</Project>
       <Name>U8Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utility\Utility.csproj">
-      <Project>{4b0a5906-3194-45cc-85d6-37c8387ef04e}</Project>
-      <Name>Utility</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="mainFormIco.ico" />
@@ -393,20 +484,6 @@
       <DependentUpon>productUnitHeader.edmx</DependentUpon>
       <LastGenOutput>productUnitHeader.cs</LastGenOutput>
     </Content>
-    <Content Include="Resources\abandon.png" />
-    <Content Include="Resources\add.gif" />
-    <Content Include="Resources\clear.gif" />
-    <Content Include="Resources\delete.gif" />
-    <Content Include="Resources\down.png" />
-    <None Include="Resources\Image1.bmp" />
-    <Content Include="Resources\mainFormIco.ico" />
-    <None Include="Resources\add1.gif" />
-    <None Include="Resources\icon_export.gif" />
-    <None Include="Resources\save.png" />
-    <None Include="Resources\importdir_wiz.gif" />
-    <None Include="Resources\icon_quit.ICO" />
-    <None Include="Resources\Icon_Search1.gif" />
-    <None Include="Resources\icon_edit2.gif" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

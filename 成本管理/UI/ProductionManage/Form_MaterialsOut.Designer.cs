@@ -58,10 +58,10 @@
             this.toolStripLabel_totalCount = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_Export = new System.Windows.Forms.ToolStripButton();
             this.comboBox_WareHouseCode = new System.Windows.Forms.ComboBox();
             this.groupBox_Filter = new System.Windows.Forms.GroupBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.toolStripButton_Export = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MaterialsOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_pageUp)).BeginInit();
             this.bindingNavigator_pageUp.SuspendLayout();
@@ -78,7 +78,7 @@
             this.dataGridView_MaterialsOut.Location = new System.Drawing.Point(0, 91);
             this.dataGridView_MaterialsOut.Name = "dataGridView_MaterialsOut";
             this.dataGridView_MaterialsOut.RowTemplate.Height = 23;
-            this.dataGridView_MaterialsOut.Size = new System.Drawing.Size(1446, 610);
+            this.dataGridView_MaterialsOut.Size = new System.Drawing.Size(1358, 610);
             this.dataGridView_MaterialsOut.TabIndex = 0;
             this.dataGridView_MaterialsOut.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_MaterialsOut_RowPostPaint);
             // 
@@ -221,6 +221,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "位置";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -263,6 +264,7 @@
             // 
             // toolStripTextBox_CountPerPage
             // 
+            this.toolStripTextBox_CountPerPage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox_CountPerPage.Name = "toolStripTextBox_CountPerPage";
             this.toolStripTextBox_CountPerPage.Size = new System.Drawing.Size(50, 25);
             this.toolStripTextBox_CountPerPage.Text = "100";
@@ -279,6 +281,7 @@
             // 
             // toolStripTextBox_CurrentPage
             // 
+            this.toolStripTextBox_CurrentPage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.toolStripTextBox_CurrentPage.Name = "toolStripTextBox_CurrentPage";
             this.toolStripTextBox_CurrentPage.Size = new System.Drawing.Size(50, 25);
             this.toolStripTextBox_CurrentPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox_CurrentPage_KeyDown);
@@ -311,19 +314,27 @@
             this.toolStripButton_Export});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1458, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1370, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::成本管理.Properties.Resources.icon_quit;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(52, 22);
             this.toolStripButton1.Text = "退出";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton_Export
+            // 
+            this.toolStripButton_Export.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Export.Image")));
+            this.toolStripButton_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Export.Name = "toolStripButton_Export";
+            this.toolStripButton_Export.Size = new System.Drawing.Size(52, 22);
+            this.toolStripButton_Export.Text = "导出";
+            this.toolStripButton_Export.Click += new System.EventHandler(this.toolStrip_Export_Click);
             // 
             // comboBox_WareHouseCode
             // 
@@ -348,25 +359,16 @@
             this.groupBox_Filter.Controls.Add(this.textBox_endDate);
             this.groupBox_Filter.Location = new System.Drawing.Point(0, 28);
             this.groupBox_Filter.Name = "groupBox_Filter";
-            this.groupBox_Filter.Size = new System.Drawing.Size(1446, 57);
+            this.groupBox_Filter.Size = new System.Drawing.Size(1358, 57);
             this.groupBox_Filter.TabIndex = 10;
             this.groupBox_Filter.TabStop = false;
             this.groupBox_Filter.Text = "查询条件";
-            // 
-            // toolStripButton_Export
-            // 
-            this.toolStripButton_Export.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Export.Image")));
-            this.toolStripButton_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Export.Name = "toolStripButton_Export";
-            this.toolStripButton_Export.Size = new System.Drawing.Size(52, 22);
-            this.toolStripButton_Export.Text = "导出";
-            this.toolStripButton_Export.Click += new System.EventHandler(this.toolStrip_Export_Click);
             // 
             // Form_MaterialsOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1458, 738);
+            this.ClientSize = new System.Drawing.Size(1370, 738);
             this.Controls.Add(this.groupBox_Filter);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.bindingNavigator_pageUp);

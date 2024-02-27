@@ -15,6 +15,7 @@ using Microsoft.Office.Interop;
 using Microsoft.Vbe.Interop;
 using System.Threading;
 
+
 namespace 成本管理.UI
 {
     public partial class frm_unitCost : Form
@@ -80,12 +81,18 @@ namespace 成本管理.UI
             }
 
         }
+
+        void importFromExcel(object sender, EventArgs e)
+        {
+            Utility.Files.ImportFromExcel importFromExcel = new Utility.Files.ImportFromExcel();
+            importFromExcel.ImportFileFromExcelWithNPOI(dataGridViewDisplayExcel, dt_excel);
+        }
         #endregion
 
 
         #region 保存到数据库
         ///<summary>
-        ///读取已经存在的存货单价数据
+        ///保存前检查是否存在相同会计期间的数据
         ///</summary>
         public void existeProductUnit()
         {
@@ -94,7 +101,7 @@ namespace 成本管理.UI
             SqlDataAdapter da = new SqlDataAdapter();
 
 
-            comm.Connection = conectiongString.creatConection_manage();
+            comm.Connection = ConectiongString.creatConection_manage();
             comm.CommandText = "SELECT  [year],[month]  FROM xm_plug_t_unitCost where [year]=" + "'" + 
                 comboBox1.Text + "'" + "and [month]=" + "'" + comboBox2.Text + "'";
 
@@ -145,12 +152,11 @@ namespace 成本管理.UI
         /// 数据保存到数据库
         /// </summary>
 
-
         private void dataImport()
         {
                                   
 
-            using (SqlConnection connection = conectiongString.creatConection_manage())
+            using (SqlConnection connection = ConectiongString.creatConection_manage())
             {
                 connection.Open();
 
@@ -279,7 +285,6 @@ namespace 成本管理.UI
         #endregion
 
 
-
         private void toolStripButtonQuit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -325,7 +330,7 @@ namespace 成本管理.UI
         private void tsb_delete_Click(object sender, EventArgs e)
         {
             string no = this.tex_no.Text;
-            using (SqlConnection connection = conectiongString.creatConection_manage())
+            using (SqlConnection connection = ConectiongString.creatConection_manage())
             {
                 connection.Open();
 

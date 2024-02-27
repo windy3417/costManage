@@ -195,7 +195,7 @@ namespace 成本管理.UI
             SqlParameter sqlParameter_iperiodEnd = new SqlParameter("@endDate", SqlDbType.DateTime, 6);
             sqlParameter_iperiodEnd.Value = string_iperiodEnd;
 
-            SqlConnection conn = conectiongString.creatConection_myConcetion();
+            SqlConnection conn = ConectiongString.creatConection_myConcetion();
             SqlCommand sqlCommand_comm = new SqlCommand();
             sqlCommand_comm.Connection = conn;
             sqlCommand_comm.Parameters.Add(sqlParameter_iperiodStart);
@@ -227,7 +227,7 @@ namespace 成本管理.UI
             SqlParameter sqlParameter_iperiodEnd = new SqlParameter("@endDate", SqlDbType.DateTime, 6);
             sqlParameter_iperiodEnd.Value = string_iperiodEnd;
 
-            SqlConnection conn = conectiongString.creatConection_myConcetion();
+            SqlConnection conn = ConectiongString.creatConection_myConcetion();
             SqlCommand sqlCommand_comm = new SqlCommand();
             sqlCommand_comm.Connection = conn;
             sqlCommand_comm.Parameters.Add(sqlParameter_iperiodStart);

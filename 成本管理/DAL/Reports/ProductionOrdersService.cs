@@ -17,7 +17,7 @@ namespace 成本管理.DAL.Reports
         public DataTable ProductionOrders(params SqlParameter[] parameters)
         {
            
-            DataTable dt = SQLcommand.ExecuteProcedure("QueryProductionOrder", parameters);
+            DataTable dt = SQLcommand.ExecuteProcedure("QueryProductionOrder", parameters,DBName.u8);
             return dt;
 
         }

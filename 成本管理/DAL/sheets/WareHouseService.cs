@@ -14,7 +14,7 @@ namespace 成本管理.DAL.sheets
         public DataTable GetWareHouse()
         {
             return
-                sqlHelper.GetDataTable(sqlstr);
+                sqlHelper.GetDataTable(sqlstr,DBName.u8);
         }
     }
 }

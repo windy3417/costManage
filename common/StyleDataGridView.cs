@@ -28,7 +28,8 @@ namespace U8common
                 using (SolidBrush b = new SolidBrush(color))
                 {
                     //在指定位置并且用指定的 Brush 和 Font 对象绘制指定的文本字符串
-                    e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 6);
+                    e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, 
+                        b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 6);
 
                 }
 

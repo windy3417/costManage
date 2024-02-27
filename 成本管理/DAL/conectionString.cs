@@ -5,11 +5,16 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using 成本管理.UI;
+using Utility;
 
 namespace 成本管理.DAL
 {
-   public class  conectiongString
+   public class  ConectiongString
     {
+     
+      
+
         public static SqlConnection creatConection_manage()
         {
             string con = "Data Source=192.168.10.66;Initial Catalog=manage;User ID=sa;Password=000000;Pooling=False";
@@ -25,17 +30,54 @@ namespace 成本管理.DAL
 
         }
         /// <summary>
-        /// 连接业务数据库
+        /// 连接U8业务数据库
         /// </summary>
         /// <returns></returns>
         public static SqlConnection creatConection_myConcetion()
         {
           
-            ConnectionStringSettings conStrings = ConfigurationManager.ConnectionStrings["myConcetion"];
+            ConnectionStringSettings conStrings = ConfigurationManager.ConnectionStrings["myConcetionU8数据库"];
             SqlConnection conn = new SqlConnection(conStrings.ConnectionString);
             return conn;
 
         }
+
+        /// <summary>
+        /// 创建数据库连接
+        /// </summary>
+        /// <param name="dBName">确定U8或是外挂数据库，使用DBname枚举值</param>
+        /// <returns></returns>
+        public static SqlConnection creatConection(DBName dBName)
+        {
+
+            if (dBName==DBName.u8)
+            {
+                string conString = ConfigurationManager.ConnectionStrings["myConcetionU8数据库"].ToString();
+                string deconString = Encrypt.Decode(conString);
+                ConnectionStringSettings connectiongStrings = new ConnectionStringSettings("u8string",deconString);
+
+                SqlConnection conn = new SqlConnection(connectiongStrings.ConnectionString);
+                return conn;
+            }
+            else
+            {
+                string conString = ConfigurationManager.ConnectionStrings["myConcetion外挂数据库"].ToString();
+                string deconString = Encrypt.Decode(conString);
+                ConnectionStringSettings connectiongStrings = new ConnectionStringSettings("plugString", deconString);
+
+               
+                SqlConnection connPlug = new SqlConnection(connectiongStrings.ConnectionString);
+                return connPlug;
+            }
+         
+
+           
+            
+           
+
+        }
+       
+        
         /// <summary>
         /// 连接外挂数据库
         /// </summary>

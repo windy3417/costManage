@@ -55,5 +55,10 @@ namespace 成本管理.UI
             dataGridView_Report.Columns[14].DefaultCellStyle.Format= "###,###.00";
             dataGridView_Report.Columns[14].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
+
+        private void Button_confirm_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

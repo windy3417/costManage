@@ -18,7 +18,7 @@ using 成本管理.UI.saleManage;
 using System.Configuration;
 
 using 成本管理.Model;
-using utility;
+using 成本管理.UI.Cost;
 using Utility;
 
 namespace 成本管理.UI
@@ -32,7 +32,7 @@ namespace 成本管理.UI
         public Form_Main()
         {
             InitializeComponent();
-            //初始化状态栏
+            //初始化数据库连接状态栏
             brushtStateStrip();
             //初始化tabControl
 
@@ -91,6 +91,11 @@ namespace 成本管理.UI
                 case "成本结构表导入":
                     {
                         this.成本结构表导入ToolStripMenuItem_Click(sender, e);
+                        break;
+                    }
+                case "BOM材料单价":
+                    {
+                        this.BOM材料单价ToolStripMenuItem_Click(sender, e);
                         break;
                     }
                 case "材料出库单":
@@ -232,14 +237,15 @@ namespace 成本管理.UI
         public void brushtStateStrip()
         {
 
-            if (ConfigurationManager.ConnectionStrings["myConcetion"] != null)
+            if (ConfigurationManager.ConnectionStrings["myConcetionU8数据库"] != null)
             {
 
-                ConnectionStringSettings conString = ConfigurationManager.ConnectionStrings["myConcetion"];
-                int dataBaseIndex = conString.ConnectionString.IndexOf("Catalog=");
-                int UserIndex = conString.ConnectionString.IndexOf(";User");
+                string conString = ConfigurationManager.ConnectionStrings["myConcetionU8数据库"].ToString();
+                string deConString = Utility.Encrypt.Decode(conString);
+                int dataBaseIndex = deConString.IndexOf("Catalog=");
+                int UserIndex = deConString.IndexOf(";User");
 
-                Label_accountIDtext.Text = conString.ConnectionString.Substring(dataBaseIndex + 8, UserIndex - (dataBaseIndex + 8));
+                Label_accountIDtext.Text = deConString.Substring(dataBaseIndex + 8, UserIndex - (dataBaseIndex + 8));
                 DataBaseInfo.dataBaseName = Label_accountIDtext.Text;
 
             }
@@ -290,7 +296,7 @@ namespace 成本管理.UI
         /// <param name="e"></param>
         private void 图片格式转换ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_imageFormatConvert imf = new Form_imageFormatConvert();
+            Frm_imageFormatConvert imf = new Frm_imageFormatConvert();
             string tabPageText = imf.Text;
             openForm(imf, tabPageText);
         }
@@ -511,13 +517,6 @@ namespace 成本管理.UI
             openForm(mos, tabPageText);
         }
 
-        private void testSheetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form_SheetTest ts = new Form_SheetTest();
-            string tabPageText = ts.Text;
-            openForm(ts, tabPageText);
-        }
-
         private void POContractToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormPOContractList po = new FormPOContractList();
@@ -533,6 +532,13 @@ namespace 成本管理.UI
 
         }
 
+        private void BOM材料单价ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_bomMaterial_unitPrice fbu = new frm_bomMaterial_unitPrice();
+            string tabPageText = fbu.Text;
+            openForm(fbu, tabPageText);
+        }
+
         private void 数据库配置ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             //初始化嵌入式窗体组件
@@ -543,7 +549,12 @@ namespace 成本管理.UI
             DataBaseInfo.DataBaseChangedEventHandle += brushtStateStrip;
         }
 
-       
+        private void Tsmi_materialOutList_Click(object sender, EventArgs e)
+        {
+            Form_MaterialsOut report_materialsOut = new Form_MaterialsOut();
+            string tabPageText = report_materialsOut.Text;
+            openForm(report_materialsOut, tabPageText);
+        }
     }
 
     #endregion

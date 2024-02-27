@@ -79,7 +79,7 @@ namespace 成本管理.UI
         private void button_confirm_Click(object sender, EventArgs e)
         {
 
-            string sql = "select * from manage..MaterialsOut where 1=1";
+            string sql = "select * from xm_v_MaterialsOut where 1=1";
             if (this.textBox_startDate.Text != "")
             { sql = sql + " and 出库日期>=" + "'" + this.textBox_startDate.Text + "'"; }
 
@@ -93,8 +93,8 @@ namespace 成本管理.UI
             }
             sql = sql + "order by 出库日期";
 
-
-            this.dt = sqlHelper.GetDataTable(sql);
+            //绑定外挂数据库
+            this.dt = sqlHelper.GetDataTable(sql,DBName.plug);
             //判断数据源是否为空
             if (dt.Rows.Count > 0)
             {

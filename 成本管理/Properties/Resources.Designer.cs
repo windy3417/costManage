@@ -73,6 +73,16 @@ namespace 成本管理.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap account {
+            get {
+                object obj = ResourceManager.GetObject("account", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);
@@ -95,7 +105,7 @@ namespace 成本管理.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap icon_edit2 {
             get {
-                object obj = ResourceManager.GetObject("icon_edit2", resourceCulture);
+                object obj = ResourceManager.GetObject("edit2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,7 +115,7 @@ namespace 成本管理.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap icon_export {
             get {
-                object obj = ResourceManager.GetObject("icon_export", resourceCulture);
+                object obj = ResourceManager.GetObject("export", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -115,7 +125,7 @@ namespace 成本管理.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap icon_quit {
             get {
-                object obj = ResourceManager.GetObject("icon_quit", resourceCulture);
+                object obj = ResourceManager.GetObject("quit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -125,7 +135,7 @@ namespace 成本管理.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Icon_Search1 {
             get {
-                object obj = ResourceManager.GetObject("Icon_Search1", resourceCulture);
+                object obj = ResourceManager.GetObject("Search1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

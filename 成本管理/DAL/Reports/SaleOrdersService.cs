@@ -17,7 +17,7 @@ namespace 成本管理.DAL.Reports
         public DataTable SaleOrders(params SqlParameter[] parameters)
         {
 
-            DataTable dt = SQLcommand.ExecuteProcedure("Usp_salesOrder", parameters);
+            DataTable dt = SQLcommand.ExecuteProcedure("Usp_salesOrder", parameters,DBName.plug);
             return dt;
 
         }

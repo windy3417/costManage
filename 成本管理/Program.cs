@@ -21,7 +21,7 @@ namespace 成本管理
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form_Main());
-            
+            log4net.Config.XmlConfigurator.Configure();
 
 
 
